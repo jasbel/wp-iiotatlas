@@ -2,13 +2,13 @@
 // vars
 @import "partials/variables";
 
-// Vendors--------------------------------------------------
+/** Vendors-------------------------------------------------- */
 //Daws animatin
 // @import "../../vendor/scss/daws/daws";
 
-// bootstrap
-// @import "../vendor/scss/bootstrap/bootstrap-reboot";
-// @import "../vendor/scss/bootstrap/bootstrap-grid";
+/*  bootstrap 5  */
+@import "../vendor/scss/bootstrap5/bootstrap-reboot";
+@import "../vendor/scss/bootstrap5/bootstrap-grid";
 
 // slick
 // @import "../vendor/scss/slick/slick";

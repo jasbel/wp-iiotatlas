@@ -180,6 +180,7 @@ video,
 img {
     height: auto;
     vertical-align: top;
+    @extend .img-fluid !optional;
 }
 
 figure {
