@@ -1,0 +1,72 @@
+// ----------------------------------------------------------------------
+// Fonts
+// ----------------------------------------------------------------------
+// @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+// ----------------------------------------------------------------------
+// Layout Breakpoints
+// ----------------------------------------------------------------------
+$max-width: 1280px;
+
+// ----------------------------------------------------------------------
+// Font Sizes Default
+// ----------------------------------------------------------------------
+$font-size: 18px;
+$line-height: 30px;
+
+// ----------------------------------------------------------------------
+// Colors Default
+// ----------------------------------------------------------------------
+$body-bkg: #fff;
+$base-color: #000;
+$link-color: #30acec;
+$color-green: #40ad4c;
+$color-blue-sky: #3CB2E2;
+$color-title-top: #30ACED;
+$color-white: #ffffff;
+$color-blue-social: #096DA6;
+$color-green-faq: #50b65c;
+$color-active-tab: #71CEF5;
+$color-related: #E6F4FC;
+$color-bar-button: #209CCF;
+
+// ----------------------------------------------------------------------
+// Font Families
+// ----------------------------------------------------------------------
+$font-family: 'Barlow',
+sans-serif;
+$font-heading: 'Fredoka One',
+cursive;
+$font-weight: normal;
+
+// ----------------------------------------------------------------------
+// Grid Bootstrap ?
+// ----------------------------------------------------------------------
+$grid-columns: 12;
+
+// ----------------------------------------------------------------------
+// Variables
+// ----------------------------------------------------------------------
+$small-x-phone: 375px;
+$small-phone: 420px;
+$phone: 520px;
+$large-phone: 580px;
+$small-x-tablet: 768px;
+$small-tablet: 790px;
+$tablet: 992px;
+$tablets: 991px;
+$small-desktop: 1090px;
+$small-x-desktop: 1180px;
+$medium-x-desktop: 1190px;
+$medium-desktop: 1280px;
+$desktop: 1440px;
+$large-desktop: 1650px;
+$large-lx-desktop: 1950px;
+
+// ----------------------------------------------------------------------
+// Responsive Variables
+// ----------------------------------------------------------------------
+$font-size-small: 16;
+$phone-responsive: 375;
+$desktop-responsive: 1440;
