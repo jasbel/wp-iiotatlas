@@ -1,5 +1,7 @@
 /* Home
 ---------------------------------------------------------------*/
-body {
-    background-color: blueviolet;
+
+.site-header .header-image,
+.site-footer .wp-block-image img {
+    filter: invert(1);
 }
