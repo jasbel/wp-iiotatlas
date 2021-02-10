@@ -1,0 +1,53 @@
+// --------------------------------------------------
+// vars
+@import "partials/variables";
+
+// Vendors--------------------------------------------------
+//Daws animatin
+// @import "../../vendor/scss/daws/daws";
+
+// bootstrap
+// @import "../vendor/scss/bootstrap/bootstrap-reboot";
+// @import "../vendor/scss/bootstrap/bootstrap-grid";
+
+// slick
+// @import "../vendor/scss/slick/slick";
+// @import "../vendor/scss/slick/slick-theme";
+
+//Venobox or magnific popup
+// @import "../../vendor/scss/magnific/magnific";
+
+// --------------------------------------------------
+//Tabs
+// @import "../../vendor/scss/zozotabs/zozotabs";
+
+// mixins
+@import "mixins/fonts";
+@import "mixins/helpers";
+
+// @import 'components/functions'; 
+// --------------------------------------------------
+// partials
+@import "partials/reset";
+@import "partials/base";
+@import "partials/forms";
+@import "partials/table";
+@import "partials/icons";
+@import "partials/buttons";
+@import "partials/animation";
+
+// --------------------------------------------------
+// components
+// @import your components here
+// --------------------------------------------------
+@import "views/blocks";
+@import "views/home";
+// --------------------------------------------------
+// layout
+@import "layout/widgets";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/main";
+@import "layout/nav";
+@import "layout/print";
+@import "layout/responsive";
