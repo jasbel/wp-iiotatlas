@@ -1,0 +1,15 @@
+/*
+ Theme Name:   Atlas
+ Theme URI:    https://generatepress.com
+ Description:  Tema para nuestro sitio principal usando el tema de generatepress como tema padre, enfocado a la aplicacion de tecnologia para la industria 4.0
+ Author:       Asbel JAR
+ Author URI:   https://iiotatlas.com
+ Template:     generatepress
+ Version:      0.1
+ Prefix: iot
+*/
+
+.site-header .header-image,
+.site-footer .wp-block-image img {
+    filter: invert(1);
+}
