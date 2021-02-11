@@ -93,4 +93,5 @@ wp-content/uploads/wc-logs/fatal-errors-2018-09-06-54fea90b491550946e099faded236
 
 # custom
 wp-content/themes/iiotatlas_gp/assets/vendor/
+wp-content/uploads/generateblocks/
 !wp-content/themes/iiotatlas_gp/assets/vendor/scss/bootstrap5/

@@ -1,1 +1,114 @@
 /** Block -------------------*/
+
+/* About Us----------------------- */
+.b-about {
+    &__title {
+        @extend %title;
+    }
+    
+    &__description {
+        @extend %content-large;
+    }
+    
+    &__btn {
+        @extend %btn;
+    }
+}
+
+/* Why Us ----------------------- */
+.b-why {
+    &__title {
+        @extend %title;
+    }
+
+    &__description {
+        @extend %content-small;
+    }
+
+    &__item-container {}
+    
+    &__item {}
+    
+    &__item-title {
+        @extend %subtitle-small;
+    }
+
+    &__item-description {
+        @extend %content;
+    }
+
+    &__item-image {
+        @extend %content;
+    }
+
+
+}
+
+/* Contact Us ----------------------- */
+.b-contact {
+    background: linear-gradient(180deg, rgba(4, 24, 36, 0.95) 0%, rgba(5, 0, 61, 0.85) 100%);
+
+    &__description {
+        @extend %subtitle-small;
+        color: $color-text-white;
+    }
+
+    &__btn {
+        @extend %btn;
+    }
+}
+
+/* Our Team ----------------------- */
+.b-team {
+    &__title {
+        @extend %title;
+    }
+
+    &__item-container {}
+
+    &__item {}
+
+    &__item-image {}
+
+    &__item-name {
+        @extend %subtitle;
+        color: $color-primary;
+    }
+
+    &__item-position {
+        @extend %subtitle-smallest;
+    }
+
+    &__item-description {
+        @extend %content-small;
+    }
+    
+    &__social-container {
+        color: $color-text-dark;
+    }
+}
+
+/* Our Clients ----------------------- */
+.b-client {
+    
+    &__title {
+        @extend %title;
+    }
+
+    &__image {}
+}
+
+/* Services and Proyects ----------------------- */
+.b-services {
+    &__title {
+        @extend %title;
+    }
+    &__image {
+        
+    }
+
+    &__description {
+        @extend %subtitle;
+    }
+
+}

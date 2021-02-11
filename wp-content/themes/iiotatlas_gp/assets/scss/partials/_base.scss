@@ -34,12 +34,12 @@ textarea:focus,
 }
 
 a {
-    color: #0073e5;
+    color: $link-color;
     text-decoration: underline;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
     &:hover {
-        color: #333;
+        color: darken($color: $link-color, $amount: 0.5);
         text-decoration: none;
     }
 }
@@ -85,25 +85,7 @@ mark {
     color: #333;
 }
 
-// blockquote {
-//     position: relative;
-//     margin-top: 3em !important;
-//     margin-bottom: 3em !important;
-
-//     &:before {
-//         content: url("../../images/block-open.png");
-//         position: absolute;
-//         left: -72px;
-//         top: -25px;
-//     }
-
-//     &:after {
-//         content: url("../../images/block-close.png");
-//         position: absolute;
-//         right: -72px;
-//         bottom: -35px;
-//     }
-// }
+// blockquote {}
 
 
 // /* Headings
@@ -115,7 +97,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-family;
+    font-family: $font-family-heading;
     font-weight: bold;
     line-height: 1.2;
     margin: 0 0 20px;

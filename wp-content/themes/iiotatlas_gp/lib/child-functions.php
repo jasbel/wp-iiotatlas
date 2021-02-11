@@ -300,7 +300,6 @@ add_filter('block_categories', 'ff_block_category', 10, 2);
 // Blocks
 function register_acf_block_types()
 {
-    // // Custom Title
     // acf_register_block([
     //     'name' => 'section-hero',
     //     'title' => __('Block - Hero'),
@@ -311,17 +310,65 @@ function register_acf_block_types()
     //     'mode' => 'edit',
     //     'keywords' => ['block', 'hero'],
     // ]);
-
-    // Block We
     acf_register_block([
-        'name' => 'section-we',
-        'title' => __('Block - We'),
-        'description' => __('A custom Home We.'),
-        'render_template' => 'lib/acf/blocks/block-about-us.php',
+        'name' => 'section-about',
+        'title' => __('Block - About Us'),
+        'description' => __('A custom Home About.'),
+        'render_template' => 'lib/acf/blocks/block-about.php',
         'category' => 'customblocks',
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
-        'keywords' => ['block', 'we', 'home'],
+        'keywords' => ['block', 'about', 'home'],
+    ]);
+    acf_register_block([
+        'name' => 'section-why',
+        'title' => __('Block - Why Us'),
+        'description' => __('A custom Home block Why Us.'),
+        'render_template' => 'lib/acf/blocks/block-why.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'why us', 'home'],
+    ]);
+    acf_register_block([
+        'name' => 'section-contact',
+        'title' => __('Block - Contact'),
+        'description' => __('A custom Home Contact.'),
+        'render_template' => 'lib/acf/blocks/block-contact.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'contact us', 'home'],
+    ]);
+    acf_register_block([
+        'name' => 'section-team',
+        'title' => __('Block - Team'),
+        'description' => __('A custom Home Team.'),
+        'render_template' => 'lib/acf/blocks/block-team.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'team', 'home'],
+    ]);
+    acf_register_block([
+        'name' => 'section-client',
+        'title' => __('Block - client'),
+        'description' => __('A custom Home client.'),
+        'render_template' => 'lib/acf/blocks/block-client.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'client', 'home'],
+    ]);
+    acf_register_block([
+        'name' => 'section-services',
+        'title' => __('Block - services'),
+        'description' => __('A custom Home services.'),
+        'render_template' => 'lib/acf/blocks/block-services.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'services', 'home'],
     ]);
 }
 // Check if function exists and hook into setup.
