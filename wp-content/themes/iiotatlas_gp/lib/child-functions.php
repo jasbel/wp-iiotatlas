@@ -81,52 +81,52 @@ add_action('init', 'iiotatlas_faq');
 
 /* Taxonomies
  --------------------------------------------- */
-register_taxonomy('team-category', 'team', [
-    'labels' => [
-        'name' => _x(
-            'Team Categories',
-            'taxonomy general name',
-            'genesis-base'
-        ),
-        'singular_name' => _x(
-            'Team Category',
-            'taxonomy singular name',
-            'genesis-base'
-        ),
-        'search_items' => __('Search Team Categories', 'genesis-base'),
-        'popular_items' => __('Popular Team Categories', 'genesis-base'),
-        'all_items' => __('All Team', 'genesis-base'),
-        'edit_item' => __('Edit Team Category', 'genesis-base'),
-        'update_item' => __('Update Team Category', 'genesis-base'),
-        'add_new_item' => __('Add New Team Category', 'genesis-base'),
-        'new_item_name' => __('New Team Category Name', 'genesis-base'),
-        'separate_items_with_commas' => __(
-            'Separate Team Categories with commas',
-            'genesis-base'
-        ),
-        'add_or_remove_items' => __(
-            'Add or remove Team Categories',
-            'genesis-base'
-        ),
-        'choose_from_most_used' => __(
-            'Choose from the most used Team Categories',
-            'genesis-base'
-        ),
-        'not_found' => __('No Team Categories found.', 'genesis-base'),
-        'menu_name' => __('Team Categories', 'genesis-base'),
-        'parent_item' => null,
-        'parent_item_colon' => null,
-    ],
-    'exclude_from_search' => true,
-    'has_archive' => true,
-    'hierarchical' => true,
-    'rewrite' => [
-        'slug' => _x('team-type', 'team-type slug', 'genesis-team-pro'),
-        'with_front' => false,
-    ],
-    'show_ui' => true,
-    'show_tagcloud' => false,
-]);
+// register_taxonomy('team-category', 'team', [
+//     'labels' => [
+//         'name' => _x(
+//             'Team Categories',
+//             'taxonomy general name',
+//             'genesis-base'
+//         ),
+//         'singular_name' => _x(
+//             'Team Category',
+//             'taxonomy singular name',
+//             'genesis-base'
+//         ),
+//         'search_items' => __('Search Team Categories', 'genesis-base'),
+//         'popular_items' => __('Popular Team Categories', 'genesis-base'),
+//         'all_items' => __('All Team', 'genesis-base'),
+//         'edit_item' => __('Edit Team Category', 'genesis-base'),
+//         'update_item' => __('Update Team Category', 'genesis-base'),
+//         'add_new_item' => __('Add New Team Category', 'genesis-base'),
+//         'new_item_name' => __('New Team Category Name', 'genesis-base'),
+//         'separate_items_with_commas' => __(
+//             'Separate Team Categories with commas',
+//             'genesis-base'
+//         ),
+//         'add_or_remove_items' => __(
+//             'Add or remove Team Categories',
+//             'genesis-base'
+//         ),
+//         'choose_from_most_used' => __(
+//             'Choose from the most used Team Categories',
+//             'genesis-base'
+//         ),
+//         'not_found' => __('No Team Categories found.', 'genesis-base'),
+//         'menu_name' => __('Team Categories', 'genesis-base'),
+//         'parent_item' => null,
+//         'parent_item_colon' => null,
+//     ],
+//     'exclude_from_search' => true,
+//     'has_archive' => true,
+//     'hierarchical' => true,
+//     'rewrite' => [
+//         'slug' => _x('team-type', 'team-type slug', 'genesis-team-pro'),
+//         'with_front' => false,
+//     ],
+//     'show_ui' => true,
+//     'show_tagcloud' => false,
+// ]);
 
 // /* Register Widgets
 //  --------------------------------------------- */
@@ -137,122 +137,122 @@ register_taxonomy('team-category', 'team', [
 // ]);
 
 
-/* Custom Header
- --------------------------------------------- */
-//remove initial header functions
-remove_action('genesis_header', 'genesis_header_markup_open', 5);
-remove_action('genesis_header', 'genesis_header_markup_close', 15);
-remove_action('genesis_header', 'genesis_do_header');
+// /* Custom Header
+//  --------------------------------------------- */
+// //remove initial header functions
+// remove_action('genesis_header', 'genesis_header_markup_open', 5);
+// remove_action('genesis_header', 'genesis_header_markup_close', 15);
+// remove_action('genesis_header', 'genesis_do_header');
 
-//add in the new header markup - prefix the function name - here sm_ is used
-add_action('genesis_header', 'sm_genesis_header_markup_open', 5);
-add_action('genesis_header', 'sm_genesis_header_markup_close', 15);
-add_action('genesis_header', 'sm_genesis_do_header');
+// //add in the new header markup - prefix the function name - here sm_ is used
+// add_action('genesis_header', 'sm_genesis_header_markup_open', 5);
+// add_action('genesis_header', 'sm_genesis_header_markup_close', 15);
+// add_action('genesis_header', 'sm_genesis_do_header');
 
-//New Header functions
-function sm_genesis_header_markup_open()
-{
-    genesis_markup([
-        'html5' => '<header %s>',
-        'context' => 'site-header',
-    ]);
+// //New Header functions
+// function sm_genesis_header_markup_open()
+// {
+//     genesis_markup([
+//         'html5' => '<header %s>',
+//         'context' => 'site-header',
+//     ]);
 
-    genesis_structural_wrap('header');
-}
+//     genesis_structural_wrap('header');
+// }
 
-function sm_genesis_header_markup_close()
-{
-    // Added in content
-    echo '<ul class="nav-right">';
-    echo '<li class="nav-login">';
-    echo '<a class="cart-login menu-item" href="' .
-        get_site_url() .
-        '/my-account/" title="Login / Account">
-	        <span class="cart-login-item"></span>
-          </a>';
-    echo '</li>';
-    echo do_shortcode('[woo_cart_but]');
-    echo '<li class="nav-buy-now"><a class="btn btn--buy-now" href="'.get_site_url() .'/shop">Buy Now</a></li>';
-    echo '<li class="menu__mobile"><a id="custom_toggle" href="#"><i class="fas fa-bars"></i></a></li>';
-    echo '</ul>';
+// function sm_genesis_header_markup_close()
+// {
+//     // Added in content
+//     echo '<ul class="nav-right">';
+//     echo '<li class="nav-login">';
+//     echo '<a class="cart-login menu-item" href="' .
+//         get_site_url() .
+//         '/my-account/" title="Login / Account">
+// 	        <span class="cart-login-item"></span>
+//           </a>';
+//     echo '</li>';
+//     echo do_shortcode('[woo_cart_but]');
+//     echo '<li class="nav-buy-now"><a class="btn btn--buy-now" href="'.get_site_url() .'/shop">Buy Now</a></li>';
+//     echo '<li class="menu__mobile"><a id="custom_toggle" href="#"><i class="fas fa-bars"></i></a></li>';
+//     echo '</ul>';
     
-    genesis_structural_wrap('header', 'close');
+//     genesis_structural_wrap('header', 'close');
 
-    genesis_markup([
-        'close' => '</header>',
-        'context' => 'site-header',
-    ]);
-}
+//     genesis_markup([
+//         'close' => '</header>',
+//         'context' => 'site-header',
+//     ]);
+// }
 
-function sm_genesis_do_header()
-{
-    global $wp_registered_sidebars;
+// function sm_genesis_do_header()
+// {
+//     global $wp_registered_sidebars;
     
-    genesis_markup([
-        'open' => '<div %s>',
-        'context' => 'title-area',
-    ]);
+//     genesis_markup([
+//         'open' => '<div %s>',
+//         'context' => 'title-area',
+//     ]);
 
-    $header_logo = get_field('header_logo', 'option')
-        ? get_field('header_logo', 'option')
-        : '';
-    $second_logo = get_field('second_logo', 'option')
-        ? get_field('second_logo', 'option')
-        : '';
-    echo '<a href="' .
-        get_site_url() .
-        '" class="custom-logo-link" rel="home">
-			<img src="' .
-        $header_logo['url'] .
-        '" class="custom-logo logo-white" alt="' .
-        $header_logo['alt'] .
-        '" loading="lazy">
-			<img src="' .
-        $second_logo['url'] .
-        '" class="custom-logo logo-blue" alt="' .
-        $second_logo['alt'] .
-        '" loading="lazy">
-		  </a>';
+//     $header_logo = get_field('header_logo', 'option')
+//         ? get_field('header_logo', 'option')
+//         : '';
+//     $second_logo = get_field('second_logo', 'option')
+//         ? get_field('second_logo', 'option')
+//         : '';
+//     echo '<a href="' .
+//         get_site_url() .
+//         '" class="custom-logo-link" rel="home">
+// 			<img src="' .
+//         $header_logo['url'] .
+//         '" class="custom-logo logo-white" alt="' .
+//         $header_logo['alt'] .
+//         '" loading="lazy">
+// 			<img src="' .
+//         $second_logo['url'] .
+//         '" class="custom-logo logo-blue" alt="' .
+//         $second_logo['alt'] .
+//         '" loading="lazy">
+// 		  </a>';
 
-    genesis_markup([
-        'close' => '</div>',
-        'context' => 'title-area',
-    ]);
+//     genesis_markup([
+//         'close' => '</div>',
+//         'context' => 'title-area',
+//     ]);
 
 
-    if (
-        (isset($wp_registered_sidebars['header-right']) &&
-            is_active_sidebar('header-right')) ||
-        has_action('genesis_header_right')
-    ) {
-        genesis_markup([
-            'open' => '<div %s>' . genesis_sidebar_title('header-right'),
-            'context' => 'header-widget-area',
-        ]);
+//     if (
+//         (isset($wp_registered_sidebars['header-right']) &&
+//             is_active_sidebar('header-right')) ||
+//         has_action('genesis_header_right')
+//     ) {
+//         genesis_markup([
+//             'open' => '<div %s>' . genesis_sidebar_title('header-right'),
+//             'context' => 'header-widget-area',
+//         ]);
 
-        do_action('genesis_header_right');
-        add_filter('wp_nav_menu_args', 'genesis_header_menu_args');
-        add_filter('wp_nav_menu', 'genesis_header_menu_wrap');
-        dynamic_sidebar('header-right');
-        remove_filter('wp_nav_menu_args', 'genesis_header_menu_args');
-        remove_filter('wp_nav_menu', 'genesis_header_menu_wrap');
+//         do_action('genesis_header_right');
+//         add_filter('wp_nav_menu_args', 'genesis_header_menu_args');
+//         add_filter('wp_nav_menu', 'genesis_header_menu_wrap');
+//         dynamic_sidebar('header-right');
+//         remove_filter('wp_nav_menu_args', 'genesis_header_menu_args');
+//         remove_filter('wp_nav_menu', 'genesis_header_menu_wrap');
 
-        genesis_markup([
-            'close' => '</div>',
-            'context' => 'header-widget-area',
-        ]);
-    }
+//         genesis_markup([
+//             'close' => '</div>',
+//             'context' => 'header-widget-area',
+//         ]);
+//     }
 
     
 
-}
+// }
 
-/* Theme Options
+/* Theme Options in backer
  --------------------------------------------- */
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page([
-        'page_title' => 'HappyTeeth Settings',
-        'menu_title' => 'HappyTeeth Settings',
+        'page_title' => 'Iotatlas Settings',
+        'menu_title' => 'Iotatlas Settings',
         'menu_slug' => 'theme-general-settings',
         'capability' => 'edit_posts',
         'redirect' => false,
@@ -279,13 +279,13 @@ function ff_block_category($categories, $post)
             [
                 [
                     'slug' => 'headers',
-                    'title' => __('HappyTeath Headers', 'mlp-admin'),
+                    'title' => __('Iio Headers', 'mlp-admin'),
                 ],
             ],
             [
                 [
                     'slug' => 'customblocks',
-                    'title' => __('HappyTeath Blocks', 'mlp-admin'),
+                    'title' => __('Iio Blocks', 'mlp-admin'),
                 ],
             ]
         );
@@ -310,6 +310,8 @@ function register_acf_block_types()
     //     'mode' => 'edit',
     //     'keywords' => ['block', 'hero'],
     // ]);
+
+    /* about */
     acf_register_block([
         'name' => 'section-about',
         'title' => __('Block - About Us'),
@@ -320,6 +322,7 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'about', 'home'],
     ]);
+    /* why us */
     acf_register_block([
         'name' => 'section-why',
         'title' => __('Block - Why Us'),
@@ -330,6 +333,7 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'why us', 'home'],
     ]);
+    /* Contact us */
     acf_register_block([
         'name' => 'section-contact',
         'title' => __('Block - Contact'),
@@ -340,6 +344,8 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'contact us', 'home'],
     ]);
+
+    /* team */
     acf_register_block([
         'name' => 'section-team',
         'title' => __('Block - Team'),
@@ -350,9 +356,22 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'team', 'home'],
     ]);
+
+    /* Mentors */
+    acf_register_block([
+        'name' => 'section-mentors',
+        'title' => __('Block - Mentors'),
+        'description' => __('A custom Home mentors.'),
+        'render_template' => 'lib/acf/blocks/block-mentors.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'mentors', 'home'],
+    ]);
+    /* client */
     acf_register_block([
         'name' => 'section-client',
-        'title' => __('Block - client'),
+        'title' => __('Block - Client'),
         'description' => __('A custom Home client.'),
         'render_template' => 'lib/acf/blocks/block-client.php',
         'category' => 'customblocks',
@@ -362,7 +381,7 @@ function register_acf_block_types()
     ]);
     acf_register_block([
         'name' => 'section-services',
-        'title' => __('Block - services'),
+        'title' => __('Block - Services'),
         'description' => __('A custom Home services.'),
         'render_template' => 'lib/acf/blocks/block-services.php',
         'category' => 'customblocks',
@@ -375,3 +394,24 @@ function register_acf_block_types()
 if (function_exists('acf_register_block_type')) {
     add_action('acf/init', 'register_acf_block_types');
 }
+
+//Disabled force Generate press style inline 
+// https://stackoverflow.com/questions/43170587/how-to-remove-only-one-inline-style-from-wordpress-head
+//TODO: Averigurar si afecta con el tema padre
+function wp_force_remove_style(){
+    add_filter( 'print_styles_array', function($styles) {
+        #Set styles to remove
+        $styles_to_remove = array('generate-style');
+        if(is_array($styles) AND count($styles) > 0)
+            foreach($styles AS $key => $code){
+                if(in_array($code, $styles_to_remove)) unset($styles[$key]);
+            }
+        return $styles;
+        });
+}
+// add_action('wp_enqueue_scripts', 'wp_force_remove_style', 99);
+
+// function generate_replace_inline_css() {
+//     wp_dequeue_style( 'generate-style' );
+// }
+// add_action( 'wp_enqueue_scripts', 'generate_replace_inline_css', 100 );

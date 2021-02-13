@@ -4,7 +4,7 @@
 //heading
 %heading {
     font-family: $font-family-heading;
-    font-size: $font-size-h1;
+    font-size: $font-size-heading;
     // line-height: 120%;
     font-weight: bold;
     color: $color-text-title;
@@ -12,29 +12,38 @@
 
 %title {
     font-family: $font-family-heading;
-    font-size: $font-size-h2;
+    font-size: $font-size-title;
+    @include responsive(fz, $font-size-title, $font-size-title-mobile);
     // line-height: 120%;
     font-weight: bold;
     color: $color-text-title;
+    text-align: center;
 }
 
 %subtitle {
     font-family: $font-family-heading;
-    font-size: $font-size-h3;
+    font-size: $font-size-subtitle;
     font-weight: bold;
     color: $color-text;
 }
 
 %subtitle-small {
     font-family: $font-family-heading;
-    font-size: $font-size-h4;
+    font-size: $font-size-subtitle-small;
+    font-weight: bold;
+    color: $color-text;
+}
+
+%subtitle-smaller {
+    font-family: $font-family-heading;
+    font-size: $font-size-subtitle-smaller;
     font-weight: bold;
     color: $color-text;
 }
 
 %subtitle-smallest {
     font-family: $font-family-heading;
-    font-size: $font-size-h6;
+    font-size: $font-size-subtitle-smallest;
     font-weight: bold;
     color: $color-text;
 }
@@ -44,35 +53,42 @@
 %content-large {
     font-family: $font-family;
     font-size: $font-size-large;
-    color: $color-text;
 }
 
 %content {
     font-family: $font-family;
-    font-size: $font-size;
-    color: $color-text;
+    font-size: $font-size-normal;
 }
 
 %content-small {
     font-family: $font-family;
     font-size: $font-size-small;
-    color: $color-text;
 }
 
 
 //buttons
 %btn {
-    // min-height: 72.02px;
-    // max-width: 315px;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: $font-family-link;
     font-weight: bold;
     font-size: $font-size-large;
+    text-transform: uppercase;
     color: $color-white;
     background-color: $color-primary;
     border-radius:100px;
-}
-%btn-hover {
-    color: $color-white;
-    background-color: darken($color: $color-primary, $amount: 0.5);
+    padding: 20px;
+    &:hover {
+        color: $color-white;
+        background-color: darken($color: $color-primary, $amount: 0.5);
+    }
 }
 
+//Spaces
+%space-top-bottom {
+    padding-top: 70px;
+    padding-bottom: 80px;
+}

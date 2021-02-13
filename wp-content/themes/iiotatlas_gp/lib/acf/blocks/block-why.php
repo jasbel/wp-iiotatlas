@@ -19,7 +19,7 @@ $id = 'item-' . $block['id'];
         <h2 class="b-why__title"> <?php echo $why_title;?> </h2>
         <p class="b-why__description"> <?php echo $why_description;?> </p>
 
-        <div class="row b-why__item-container">
+        <div class="row gx-0 b-why__item-container">
 
         <?php if(!empty($why_items)): ?>
             <?php foreach( $why_items as $item ):

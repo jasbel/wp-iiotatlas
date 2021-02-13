@@ -1,0 +1,40 @@
+
+/* Our Team ----------------------- */
+.b-team {
+    @extend %space-top-bottom;
+
+    &__title {
+        @extend %title;
+    }
+
+    &__item-container {}
+
+    &__item {
+        text-align: center;
+    }
+
+    &__item-image {}
+
+    &__item-name {
+        @extend %subtitle;
+        color: $color-primary;
+    }
+
+    &__item-position {
+        @extend %subtitle-smallest;
+    }
+
+    &__item-description {
+        @extend %content-small;
+    }
+    
+    &__social-container {
+        color: $color-text-dark;
+        display: flex;
+        justify-content: center;
+    }
+    &__social-icon {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}

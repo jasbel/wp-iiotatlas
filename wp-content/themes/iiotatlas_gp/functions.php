@@ -20,9 +20,12 @@ require_once get_stylesheet_directory() . '/lib/child-functions.php';
  * @since 1.0.0
  */
 function ajar_enqueue_scripts_styles() {
+
+    //CSS files
     wp_enqueue_style( 'main-min', get_stylesheet_directory_uri() . '/assets/css/main.css' );
 
     // Js files
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/assets/js/main.min.js',['jquery'], 1 , true );
 }
 add_action('wp_enqueue_scripts', 'ajar_enqueue_scripts_styles');
+

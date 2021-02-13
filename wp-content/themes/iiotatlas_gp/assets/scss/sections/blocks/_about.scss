@@ -1,0 +1,25 @@
+/* About Us----------------------- */
+.b-about {
+
+    @extend %space-top-bottom;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @extend %title;
+        padding-top: 6px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    
+    &__description {
+        @extend %content-large;
+    }
+    
+    &__btn {
+        @extend %btn;
+    }
+}

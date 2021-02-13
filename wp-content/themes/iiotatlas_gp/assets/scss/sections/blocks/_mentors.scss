@@ -1,0 +1,85 @@
+
+/* Our Mentors ----------------------- */
+.b-mentors {
+    @extend %space-top-bottom;
+
+    &__title {
+        @extend %title;
+        margin-bottom: 40px;
+    }
+
+    &__item-container {
+        padding-top: 60px;
+        // El segundo valor del contenedor va mas arriba
+        div:nth-child(3n - 1) > .b-mentors__item{
+            margin-top: -60px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        background-color: $color-info;
+        border-radius: 20px;
+        padding: 45px 38px 30px 30px;
+        margin: 16px 45px;
+        min-height: 418px;
+    }
+    &__item-icon {
+        position: relative;
+        $width: 9px;
+        $height: 31px;
+        width: $width;
+        height: $height;
+        background: $color-primary;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        &:before {
+            content: "";
+            width: $width;
+            height: $height;
+            position: absolute;
+            top: -8px;
+            left: calc(100% + 4px);
+            background-color: $color-secondary;
+            border-radius: 8px;
+        }
+    }
+
+    &__item-image {
+        position: absolute;
+        top: 21px;
+        right: -32px;
+        $width: 118px;
+        width: $width;
+        height: $width;
+        border-radius: 5px;
+        background-color: $color-secondary;
+    }
+
+    &__item-name {
+        @extend %subtitle-smaller;
+        color: $color-text-white;
+        margin-right: 45px;
+        margin-bottom: 12px;
+    }
+
+    &__item-position {
+        @extend %content-small;
+        color: $color-text-white;
+        margin-right: 45px;
+        margin-bottom: 24px;
+    }
+
+    &__item-description {
+        @extend %content;
+        color: $color-text-white;
+    }
+    &__btn-container {
+    }
+    &__btn {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Slider */
+}

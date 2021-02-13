@@ -11,6 +11,17 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 var replace = require('gulp-replace');
 
+// //browser sync reload
+// const browsersync = require('browser-sync');
+
+// function browsersyncTask () {
+//     browsersync.init({
+//     proxy: 'iiotatlas.local'
+//     });
+// };
+// function reloadTask () {
+//     browsersync.reload();
+// };
 
 // File paths
 const files = {
@@ -25,7 +36,8 @@ function scssTask() {
         .pipe(sass()) // compile SCSS to CSS
         .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
-        .pipe(dest('assets/css')); // put final CSS in dist folder
+        .pipe(dest('assets/css')) // put final CSS in dist folder
+        // .pipe(browsersync.stream());
 }
 
 // JS task: concatenates and uglifies JS files to script.js
@@ -52,7 +64,8 @@ function jsTask() {
 function watchTask() {
     watch([files.scssPath, files.jsPath], { interval: 1000, usePolling: true }, //Makes docker work
         series(
-            parallel(scssTask, jsTask)
+            parallel(scssTask, jsTask),
+            // reloadTask
             // cacheBustTask
         )
     );
@@ -63,6 +76,14 @@ function watchTask() {
 // then runs cacheBust, then watch task
 exports.default = series(
     parallel(scssTask, jsTask),
+    // browsersyncTask,
     // cacheBustTask,
     watchTask
 );
+
+/* Live server 
+    npm i -g browser-sync
+    browser-sync start --proxy “iiotatlas.local” --files “*.html” “css/*.css” “js/*.js” --browser “chrome”
+
+    view browser localhost:3000
+ */

@@ -1,54 +1,36 @@
-// --------------------------------------------------
-// vars
-@import "partials/variables";
+// Abstracts --------------------------------------------------
+@import "abstract/_all";
 
-/** Vendors-------------------------------------------------- */
-//Daws animatin
+/** Vendors
+--------------------------------- */
+@import "../vendor/scss/bootstrap5/bootstrap-reboot"; // bootstrap 5
+@import "../vendor/scss/bootstrap5/bootstrap-grid"; // bootstrap 5
 // @import "../../vendor/scss/daws/daws";
-
-/*  bootstrap 5  */
-@import "../vendor/scss/bootstrap5/bootstrap-reboot";
-@import "../vendor/scss/bootstrap5/bootstrap-grid";
-
-// slick
 // @import "../vendor/scss/slick/slick";
 // @import "../vendor/scss/slick/slick-theme";
-
-//Venobox or magnific popup
 // @import "../../vendor/scss/magnific/magnific";
+// @import "../../vendor/scss/zozotabs/zozotabs"; //Tabs
 
-// --------------------------------------------------
-//Tabs
-// @import "../../vendor/scss/zozotabs/zozotabs";
+/** Core
+--------------------------------------*/
+@import "core/_all";
 
-// mixins
-@import "mixins/fonts";
-@import "mixins/helpers";
-@import "mixins/mixin";
+/** Components or Partials
+--------------------------------------*/
+@import "components/_all";
 
-// @import 'components/functions'; 
-// --------------------------------------------------
-// partials
-@import "partials/reset";
-@import "partials/base";
-@import "partials/forms";
-@import "partials/table";
-@import "partials/icons";
-@import "partials/buttons";
-@import "partials/animation";
+/** Layout
+------------------------------------------*/
+@import "layout/_all";
 
-// --------------------------------------------------
-// components
-// @import your components here
-// --------------------------------------------------
-@import "views/blocks";
-@import "views/home";
-// --------------------------------------------------
-// layout
-@import "layout/widgets";
-@import "layout/footer";
-@import "layout/header";
-@import "layout/main";
-@import "layout/nav";
-@import "layout/print";
-@import "layout/responsive";
+/** Sections or Blocks
+---------------------------------------*/
+@import "sections/_all";
+
+/** Views o Pages
+---------------------------------------*/
+@import "views/_all";
+
+
+
+// estructure https://www.webdesignerdepot.com/2020/12/2-smartest-ways-to-structure-sass/

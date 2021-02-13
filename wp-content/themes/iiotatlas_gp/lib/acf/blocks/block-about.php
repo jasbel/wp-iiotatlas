@@ -34,9 +34,11 @@ $id = 'item-' . $block['id'];
                     <img src="<?php echo esc_url($about_image['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>" />
                 </figure>
             </div>
-            <div class="col-md-6">
-                <h2 class="b-about__title"> <?php echo $about_title ?></h2>
-                <p class="b-about__description"> <?php echo $about_description ?> </p>
+            <div class="col-md-6 b-about__content">
+                <div>
+                    <h2 class="b-about__title"> <?php echo $about_title ?></h2>
+                    <p class="b-about__description"> <?php echo $about_description ?> </p>
+                </div>
                 <a class="btn btn--primary b-about__btn" href=" <?php echo esc_url($about_link['url']);?> "  target="<?php echo esc_attr( $about_link['target'] ); ?>" > <?php echo esc_html($about_link['title']);?> </a>
             </div>
         </div>

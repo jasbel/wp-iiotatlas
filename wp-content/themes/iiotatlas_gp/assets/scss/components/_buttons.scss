@@ -1,0 +1,12 @@
+.btn {
+    min-height: 62px;
+    max-width: 284px;
+    @extend %btn;
+    &-large {
+        width: 315px;
+        height:72px;
+    }
+    &--primary {
+        color: $color-primary;
+    }
+}
