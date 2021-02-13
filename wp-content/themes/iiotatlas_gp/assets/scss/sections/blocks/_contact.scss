@@ -1,0 +1,16 @@
+/* Contact Us ----------------------- */
+.b-contact {
+    @extend %space-top-bottom;
+
+    background: linear-gradient(180deg, rgba(4, 24, 36, 0.95) 0%, rgba(5, 0, 61, 0.85) 100%);
+
+    &__description {
+        @extend %subtitle-small;
+        color: $color-text-white;
+    }
+
+    &__btn {
+        @extend %btn;
+        float:right;
+    }
+}

@@ -9,4 +9,21 @@
  Prefix: iot
 */
 
-/** Important Values */
+/** Important Values 
+ * Variables in ...scss/partials/variables.scss
+ * Values custom parent child conflict solutions
+ */
+
+.one-container .container {
+    background-color: transparent;
+}
+.inside-article a {
+    color: var(--color-link);
+}
+.site-footer .gb-container {
+    margin-top: 0;
+}
+
+p:empty {
+    margin-bottom: 0;
+}

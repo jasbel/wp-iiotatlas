@@ -7,7 +7,6 @@
 
 //ACF personalize
 $team_title = get_field('team_title') ? get_field('team_title') : 'Nuestro Equipo';
-$team_description = get_field('team_description') ? get_field('team_description') : '';
 $team_items = get_field('team_items') ? get_field('team_items') : '';
 
 // create align class ("alignwide") from block setting ("wide")
@@ -36,11 +35,20 @@ $id = 'item-' . $block['id'];
                         <h4 class="b-team__item-name" ><?php echo $name;?></h4>
                         <h6 class="b-team__item-position"><?php echo $position;?></h6>
                         <p class="b-team__item-description"><?php echo $description;?></p>
+                        <!-- TODO: cambiar de div a i , o usar iconos distintos -->
                         <div class="b-team__social-container">
-                            <i>FB</i>
-                            <i>YT</i>
-                            <i>IN</i>
-                            <i>Gt </i>
+                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                                <div class="icon icon__facebook"></div>
+                            </a>
+                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                                <div class="icon icon__youtube"></div>
+                            </a>
+                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                                <div class="icon icon__linkedin"></div>
+                            </a>
+                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                                <div class="icon icon__github"></div>
+                            </a>
                         </div>
                     </div>
                 </div>

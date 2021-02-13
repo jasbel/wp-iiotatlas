@@ -1,0 +1,49 @@
+/* Why Us ----------------------- */
+.b-why {
+    @extend %space-top-bottom;
+    padding-bottom: 70px;
+    background-color: $color-secondary;
+    &__title {
+        @extend %title;
+        margin-bottom: 24px;
+    }
+
+    &__description {
+        @extend %content;
+        @include max-width-center(990);
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    &__item-container {}
+    &__item {
+        text-align: center;
+        padding: 20px 15px;
+        margin-right: 35px;
+        margin-left: 35px;
+    }
+    
+    &__item-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        $width: 160px;
+        width:$width;
+        height:$width;
+        margin: auto;
+        margin-bottom: 14px;
+        padding: 20px;
+        border-radius: 50%;
+        background-color: $color-text-light;
+    }
+
+    
+    &__item-title {
+        @extend %subtitle-small;
+        margin-bottom: 22px;
+    }
+
+    &__item-description {
+        @extend %content-large;
+    }
+}

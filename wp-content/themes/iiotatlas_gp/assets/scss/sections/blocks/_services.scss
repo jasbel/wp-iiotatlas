@@ -1,0 +1,17 @@
+/* Services and Proyects ----------------------- */
+.b-services {
+    @extend %space-top-bottom;
+    &__title {
+        @extend %title;
+    }
+    &__image {
+        text-align:center;
+        margin-bottom: 24px;
+    }
+
+    &__description {
+        @extend %subtitle-small;
+        text-align:center;
+    }
+
+}
