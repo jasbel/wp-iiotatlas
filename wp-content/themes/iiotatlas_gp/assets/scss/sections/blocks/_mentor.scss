@@ -1,0 +1,89 @@
+
+/* Our Mentors ----------------------- */
+.b-mentor {
+    @extend %space-top-bottom;
+
+    &__title {
+        // @extend %title;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    &__item-container {
+        padding-top: 10px;
+        // div:nth-child(3n - 1) > .b-mentors__item{
+        //     margin-top: -60px;
+        // }
+    }
+
+    &__item {
+        position: relative;
+        padding: 36px;
+        padding-right: 27px;
+        margin: 16px 45px;
+        margin-top: 77px;
+
+        @include margin-responsive(77, 30, 45, 5, 16, 16, 45, 5, $desktop-responsive, $tablet-responsive);
+        min-height: 418px;
+        max-width: 343px;
+        background-color: $color-primary;
+        box-shadow: 0px 4px 4px $color-shadow-default;
+        border-radius: 20px;
+
+        //$phone-large: 768px
+        @media only screen and (max-width: $phone-large) {
+            margin-top: 15px;
+        }
+
+        &--even {
+            margin-top: 0;
+        }
+
+    }
+    &__item-figure-icon {
+        margin-bottom: 15px;
+    }
+
+    &__item-figure {
+        position: absolute;
+        top: 21px;
+        right: -32px;
+        $width: 118px;
+        width: $width;
+        height: $width;
+        border-radius: 5px;
+        background-color: $color-bkg-light;
+        position: absolute;
+        box-shadow: 0px 4px 4px $color-shadow-default;
+    }
+
+    $space-for-photo: 45px;
+
+    &__item-name {
+        // @extend %subtitle-smaller;
+        color: $color-text-white;
+        margin-right: $space-for-photo;
+        margin-bottom: 6px;
+    }
+
+    &__item-position {
+        // @extend %description-small;
+        color: $color-text-white;
+        margin-right: $space-for-photo;
+        margin-bottom: 15px;
+    }
+
+    &__item-description {
+        // @extend %description;
+        color: $color-text-white;
+    }
+
+    // &__btn-container {}
+
+    // &__btn {
+    //     margin-right: auto;
+    //     margin-left: auto;
+    // }
+
+    /* Slider */
+}

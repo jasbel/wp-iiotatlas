@@ -8,8 +8,12 @@
 		<label for="<%= instance.id %>_placeholder"><?php _e( 'Placeholder', 'happyforms' ); ?></label>
 		<input type="text" id="<%= instance.id %>_placeholder" class="widefat title" value="<%= instance.placeholder %>" data-bind="placeholder" />
 	</p>
+	<p class="happyforms-default-value-option">
+		<label for="<%= instance.id %>_default_value"><?php _e( 'Prefill', 'happyforms' ); ?></label>
+		<input type="number" id="<%= instance.id %>_default_value" class="widefat title default_value" value="<%= instance.default_value %>" data-bind="default_value" />
+	</p>
 	<p>
-		<label for="<%= instance.id %>_description"><?php _e( 'Description', 'happyforms' ); ?></label>
+		<label for="<%= instance.id %>_description"><?php _e( 'Hint', 'happyforms' ); ?></label>
 		<textarea id="<%= instance.id %>_description" data-bind="description"><%= instance.description %></textarea>
 	</p>
 
@@ -27,63 +31,46 @@
 	</div>
 	<p>
 		<label>
-			<input type="checkbox" class="checkbox" value="1" <% if ( instance.required ) { %>checked="checked"<% } %> data-bind="required" /> <?php _e( 'This is required', 'happyforms' ); ?>
+			<input type="checkbox" class="checkbox" value="1" <% if ( instance.required ) { %>checked="checked"<% } %> data-bind="required" /> <?php _e( 'Require an answer', 'happyforms' ); ?>
 		</label>
 	</p>
 
 	<?php do_action( 'happyforms_part_customize_number_after_options' ); ?>
 
-	<div class="happyforms-part-advanced-settings-wrap">
-		<?php do_action( 'happyforms_part_customize_number_before_advanced_options' ); ?>
+	<?php do_action( 'happyforms_part_customize_number_before_advanced_options' ); ?>
 
+	<p>
+		<label>
+			<input type="checkbox" name="masked" class="checkbox" value="1" <% if ( instance.masked ) { %>checked="checked"<% } %> data-bind="masked" /> <?php _e( 'Use number separators', 'happyforms' ); ?>
+		</label>
+	</p>
+	<div class="happyforms-nested-settings mask-wrapper number-options number-options--numeric" data-trigger="masked" style="display: <%= (instance.masked == 1) ? 'flex' : 'none' %>">
 		<p>
-			<label>
-				<input type="checkbox" name="masked" class="checkbox" value="1" <% if ( instance.masked ) { %>checked="checked"<% } %> data-bind="masked" /> <?php _e( 'Use number separators', 'happyforms' ); ?>
-			</label>
-		</p>
-		<div class="happyforms-nested-settings mask-wrapper number-options number-options--numeric" data-trigger="masked" style="display: <%= (instance.masked == 1) ? 'flex' : 'none' %>">
-			<p>
-				<label for="<%= instance.id %>_mask_numeric_thousands_delimiter"><?php _e( 'Grouping', 'happyforms' ); ?></label>
-				<input type="text" id="<%= instance.id %>_mask_numeric_thousands_delimiter" class="widefat title" value="<%= instance.mask_numeric_thousands_delimiter %>" data-bind="mask_numeric_thousands_delimiter" />
-			</p>
-			<p>
-				<label for="<%= instance.id %>_mask_numeric_decimal_mark"><?php _e( 'Decimal', 'happyforms' ); ?></label>
-				<input type="text" id="<%= instance.id %>_mask_numeric_decimal_mark" class="widefat title" value="<%= instance.mask_numeric_decimal_mark %>" data-bind="mask_numeric_decimal_mark" />
-			</p>
-		</div>
-		<p>
-			<label>
-				<input type="checkbox" class="checkbox confirmation-checkbox" value="1" <% if ( instance.confirmation_field ) { %>checked="checked"<% } %> data-bind="confirmation_field" /> <?php _e( 'Require confirmation', 'happyforms' ); ?>
-			</label>
-		</p>
-		<div class="happyforms-nested-settings" data-trigger="confirmation_field" style="display: <%= (instance.confirmation_field == 1) ? 'block' : 'none' %>">
-			<p>
-				<label for="<%= instance.id %>_confirmation_field_label"><?php _e( '\'Confirmation\' label', 'happyforms' ); ?></label>
-				<input type="text" id="<%= instance.id %>_confirmation_field_label" class="widefat title" value="<%= instance.confirmation_field_label %>" data-bind="confirmation_field_label" />
-			</p>
-			<p>
-				<label for="<%= instance.id %>_confirmation_field_placeholder"><?php _e( '\'Confirmation\' placeholder', 'happyforms' ); ?></label>
-				<input type="text" id="<%= instance.id %>_confirmation_field_placeholder" class="widefat title" value="<%= instance.confirmation_field_placeholder %>" data-bind="confirmation_field_placeholder" />
-			</p>
-		</div>
-		<p>
-			<label for="<%= instance.id %>_mask_numeric_prefix"><?php _e( 'Prefix', 'happyforms' ); ?></label>
-			<input type="text" id="<%= instance.id %>_mask_numeric_prefix" class="widefat title" value="<%= instance.mask_numeric_prefix %>" data-bind="mask_numeric_prefix" maxlength="50" />
+			<label for="<%= instance.id %>_mask_numeric_thousands_delimiter"><?php _e( 'Grouping', 'happyforms' ); ?></label>
+			<input type="text" id="<%= instance.id %>_mask_numeric_thousands_delimiter" class="widefat title" value="<%= instance.mask_numeric_thousands_delimiter %>" data-bind="mask_numeric_thousands_delimiter" />
 		</p>
 		<p>
-			<label for="<%= instance.id %>_mask_numeric_suffix"><?php _e( 'Suffix', 'happyforms' ); ?></label>
-			<input type="text" id="<%= instance.id %>_mask_numeric_suffix" class="widefat title" value="<%= instance.mask_numeric_suffix %>" data-bind="mask_numeric_suffix" maxlength="50" />
+			<label for="<%= instance.id %>_mask_numeric_decimal_mark"><?php _e( 'Decimal', 'happyforms' ); ?></label>
+			<input type="text" id="<%= instance.id %>_mask_numeric_decimal_mark" class="widefat title" value="<%= instance.mask_numeric_decimal_mark %>" data-bind="mask_numeric_decimal_mark" />
 		</p>
-
-		<?php happyforms_customize_part_width_control(); ?>
-
-		<p>
-			<label for="<%= instance.id %>_css_class"><?php _e( 'CSS classes', 'happyforms' ); ?></label>
-			<input type="text" id="<%= instance.id %>_css_class" class="widefat title" value="<%= instance.css_class %>" data-bind="css_class" />
-		</p>
-
-		<?php do_action( 'happyforms_part_customize_number_after_advanced_options' ); ?>
 	</div>
+	<p>
+		<label for="<%= instance.id %>_mask_numeric_prefix"><?php _e( 'Prefix', 'happyforms' ); ?></label>
+		<input type="text" id="<%= instance.id %>_mask_numeric_prefix" class="widefat title" value="<%= instance.mask_numeric_prefix %>" data-bind="mask_numeric_prefix" maxlength="50" />
+	</p>
+	<p>
+		<label for="<%= instance.id %>_mask_numeric_suffix"><?php _e( 'Suffix', 'happyforms' ); ?></label>
+			<input type="text" id="<%= instance.id %>_mask_numeric_suffix" class="widefat title" value="<%= instance.mask_numeric_suffix %>" data-bind="mask_numeric_suffix" maxlength="50" />
+	</p>
+
+	<?php happyforms_customize_part_width_control(); ?>
+
+	<p>
+		<label for="<%= instance.id %>_css_class"><?php _e( 'CSS classes', 'happyforms' ); ?></label>
+		<input type="text" id="<%= instance.id %>_css_class" class="widefat title" value="<%= instance.css_class %>" data-bind="css_class" />
+	</p>
+
+	<?php do_action( 'happyforms_part_customize_number_after_advanced_options' ); ?>
 
 	<div class="happyforms-part-logic-wrap">
 		<div class="happyforms-logic-view">

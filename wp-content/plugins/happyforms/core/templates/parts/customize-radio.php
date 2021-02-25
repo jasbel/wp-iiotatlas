@@ -5,7 +5,7 @@
 		<input type="text" id="<%= instance.id %>_title" class="widefat title" value="<%= instance.label %>" data-bind="label" />
 	</p>
 	<p>
-		<label for="<%= instance.id %>_description"><?php _e( 'Description', 'happyforms' ); ?></label>
+		<label for="<%= instance.id %>_description"><?php _e( 'Hint', 'happyforms' ); ?></label>
 		<textarea id="<%= instance.id %>_description" data-bind="description"><%= instance.description %></textarea>
 	</p>
 
@@ -14,7 +14,7 @@
 	<div class="options">
 		<ul class="option-list"></ul>
 		<h3><?php _e( 'Choices', 'happyforms' ); ?></h3>
-		<p class="no-options description"><?php _e( 'No choices added yet. Add one by clicking <i>Add Choice</i> below.', 'happyforms' ); ?></p>
+		<p class="no-options description"><?php _e( 'No choices added yet.', 'happyforms' ); ?></p>
 	</div>
 	<div class="options-import">
 		<h3><?php _e( 'Choices', 'happyforms' ); ?></h3>
@@ -34,42 +34,40 @@
 	</p>
 	<p>
 		<label>
-			<input type="checkbox" class="checkbox" value="1" <% if ( instance.required ) { %>checked="checked"<% } %> data-bind="required" /> <?php _e( 'This is required', 'happyforms' ); ?>
+			<input type="checkbox" class="checkbox" value="1" <% if ( instance.required ) { %>checked="checked"<% } %> data-bind="required" /> <?php _e( 'Require an answer', 'happyforms' ); ?>
 		</label>
 	</p>
 
 	<?php do_action( 'happyforms_part_customize_radio_after_options' ); ?>
 
-	<div class="happyforms-part-advanced-settings-wrap">
-		<?php do_action( 'happyforms_part_customize_radio_before_advanced_options' ); ?>
+	<?php do_action( 'happyforms_part_customize_radio_before_advanced_options' ); ?>
 
-		<p>
-			<label for="<%= instance.id %>_display_type"><?php _e( 'Choices display', 'happyforms' ); ?></label>
-			<select id="<%= instance.id %>_display_type" name="display_type" data-bind="display_type" class="widefat">
-				<option value="inline"<%= (instance.display_type == 'inline') ? ' selected' : '' %>><?php _e( 'Horizontal', 'happyforms' ); ?></option>
-				<option value="block"<%= (instance.display_type == 'block') ? ' selected' : '' %>><?php _e( 'Vertical', 'happyforms' ); ?></option>
-			</select>
-		</p>
-		<p class="part-options-width-setting">
-			<label for="<%= instance.id %>_options_width"><?php _e( 'Choices width', 'happyforms' ); ?></label>
-			<select id="<%= instance.id %>_options_width" name="options_width" data-bind="options_width" class="widefat">
-				<option class="display-type--inline display-type--block" value="full"<%= (instance.options_width == 'full') ? ' selected' : '' %>><?php _e( 'Full', 'happyforms' ); ?></option>
-				<option class="display-type--inline" value="half" style="display: <%= ( instance.display_type == 'inline' ) ? 'block' : 'none' %>" <%= (instance.options_width == 'half') ? ' selected' : '' %>><?php _e( 'Half', 'happyforms' ); ?></option>
-				<option class="display-type--inline" value="third" style="display: <%= ( instance.display_type == 'inline' ) ? 'block' : 'none' %>" <%= (instance.options_width == 'third') ? ' selected' : '' %>><?php _e( 'Third', 'happyforms' ); ?></option>
-				<option class="display-type--inline" value="quarter" style="display: <%= ( instance.display_type == 'inline' ) ? 'block' : 'none' %>" <%= (instance.options_width == 'quarter') ? ' selected' : '' %>><?php _e( 'Quarter', 'happyforms' ); ?></option>
-				<option class="display-type--inline display-type--block" value="auto"<%= (instance.options_width == 'auto') ? ' selected' : '' %>><?php _e( 'Auto', 'happyforms' ); ?></option>
-			</select>
-		</p>
+	<p>
+		<label for="<%= instance.id %>_display_type"><?php _e( 'Choices display', 'happyforms' ); ?></label>
+		<select id="<%= instance.id %>_display_type" name="display_type" data-bind="display_type" class="widefat">
+			<option value="inline"<%= (instance.display_type == 'inline') ? ' selected' : '' %>><?php _e( 'Horizontal', 'happyforms' ); ?></option>
+			<option value="block"<%= (instance.display_type == 'block') ? ' selected' : '' %>><?php _e( 'Vertical', 'happyforms' ); ?></option>
+		</select>
+	</p>
+	<p class="part-options-width-setting">
+		<label for="<%= instance.id %>_options_width"><?php _e( 'Choices width', 'happyforms' ); ?></label>
+		<select id="<%= instance.id %>_options_width" name="options_width" data-bind="options_width" class="widefat">
+			<option class="display-type--inline display-type--block" value="full"<%= (instance.options_width == 'full') ? ' selected' : '' %>><?php _e( 'Full', 'happyforms' ); ?></option>
+			<option class="display-type--inline" value="half" style="display: <%= ( instance.display_type == 'inline' ) ? 'block' : 'none' %>" <%= (instance.options_width == 'half') ? ' selected' : '' %>><?php _e( 'Half', 'happyforms' ); ?></option>
+			<option class="display-type--inline" value="third" style="display: <%= ( instance.display_type == 'inline' ) ? 'block' : 'none' %>" <%= (instance.options_width == 'third') ? ' selected' : '' %>><?php _e( 'Third', 'happyforms' ); ?></option>
+			<option class="display-type--inline" value="quarter" style="display: <%= ( instance.display_type == 'inline' ) ? 'block' : 'none' %>" <%= (instance.options_width == 'quarter') ? ' selected' : '' %>><?php _e( 'Quarter', 'happyforms' ); ?></option>
+			<option class="display-type--inline display-type--block" value="auto"<%= (instance.options_width == 'auto') ? ' selected' : '' %>><?php _e( 'Auto', 'happyforms' ); ?></option>
+		</select>
+	</p>
 
-		<?php happyforms_customize_part_width_control(); ?>
+	<?php happyforms_customize_part_width_control(); ?>
 
-		<p>
-			<label for="<%= instance.id %>_css_class"><?php _e( 'CSS classes', 'happyforms' ); ?></label>
-			<input type="text" id="<%= instance.id %>_css_class" class="widefat title" value="<%= instance.css_class %>" data-bind="css_class" />
-		</p>
+	<p>
+		<label for="<%= instance.id %>_css_class"><?php _e( 'CSS classes', 'happyforms' ); ?></label>
+		<input type="text" id="<%= instance.id %>_css_class" class="widefat title" value="<%= instance.css_class %>" data-bind="css_class" />
+	</p>
 
-		<?php do_action( 'happyforms_part_customize_radio_after_advanced_options' ); ?>
-	</div>
+	<?php do_action( 'happyforms_part_customize_radio_after_advanced_options' ); ?>
 
 	<div class="happyforms-part-logic-wrap">
 		<div class="happyforms-logic-view">

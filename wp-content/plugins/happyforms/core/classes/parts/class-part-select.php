@@ -32,7 +32,7 @@ class HappyForms_Part_Select extends HappyForms_Form_Part {
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label' => array(
-				'default' => __( 'Untitled', 'happyforms' ),
+				'default' => __( '', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label_placement' => array(
@@ -70,10 +70,6 @@ class HappyForms_Part_Select extends HappyForms_Form_Part {
 			'allow_search' => array(
 				'default' => 0,
 				'sanitize' => 'happyforms_sanitize_checkbox'
-			),
-			'no_results_label' => array(
-				'default' => __( 'No results', 'happyforms' ),
-				'sanitize' => 'sanitize_text_field',
 			),
 		);
 
@@ -180,7 +176,7 @@ class HappyForms_Part_Select extends HappyForms_Form_Part {
 		$validated_value = $value;
 
 		if ( 1 === $part['required'] && '' === $validated_value ) {
-			return new WP_Error( 'error', happyforms_get_validation_message( 'field_empty' ) );
+			return new WP_Error( 'error', happyforms_get_validation_message( 'no_selection' ) );
 		}
 
 		if ( '' !== $validated_value ) {

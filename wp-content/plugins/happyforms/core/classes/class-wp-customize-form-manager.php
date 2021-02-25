@@ -166,12 +166,12 @@ class HappyForms_WP_Customize_Form_Manager {
 			$notice_content = '';
 			$notice_content .= '<h3>' . __( 'Form saved 👏', 'happyforms' ) . '</h3>';
 			$notice_content .= '<p>' . __( 'There are two ways to embed your form. Here goes…', 'happyforms' ) . '</p>';
-			$notice_content .= '<h4>' . __( 'Add HappyForms to your page or post', 'happyforms' ) . '</h4>';
-			$notice_content .= '<ol><li>' . __( 'In your Edit Post / Edit Page screen, click Add Block.', 'happyforms' ) . '</li><li>' . __( 'Select the HappyForms content block.', 'happyforms' ) . '</li><li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li><li> ' . __( 'That\'s it! You\'ll see a basic preview of your form in the editor.', 'happyforms' ) . '</li></ol>';
-			$notice_content .= '<h4>' . __( 'Use HappyForms in a widget area', 'happyforms' ) . '</h4>';
+			$notice_content .= '<h4>' . __( 'Add your form to a page or post', 'happyforms' ) . '</h4>';
+			$notice_content .= '<ol><li>' . __( 'In your Edit Post / Edit Page screen, click Add Block.', 'happyforms' ) . '</li><li>' . __( 'Select the Forms content block.', 'happyforms' ) . '</li><li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li><li> ' . __( 'That\'s it! You\'ll see a basic preview of your form in the editor.', 'happyforms' ) . '</li></ol>';
+			$notice_content .= '<h4>' . __( 'Use your form in a widget area', 'happyforms' ) . '</h4>';
 			$notice_content .= '<ol>';
 			$notice_content .= '<li>' . sprintf( __( 'Head over to Appearance &rarr; <a href="%s">Widgets</a> screen.', 'happyforms' ), get_site_url( NULL, 'wp-admin/widgets.php' ) ) . '</li>';
-			$notice_content .= '<li>' . __( 'Drag the HappyForms widget to your sidebar.', 'happyforms' ) .'</li>';
+			$notice_content .= '<li>' . __( 'Drag the Forms widget to your sidebar.', 'happyforms' ) .'</li>';
 			$notice_content .= '<li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li>';
 			$notice_content .= '<li>' . __( 'All done!', 'happyforms' ) . '</li>';
 			$notice_content .= '</ol>';
@@ -441,6 +441,7 @@ class HappyForms_WP_Customize_Form_Manager {
 		require_once( happyforms_get_core_folder() . '/templates/customize-form-parts-drawer.php' );
 		require_once( happyforms_get_core_folder() . '/templates/customize-form-style.php' );
 		require_once( happyforms_get_core_folder() . '/templates/customize-form-email.php' );
+		require_once( happyforms_get_core_folder() . '/templates/customize-form-messages.php' );
 
 		_WP_Editors::print_default_editor_scripts();
 	}

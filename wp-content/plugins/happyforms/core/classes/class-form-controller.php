@@ -535,6 +535,9 @@ class HappyForms_Form_Controller {
 
 		$post_data = array_intersect_key( $validated_data, $this->get_defaults( 'post' ) );
 		$meta_data = array_intersect_key( $validated_data, $this->get_defaults( 'meta' ) );
+
+		$meta_data = apply_filters( 'happyforms_validate_meta_data', $meta_data );
+
 		$meta_data = happyforms_prefix_meta( $meta_data );
 
 		// Flatten data to make it filterable

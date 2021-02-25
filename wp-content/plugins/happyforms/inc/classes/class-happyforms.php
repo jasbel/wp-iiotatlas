@@ -129,21 +129,21 @@ class HappyForms extends HappyForms_Core {
 		$controls[1660] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'save_abandoned_responses',
-			'label' => __( 'Save abandoned forms', 'happyforms' ),
+			'label' => __( 'Save incomplete and abandoned submissions', 'happyforms' ),
 			'tooltip' => __( 'Keep incomplete users responses stored in your WordPress database.', 'happyforms' ),
 		);
 
 		$controls[1661] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'save_and_resume_submissions',
-			'label' => __( 'Allow save and resume', 'happyforms' ),
+			'label' => __( 'Let respondents save a draft submission and come back to it later', 'happyforms' ),
 			'tooltip' => __( 'Let users temporarily save their incomplete response and continue filling out the form at a later time.', 'happyforms' ),
 		);
 
 		$controls[1800] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'preview_before_submit',
-			'label' => __( 'Preview before submit', 'happyforms' ),
+			'label' => __( 'Require respondents to review a submission before submitting', 'happyforms' ),
 			'tooltip' => __( 'Let your users review their submission before confirming it.', 'happyforms' ),
 		);
 

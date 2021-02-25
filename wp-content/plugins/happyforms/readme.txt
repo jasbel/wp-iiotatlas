@@ -5,7 +5,7 @@ Tags: contact form, contact form plugin, forms, form builder, custom form, intak
 Requires at least: 4.8
 Tested up to: 5.6
 Requires PHP: 5.3
-Stable tag: 1.9.30
+Stable tag: 1.10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,11 @@ Abso-freakin-lutely! We’re always checking to make sure HappyForms plays nicel
 Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
 
 == Changelog ==
+
+= 1.10.0 =
+* New feature: Messages tab in Edit Form screen allows for complete language customization.
+* New feature: Prefill control for setting a default value on Short Text, Long Text, Email Address and Number fields.
+* Bugfix: "Email respondent a copy of their submission" → "Include submitted" feature was misbehaving.
 
 = 1.9.30 =
 * Improvement: Better styling control for choice fields option labels.
@@ -744,6 +749,9 @@ Note: you'll need to upgrade to our paid contact form builder plugin to get some
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.10.0 =
+* New Messages tab, Prefill control, miscellaneous bugfixes.
 
 = 1.9.30 =
 * Minor improvements and bugfixes.

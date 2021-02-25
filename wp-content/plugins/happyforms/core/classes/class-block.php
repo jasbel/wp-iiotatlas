@@ -46,10 +46,10 @@ class HappyForms_Block {
 
 	private function get_properties() {
 		$properties = array(
-			'title' => __( 'HappyForms', 'happyforms' ),
-			'description' => __( 'Contact form to manage and respond to conversations with customers.', 'happyforms' ),
+			'title' => __( 'Forms', 'happyforms' ),
+			'description' => __( 'Displays a form.', 'happyforms' ),
 			'category' => 'widgets',
-			'icon' => 'format-status',
+			'icon' => 'feedback',
 			'keywords' => array(
 				'form', 'contact', 'email',
 			),

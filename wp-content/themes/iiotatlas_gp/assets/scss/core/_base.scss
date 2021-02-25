@@ -39,12 +39,12 @@ textarea:focus,
 }
 
 a {
-    color: $link-color;
+    color: $color-primary;
     text-decoration: underline;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
     &:hover {
-        color: darken($color: $link-color, $amount: 0.5);
+        color: darken($color: $link-color, $amount: 0.8);
         text-decoration: none;
     }
 }
@@ -52,6 +52,7 @@ a {
 p {
     margin: 0 0 30px;
     padding: 0;
+    @extend %text;
 }
 
 ol,
@@ -104,53 +105,33 @@ h5,
 h6 {
     font-family: $font-family-heading;
     font-weight: bold;
-    line-height: 1.2;
-    margin: 0 0 20px;
+    // line-height: 1.2;
+    margin: 0 0 30px;
 }
 
 h1 {
-    font-size: 30px;
+    @extend %heading;
 }
 
 h2 {
-    font-size: 50.29px;
-    line-height: 57.45px;
+    @extend %title;
 }
 
 h3 {
-    font-size: 42.81px;
-    line-height: 48.92px;
+    @extend %subtitle;
 }
 
 h4 {
-    font-size: 37.7px;
-    line-height: 43.09px;
+    @extend %subtitle-small;
 }
 
 h5 {
-    font-size: 24px;
+    @extend %subtitle-smaller;
 }
 
 h6 {
-    font-size: 18px;
+    @extend %subtitle-smallest;
 }
-
-.tl {
-    text-align: left;
-}
-
-.tr {
-    text-align: right;
-}
-
-.tc {
-    text-align: center;
-}
-
-.tj {
-    text-align: justify;
-}
-
 
 /* Objects
 --------------------------------------------- */
@@ -1364,4 +1345,5 @@ figure {
 // .site-footer p {
 //     margin-bottom: 0;
 // }
+
 

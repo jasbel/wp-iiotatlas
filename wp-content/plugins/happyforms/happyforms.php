@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name: HappyForms
+ * Plugin Name: Happyforms (free)
  * Plugin URI:  https://happyforms.me
- * Description: Your friendly drag and drop contact form builder for creating contact forms, lead generation forms, feedback forms, quote forms, survey forms and more!
- * Author:      HappyForms
- * Version:     1.9.30
+ * Description: We're changin' WordPress forms.
+ * Author:      Happyforms
+ * Version:     1.10.0
  * Author URI:  https://happyforms.me
  * Upgrade URI: https://happyforms.me/upgrade
  */
@@ -13,7 +13,7 @@
 /**
  * The current version of the plugin.
  */
-define( 'HAPPYFORMS_VERSION', '1.9.30' );
+define( 'HAPPYFORMS_VERSION', '1.10.0' );
 
 if ( ! function_exists( 'happyforms_plugin_file' ) ):
 /**

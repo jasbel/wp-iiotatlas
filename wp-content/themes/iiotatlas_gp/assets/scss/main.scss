@@ -1,7 +1,5 @@
-// Abstracts --------------------------------------------------
-@import "abstract/_all";
 
-/** Vendors
+/** Vendors - libraries - plugins
 --------------------------------- */
 @import "../vendor/scss/bootstrap5/bootstrap-reboot"; // bootstrap 5
 @import "../vendor/scss/bootstrap5/bootstrap-grid"; // bootstrap 5
@@ -11,15 +9,18 @@
 // @import "../../vendor/scss/magnific/magnific";
 // @import "../../vendor/scss/zozotabs/zozotabs"; //Tabs
 
-/** Core
+// Abstracts  - variables, mixins ...
+// --------------------------------------------------
+@import "abstract/_all";
+/** Core - principal, base, reset
 --------------------------------------*/
 @import "core/_all";
 
-/** Components or Partials
+/** Components or Partials - buttons, slider, icons, form
 --------------------------------------*/
 @import "components/_all";
 
-/** Layout
+/** Layout - Header, footer, main, nav, sidebar
 ------------------------------------------*/
 @import "layout/_all";
 
@@ -27,7 +28,7 @@
 ---------------------------------------*/
 @import "sections/_all";
 
-/** Views o Pages
+/** Views o Pages - home, about, responsive ...
 ---------------------------------------*/
 @import "views/_all";
 

@@ -1,0 +1,25 @@
+/* Project */
+.b-project {
+    @extend %space-top-bottom;
+    &__figure {
+        margin-bottom: 30px;
+    }
+
+    &__image {}
+
+    &__content {
+        max-width: 588px;
+    }
+
+    &__title {}
+
+    &__description {
+        min-height: 230px;
+    }
+
+    &__btn {
+        max-width: 280px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

@@ -37,5 +37,6 @@
 	}
 
 	views.register( 'happyforms', _.extend( {}, happyforms ) );
+	views.register( 'form', _.extend( {}, happyforms ) );
 
 } )( window, window.wp.mce.views, window.jQuery, _happyFormsAdmin );

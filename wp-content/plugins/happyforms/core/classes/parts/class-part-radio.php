@@ -37,7 +37,7 @@ class HappyForms_Part_Radio extends HappyForms_Form_Part {
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label' => array(
-				'default' => __( 'Untitled', 'happyforms' ),
+				'default' => __( '', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label_placement' => array(
@@ -185,7 +185,7 @@ class HappyForms_Part_Radio extends HappyForms_Form_Part {
 		$validated_value = $value;
 
 		if ( 1 === $part['required'] && '' === $validated_value ) {
-			return new WP_Error( 'error', happyforms_get_validation_message( 'field_empty' ) );
+			return new WP_Error( 'error', happyforms_get_validation_message( 'no_selection' ) );
 		}
 
 		if ( '' !== $validated_value ) {

@@ -311,10 +311,23 @@ function register_acf_block_types()
     //     'keywords' => ['block', 'hero'],
     // ]);
 
-    /* about */
+    /* float */
+    /* TODO: Cambiar el float a general, averigura como */
+    acf_register_block([
+        'name' => 'section-float',
+        'title' => __('Block - Float'),
+        'description' => __('A custom Home float.'),
+        'render_template' => 'lib/acf/blocks/block-float.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'float', 'home'],
+    ]);
+
+    /* About Us */
     acf_register_block([
         'name' => 'section-about',
-        'title' => __('Block - About Us'),
+        'title' => __('Block - About'),
         'description' => __('A custom Home About.'),
         'render_template' => 'lib/acf/blocks/block-about.php',
         'category' => 'customblocks',
@@ -322,17 +335,54 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'about', 'home'],
     ]);
-    /* why us */
+
+     /* Integrate */
     acf_register_block([
-        'name' => 'section-why',
-        'title' => __('Block - Why Us'),
-        'description' => __('A custom Home block Why Us.'),
-        'render_template' => 'lib/acf/blocks/block-why.php',
+        'name' => 'section-integrate',
+        'title' => __('Block - Integrate'),
+        'description' => __('A custom Home Integrate.'),
+        'render_template' => 'lib/acf/blocks/block-integrate.php',
         'category' => 'customblocks',
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
-        'keywords' => ['block', 'why us', 'home'],
+        'keywords' => ['block', 'integrate', 'home'],
     ]);
+    
+    /* why Choose */
+    acf_register_block([
+        'name' => 'section-choose',
+        'title' => __('Block - Choose'),
+        'description' => __('A custom Home choose.'),
+        'render_template' => 'lib/acf/blocks/block-choose.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'choose', 'home'],
+    ]);
+    /* Extension */
+     acf_register_block([
+        'name' => 'section-extension',
+        'title' => __('Block - Extension'),
+        'description' => __('A custom Home extension.'),
+        'render_template' => 'lib/acf/blocks/block-extension.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'extension', 'home'],
+    ]);
+
+    /* Project */
+    acf_register_block([
+        'name' => 'section-project',
+        'title' => __('Block - Project'),
+        'description' => __('A custom Home project.'),
+        'render_template' => 'lib/acf/blocks/block-project.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'project', 'home'],
+    ]);
+
     /* Contact us */
     acf_register_block([
         'name' => 'section-contact',
@@ -344,7 +394,31 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'contact us', 'home'],
     ]);
+    /* Mentors */
+    acf_register_block([
+        'name' => 'section-mentors',
+        'title' => __('Block - Mentors'),
+        'description' => __('A custom Home mentors.'),
+        'render_template' => 'lib/acf/blocks/block-mentors.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'mentors', 'home'],
+    ]);
 
+    /* TODO: delete */
+    /* why us */
+    acf_register_block([
+        'name' => 'section-why',
+        'title' => __('Block - Why Us'),
+        'description' => __('A custom Home block Why Us.'),
+        'render_template' => 'lib/acf/blocks/block-why.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'why us', 'home'],
+    ]);
+/* TODO: delete */
     /* team */
     acf_register_block([
         'name' => 'section-team',
@@ -357,17 +431,7 @@ function register_acf_block_types()
         'keywords' => ['block', 'team', 'home'],
     ]);
 
-    /* Mentors */
-    acf_register_block([
-        'name' => 'section-mentors',
-        'title' => __('Block - Mentors'),
-        'description' => __('A custom Home mentors.'),
-        'render_template' => 'lib/acf/blocks/block-mentors.php',
-        'category' => 'customblocks',
-        'icon' => 'editor-insertmore',
-        'mode' => 'edit',
-        'keywords' => ['block', 'mentors', 'home'],
-    ]);
+    /* TODO: delete */
     /* client */
     acf_register_block([
         'name' => 'section-client',
@@ -379,6 +443,8 @@ function register_acf_block_types()
         'mode' => 'edit',
         'keywords' => ['block', 'client', 'home'],
     ]);
+    /* TODO: delete */
+    /* Services */
     acf_register_block([
         'name' => 'section-services',
         'title' => __('Block - Services'),

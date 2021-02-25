@@ -134,6 +134,7 @@
 			'click .show-all-options': 'onShowAllOptionsClick',
 			'keyup [name=label]': 'onEnterKey',
 			'keyup [name=description]': 'onEnterKey',
+
 		} ),
 
 		initialize: function() {
@@ -144,7 +145,6 @@
 			this.listenTo( this.model, 'change:allow_search', this.onAllowSearchChange );
 			this.listenTo( this.model, 'change:placeholder', this.onPlaceholderChange );
 			this.listenTo( this.model, 'change:required', this.onRequiredChange );
-			this.listenTo( this.model, 'change:no_results_label', this.onNoResultsLabelChange );
 			this.listenTo( this.model.get( 'options' ), 'add', this.onOptionModelAdd );
 			this.listenTo( this.model.get( 'options' ), 'change', this.onOptionModelChange );
 			this.listenTo( this.model.get( 'options' ), 'remove', this.onOptionModelRemove );
@@ -413,17 +413,6 @@
 			$( '.add-options', this.$el ).click();
 		},
 
-		onNoResultsLabelChange: function( model, value ) {
-			var data = {
-				id: model.get( 'id' ),
-				callback: 'onNoResultsLabelChangeCallback',
-				options: {
-					label: value
-				}
-			};
-
-			happyForms.previewSend( 'happyforms-part-dom-update', data );
-		},
 	} );
 
 	happyForms.previewer = _.extend( happyForms.previewer, {
@@ -472,12 +461,6 @@
 			$( '.happyforms-custom-select-dropdown__placeholder', $part ).removeClass('preview-hidden').text( options.label );
 		},
 
-		onNoResultsLabelChangeCallback: function( id, html, options, $ ) {
-			var $part = this.getPartElement( html );
-			var $option = $( '.happyforms-custom-select-dropdown__not-found', $part );
-
-			$option.text( options.label );
-		},
 	} );
 
 } ) ( jQuery, _, Backbone, wp.customize, _happyFormsSettings );

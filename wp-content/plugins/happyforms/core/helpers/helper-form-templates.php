@@ -368,7 +368,7 @@ if ( ! function_exists( 'happyforms_the_part_value' ) ):
  */
 function happyforms_the_part_value( $part, $form, $component = false ) {
 	$value = happyforms_get_part_value( $part, $form, $component );
-	$value = apply_filters( 'happyforms_the_part_value', $value, $part, $form );
+	$value = apply_filters( 'happyforms_the_part_value', $value, $part, $form, $component );
 
 	echo esc_attr( $value );
 }
@@ -989,31 +989,6 @@ function happyforms_the_part_label( $part, $form ) {
 
 endif;
 
-if ( ! function_exists( 'happyforms_the_part_confirmation_label' ) ) :
-/**
- * Output a part confirmation label
- *
- * @since 1.3
- *
- * @param string $id   Current part id.
- * @param array  $part Current part data.
- * @param array  $form Current form data.
- *
- * @return void
- */
-function happyforms_the_part_confirmation_label( $part, $form ) {
-	?>
-	<label for="<?php happyforms_the_part_id( $part, $form ); ?>_confirmation" class="happyforms-part__label happyforms-part__label--confirmation">
-		<span class="label"><?php echo esc_html( $part['confirmation_field_label'] ); ?></span>
-		<?php if ( 1 === intval( $part['required'] ) ) : ?>
-			<span class="happyforms-required"><?php echo happyforms_get_form_property( $form, 'hf_style_required_text' ); ?></span>
-		<?php endif; ?>
-	</label>
-	<?php
-}
-
-endif;
-
 if ( ! function_exists( 'happyforms_get_part_options' ) ) :
 
 function happyforms_get_part_options( $options, $part, $form ) {
@@ -1534,7 +1509,7 @@ endif;
 if ( ! function_exists( 'happyforms_get_shortcode' ) ):
 
 function happyforms_get_shortcode( $form_id = 'ID' ) {
-	$shortcode = "[happyforms id=\"{$form_id}\" /]";
+	$shortcode = "[form id=\"{$form_id}\" /]";
 	$shortcode = apply_filters( 'happyforms_get_shortcode', $shortcode, $form_id );
 
 	return $shortcode;
