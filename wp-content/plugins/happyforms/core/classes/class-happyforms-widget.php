@@ -10,9 +10,9 @@ class HappyForms_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'happyforms_widget',
-			__( 'HappyForms', 'happyforms' ),
+			__( 'Forms', 'happyforms' ),
 			array(
-				'description' => __( 'Easily add your HappyForms to widget areas.', 'happyforms' )
+				'description' => __( 'Displays a form.', 'happyforms' )
 			)
 		);
 	}

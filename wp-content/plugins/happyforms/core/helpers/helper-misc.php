@@ -204,7 +204,7 @@ if ( ! function_exists( 'happyforms_admin_footer' ) ):
 function happyforms_admin_footer() {
 	?>
 	<span id="footer-thankyou">
-		<?php _e( 'Thank you for creating with', 'happyforms' ); ?> <a href="https://happyforms.me/" target="_blank">HappyForms</a>.
+		<?php _e( 'Thank you for creating with', 'happyforms' ); ?> <a href="https://wordpress.org/" target="_blank">WordPress</a>.
 	</span>
 	<?php
 }

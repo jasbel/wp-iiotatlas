@@ -1,0 +1,64 @@
+/* Custom Class */
+
+// title
+.heading {
+    @extend %heading;
+}
+
+.title {
+    @extend %title;
+}
+
+.subtitle {
+    @extend %subtitle;
+}
+
+.subtitle-small {
+    @extend %subtitle-small;
+}
+
+.subtitle-smaller {
+    @extend %subtitle-smaller;
+}
+
+.subtitle-smallest {
+    @extend %subtitle-smallest;
+}
+
+// DEscription
+.description-large {
+    @extend %text-large;
+}
+
+.description {
+    @extend %text;
+
+    &-large {
+        @extend %text-large;
+    }
+
+    &-small {
+        @extend %text-small;
+    }
+}
+
+.description-small {
+    @extend %text-small;
+}
+
+// Font Custom
+.tl {
+    text-align: left;
+}
+
+.tr {
+    text-align: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tj {
+    text-align: justify;
+}

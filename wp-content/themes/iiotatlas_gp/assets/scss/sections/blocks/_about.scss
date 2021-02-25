@@ -2,21 +2,29 @@
 .b-about {
 
     @extend %space-top-bottom;
+    padding-bottom: 46px;
+
+    &__figure {
+        margin-bottom: 30px;
+    }
+
     &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
     }
 
     &__title {
-        @extend %title;
-        padding-top: 6px;
-        margin-bottom: 20px;
-        text-align: left;
+        // @extend %title;
+        // padding-top: 6px;
+        margin-bottom: 28px;
+        @include responsive(mb,28,20);
+        // text-align: left;
     }
     
     &__description {
-        @extend %content-large;
+        @extend %text-large;
+        min-height: 242px;
     }
     
     &__btn {

@@ -15,7 +15,7 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-team <?php echo $align_class; ?>">
         <div class="container">
-        <h2 class="b-team__title"><?php echo $team_title;?> </h2>
+        <h2 class="title b-team__title"><?php echo $team_title;?> </h2>
 
         <div class="row b-team__item-container">
             <?php if(!empty($team_items)): ?>
@@ -26,27 +26,27 @@ $id = 'item-' . $block['id'];
                 $description = $item['description'];
                 ?>
 
-                <div class="col-md-4 ">
+                <div class="col-md-6 ">
                     <div class="b-team__item">
-                        <figure class="b-team__item-image">
+                        <figure class="b-team__item-figure">
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                             <!-- <img src="<?php echo get_stylesheet_directory_uri(); ?> /assets/images/default-min.png" alt="default"> -->
                         </figure>
-                        <h4 class="b-team__item-name" ><?php echo $name;?></h4>
-                        <h6 class="b-team__item-position"><?php echo $position;?></h6>
-                        <p class="b-team__item-description"><?php echo $description;?></p>
+                        <h4 class="subtitle-small b-team__item-name" ><?php echo $name;?></h4>
+                        <h6 class="description-small b-team__item-position"><?php echo $position;?></h6>
+                        <p class="description b-team__item-description"><?php echo $description;?></p>
                         <!-- TODO: cambiar de div a i , o usar iconos distintos -->
                         <div class="b-team__social-container">
-                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                            <a class="b-team__social-icon" href="#!" target="_blank">
                                 <div class="icon icon__facebook"></div>
                             </a>
-                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                            <a class="b-team__social-icon" href="#!" target="_blank">
                                 <div class="icon icon__youtube"></div>
                             </a>
-                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                            <a class="b-team__social-icon" href="#!" target="_blank">
                                 <div class="icon icon__linkedin"></div>
                             </a>
-                            <a class="b-team__social-icon" href="#!" target="_blank" rel="noopener noreferrer">
+                            <a class="b-team__social-icon" href="#!" target="_blank">
                                 <div class="icon icon__github"></div>
                             </a>
                         </div>

@@ -300,10 +300,6 @@ h3.happyforms-form__title {
   position: relative;
 }
 
-.happyforms-part-wrap--confirmation {
-  margin-top: 10px;
-}
-
 /* label placement */
 
 .happyforms-part--label-below .happyforms-part-wrap {
@@ -316,10 +312,6 @@ h3.happyforms-form__title {
   order: 2;
   margin-top: 10px;
   margin-bottom: 5px;
-}
-
-.happyforms-part--label-above .happyforms-part__label--confirmation {
-  margin-top: 10px;
 }
 
 .happyforms-part--label-below .happyforms-part__description {
@@ -821,10 +813,9 @@ form .happyforms-flex>.happyforms-message-notices .happyforms-message-notice a {
   right: 11px;
 }
 
-.happyforms-part--label-as_placeholder input:focus~label,
-.happyforms-part--label-as_placeholder textarea:focus~label,
-.happyforms-part--label-as_placeholder.happyforms-part--filled input~label,
-.happyforms-part--label-as_placeholder.happyforms-part--filled textarea~label,
+.happyforms-part--label-as_placeholder input:focus~.happyforms-part__label-container>label,
+.happyforms-part--label-as_placeholder textarea:focus~.happyforms-part__label-container>label,
+.happyforms-part--label-as_placeholder.happyforms-part--filled .happyforms-part__label-container label,
 .happyforms-part--select.happyforms-part--label-as_placeholder.happyforms-part--filled label {
   top: 8px;
 }
@@ -839,9 +830,9 @@ form .happyforms-flex>.happyforms-message-notices .happyforms-message-notice a {
   left: auto;
 }
 
-.happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder input:focus~label,
-.happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder textarea:focus~label,
-.happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder.happyforms-part--filled input~label,
+.happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder input:focus~.happyforms-part__label-container>label,
+.happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder textarea:focus~.happyforms-part__label-container>label,
+.happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder.happyforms-part--filled .happyforms-part__label-container label,
 .happyforms-form--part-inner-padding-narrow .happyforms-part--label-as_placeholder.happyforms-part--filled textarea~label {
   top: 7px;
 }
@@ -856,9 +847,9 @@ form .happyforms-flex>.happyforms-message-notices .happyforms-message-notice a {
   left: auto;
 }
 
-.happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder input:focus~label,
-.happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder textarea:focus~label,
-.happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder.happyforms-part--filled input~label,
+.happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder input:focus~.happyforms-part__label-container>label,
+.happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder textarea:focus~.happyforms-part__label-container>label,
+.happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder.happyforms-part--filled .happyforms-part__label-container label,
 .happyforms-form--part-inner-padding-wide .happyforms-part--label-as_placeholder.happyforms-part--filled textarea~label {
   top: 12px;
 }

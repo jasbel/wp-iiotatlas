@@ -1,0 +1,31 @@
+.header {
+    background-image: url(../images/header.png);
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    padding-top: 236px;
+    padding-bottom: 148px;
+
+    &__title {
+        margin-bottom: 29px;
+        color: $color-text-white;
+        @include max-width-center(937);
+        @extend %heading;
+    }
+
+    &__description {
+        margin-bottom: 31px;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1066px;
+        color: $color-text-white;
+    }
+
+    &__btn {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}

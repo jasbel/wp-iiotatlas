@@ -12,11 +12,12 @@ $max-width: 1280px;
 // ---------------------------------- \\
 // Font Families
 // ---------------------------------- \\
-$font-family-heading: 'Cabin', sans-serif;
+$font-family-heading: 'Montserrat', sans-serif;
 $font-family: 'Open Sans', sans-serif;
 $font-weight: normal;
 $line-height: 30px;
 
+//Custom
 $font-family-link: $font-family;
 
 // ---------------------------------- \\
@@ -26,14 +27,15 @@ $font-size-heading: 70px;
 $font-size-title: 50px;
 $font-size-subtitle: 42px;
 $font-size-subtitle-small: 28px;
-$font-size-subtitle-smaller: 24px;
+$font-size-subtitle-smaller: 22px;
 $font-size-subtitle-smallest: 16px;
 $font-size-large: 21px;
 $font-size-default: 19px;
 $font-size-small: 16px;
 
-$font-size-title-mobile: 34px;
-$font-size-subtitle-mobile: 28px;
+$font-size-heading-mobile: 42px;
+$font-size-title-mobile: 32px;
+$font-size-subtitle-mobile: 26px;
 $font-size-mobile: 17px;
 $font-size-mobile-small: 15px;
 
@@ -41,25 +43,30 @@ $font-size-mobile-small: 15px;
 // ---------------------------------- \\
 // Colors Default
 // ---------------------------------- \\
+
+/* Colors */
 $color-white: #ffffff; //white
 
-$color-primary:#2FB0E7 ; //skyblue
-$color-secondary:#E9ECEF ; // light
-$color-success:#73A839 ; //green
-$color-info: #02294E; //blue-dark
-$color-warning:#DD5600; //orange
-$color-danger: #C71C22; //red
+$color-primary:#17A2B8 ; //skyblue
+$color-secondary:#E1E1E1 ; // light
+$color-success:#17B87D ; //green
+$color-info: #1752B8; //blue-dark
+$color-warning:#F45030; //orange
+$color-danger: #B82C17; //red
 
-$color-text-title: $color-info; //blue dark
-$color-text: #041824; //blue black
-$color-text-dark: #020C12; //dark
-$color-text-light: #F0F9FD; //light
+$color-text-primary: $color-primary; //primary color
+$color-text: #052328; //blue black
+$color-text-dark: #020C0D; //dark
+$color-text-light: #F5FDFE; //light
 $color-text-white: $color-white; //white
 
 //custom property
 $body-bkg: $color-white; //white
+$color-bkg-light: $color-text-light; //light
 $base-color: $color-text; //blue dark
 $link-color: $color-primary; //skyblue
+
+$color-shadow-default: rgba(0, 0, 0, 0.25);
 
 
 
@@ -78,6 +85,7 @@ $phone: 575.98px; //use b5
 $phone-large: 767.98px; //use b5
 $tablet-small: 790px;
 $tablet: 991.98px; //use b5
+$tablet-default: $tablet; //use b5
 $desktop-small: 1090px;
 $desktop: 1199.98px; //use b5
 $desktop-medium: 1399.98px; //use b5
@@ -89,4 +97,5 @@ $desktop-x-large: 1950px;
 // Responsive Variables for responsive mixins
 // ---------------------------------- \\
 $phone-responsive: 360;
+$tablet-responsive: 992;
 $desktop-responsive: 1440;

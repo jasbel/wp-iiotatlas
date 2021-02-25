@@ -1,0 +1,34 @@
+/* block extension */
+.b-extension {
+    @extend %space-top-bottom;
+    background-color: $color-bkg-light;
+
+    &__item {
+        margin-bottom: 70px;
+        &:last-child {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__figure {}
+
+    &__image {}
+
+    &__content {
+        max-width: 455px;
+        &--even {
+            margin-left: auto;
+            margin-right: 42px;
+        }
+    }
+
+    &__title {
+        
+    }
+    &__subtitle {
+        color: $color-text;
+    }
+    &__description {
+
+    }
+}

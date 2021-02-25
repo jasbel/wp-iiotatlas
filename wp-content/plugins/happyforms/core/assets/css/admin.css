@@ -206,7 +206,7 @@ p.welcome-panel-footer a:active {
 }
 
 #available-widgets div[id*='widget-tpl-happyforms_widget-'] .widget-title:before {
-  content: '\f130';
+  content: '\f175';
 }
 
 .happyforms-editor-button span.dashicons {

@@ -7,6 +7,14 @@
   z-index: 1000;
 }
 
+.wp-full-overlay.expanded .wp-full-overlay-sidebar {
+  width: 35%;
+}
+
+.wp-full-overlay.expanded {
+  margin-left: min( 35%, calc( 35% - calc( 35% - 600px ) ) );
+}
+
 .wp-full-overlay-sidebar .wp-full-overlay-header {
   position: relative;
   z-index: 9999;
@@ -22,8 +30,20 @@
   border-bottom: 0;
 }
 
+
+.wp-full-overlay.expanded .wp-full-overlay-footer {
+  width: calc( 35% - 1px );
+  max-width: 599px;
+}
+
 .happyforms-stack-view input[type="number"] {
   padding-right: 0;
+}
+
+@media screen and (max-width: 850px) {
+  .wp-full-overlay.expanded {
+    margin-left: 300px;
+  }
 }
 
 /**
@@ -90,6 +110,11 @@
 
 #happyforms-steps-nav .nav-tab-wrapper {
   padding-top: 0;
+}
+
+#happyforms-steps-nav .nav-tab-wrapper .nav-tab-active {
+  background: #eeeeee;
+  border-bottom-color: #eeeeee;
 }
 
 /**
@@ -362,7 +387,6 @@ a.happyforms-form-part-advanced-settings {
 
 a.happyforms-form-part-logic {
   float: right;
-  margin-right: 10px;
 }
 
 .happyforms-part-logic-wrap {
@@ -477,13 +501,6 @@ a.happyforms-form-part-remove:hover {
  * Form edit
  *
  */
-#customize-control-optional_part_label {
-  display: none;
-}
-
-#customize-control-confirmation_email_content .wp-editor-tabs {
-  display: none;
-}
 
 .customize-control-group.happyforms-nested-settings {
   display: none;
@@ -500,7 +517,8 @@ a.happyforms-form-part-remove:hover {
 
 #customize-control-receive_email_alerts.checked ~ .happyforms-nested-settings[data-trigger=receive_email_alerts],
 .has-email #customize-control-send_confirmation_email.checked ~ .happyforms-nested-settings[data-trigger=send_confirmation_email],
-#customize-control-use_html_id.checked ~ .happyforms-nested-settings[data-trigger=use_html_id] {
+#customize-control-use_html_id.checked ~ .happyforms-nested-settings[data-trigger=use_html_id],
+#customize-control-add_submit_button_class.checked ~ .happyforms-nested-settings[data-trigger=add_submit_button_class] {
   display: block;
 }
 
@@ -512,7 +530,6 @@ a.happyforms-form-part-remove:hover {
 .happyforms-setup-view #customize-control-email_recipient,
 .happyforms-setup-view #customize-control-email_bccs,
 .happyforms-setup-view #customize-control-alert_email_subject,
-.happyforms-setup-view .customize-control[id*='customize-control-confirmation_email_']:not(#customize-control-confirmation_email_include_values),
 .happyforms-setup-view .customize-control[id*='customize-control-redirect']:not(#customize-control-redirect_on_complete):not(#customize-control-redirect_blank),
 .happyforms-setup-view .customize-control[id*='customize-control-captcha_']:not(#customize-control-captcha_label),
 .happyforms-setup-view #customize-control-email_mark_and_reply,
@@ -553,6 +570,60 @@ a.happyforms-form-part-remove:hover {
 .happyforms-email-view .customize-control-title {
   line-height: 1;
   padding-bottom: 5px;
+}
+
+/**
+ *
+ * Form message
+ *
+ */
+.happyforms-messages-view .customize-control,
+.happyforms-messages-view #messages-view-errors,
+.happyforms-messages-view #messages-view-hints {
+  display: none;
+}
+
+#customize-control-error_message,
+.has-required-selection-fields #messages-view-errors,
+.has-min-limit-choices #messages-view-errors,
+.has-field #messages-view-errors,
+.has-optional-field #messages-view-hints,
+.has-searchable-dropdown #messages-view-hints,
+.has-min-chars-label #messages-view-hints,
+.has-max-chars-label #messages-view-hints,
+.has-min-words-label #messages-view-hints,
+.has-max-words-label #messages-view-hints {
+  display: block;
+}
+
+#customize-control-submit_button_label,
+.has-field #customize-control-field_invalid,
+.has-required-fields #customize-control-field_empty,
+.has-required-selection-fields #customize-control-no_selection,
+.has-optional-field #customize-control-optional_part_label,
+.has-min-limit-choices #customize-control-select_more_choices,
+.has-max-limit-choices #customize-control-select_less_choices,
+.is-show-success-msg #customize-control-confirmation_message,
+.has-min-words-label #customize-control-words_label_min,
+.has-max-words-label #customize-control-words_label_max,
+.has-min-chars-label #customize-control-characters_label_min,
+.has-max-chars-label #customize-control-characters_label_max,
+.show-msg-short-label #customize-control-message_too_short,
+.has-max-chars-label #customize-control-message_too_long,
+.has-max-words-label #customize-control-message_too_long,
+.has-searchable-dropdown #customize-control-no_results_label,
+.has-number #customize-control-number_min_invalid,
+.has-number #customize-control-number_max_invalid {
+  display: block;
+}
+
+.happyforms-messages-view .customize-control .has-restore-default {
+  margin-bottom: 5px;
+}
+
+.happyforms-messages-view .customize-control .restore-default-btn {
+  display: none;
+  width: 100%;
 }
 
 /**
@@ -1378,6 +1449,10 @@ li.customize-control.happyforms-range-control select.happyforms-unit-switch {
   unicode-bidi: embed;
 }
 
+.happyforms-widget-content textarea[data-bind=description] {
+  height: 90px;
+}
+
 #customize-control-part_toggle_placeholders,
 #customize-control-dropdowns,
 #customize-control-checkboxes-radios,
@@ -1397,10 +1472,6 @@ li.customize-control.happyforms-range-control select.happyforms-unit-switch {
 .happyforms-style-view.has-checkbox #customize-control-checkboxes-radios,
 .happyforms-style-view.has-radio #customize-control-checkboxes-radios,
 .happyforms-style-view.has-table #customize-control-checkboxes-radios,
-.happyforms-style-view.has-legal #customize-control-checkboxes-radios,
-.happyforms-style-view.has-poll #customize-control-checkboxes-radios,
-.happyforms-style-view.has-signature #customize-control-checkboxes-radios,
-.happyforms-style-view.has-email_integration #customize-control-checkboxes-radios,
 .happyforms-style-view.has-rating #customize-control-rating,
 .happyforms-style-view.has-table #customize-control-tables,
 .happyforms-style-view.has-divider #customize-control-dividers,
@@ -1428,6 +1499,26 @@ i.mce-i-happyforms_narrative_input:after {
 .happyforms-widget-form .mce-btn.mce-active:hover i {
   color: inherit;
 }
+/**
+*
+* Group settings
+*
+*/
+
+.happyforms-group-settings .happyforms-group-settings-description {
+  margin-top: 0px;
+}
+
+.happyforms-group-settings {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.happyforms-group-settings:first-child {
+  border-top: 0px;
+}
 
 /**
  *
@@ -1440,7 +1531,8 @@ i.mce-i-happyforms_narrative_input:after {
   border-left: 1px solid #eee;
 }
 .happyforms-setup-view .happyforms-nested-settings,
-.happyforms-email-view .happyforms-nested-settings {
+.happyforms-email-view .happyforms-nested-settings,
+.happyforms-messages-view .happyforms-nested-settings {
   margin-top: -5px;
   margin-bottom: 12px;
   padding-top: 5px;
@@ -1481,24 +1573,6 @@ div.customize-section-description {
   border-top: 1px solid #ddd;
   color: #555d66;
   background: #fff;
-}
-
-#customize-control-confirmation_message {
-  display: none;
-}
-
-.happyforms-nested-settings[data-trigger="confirm_submission"] {
-  display: block;
-}
-
-#customize-control-confirm_submission[data-value="success_message"] ~ .customize-control-group #customize-control-confirmation_message,
-#customize-control-confirm_submission[data-value="success_message_hide_form"] ~ .customize-control-group #customize-control-confirmation_message {
-  display: block;
-}
-
-#customize-control-confirm_submission[data-value="success_message"] ~ .happyforms-nested-settings[data-trigger="confirm_submission"],
-#customize-control-confirm_submission[data-value="success_message_hide_form"] ~ .happyforms-nested-settings[data-trigger="confirm_submission"] {
-  display: block;
 }
 
 .wp-editor-float-right {
@@ -1565,3 +1639,24 @@ ul.happyforms-parts-list li.happyforms-parts-list-item--group .happyforms-parts-
 .min-max-wrapper > *:last-child {
   padding-right: 0;
 }
+
+.happyforms-widget-form .happyforms-widget-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.happyforms-widget-form .happyforms-widget-cols.width-half {
+  width: 50%;
+  padding-right: 5px;
+  flex: 0 50%;
+  box-sizing: border-box;
+}
+.happyforms-widget-form .happyforms-widget-cols.width-half:nth-child(n+2) {
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+/*
+.happyforms-messages-view .customize-control {
+  display: block;
+}*/

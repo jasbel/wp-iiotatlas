@@ -27,3 +27,9 @@
 p:empty {
     margin-bottom: 0;
 }
+
+@media (max-width: 576px) {
+    .entry-content > .gb-container > .gb-inside-container {
+        padding: 150px 12px 155px;
+    }
+}

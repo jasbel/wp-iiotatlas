@@ -1,0 +1,60 @@
+
+/* Integrate------------ */
+.b-integrate {
+    @extend %space-top-bottom;
+    background-color: $color-bkg-light;
+    position: relative;
+
+    margin-top: 90px;
+
+    &--ola-bottom {
+        margin-top: 0;
+        margin-bottom: 90px;
+    }
+
+    &__ola {
+        
+        position: absolute;
+        top: 0;
+        transform: translateY(-100%);
+
+        &--bottom {
+            transform: translateY(100%);
+            top: auto;
+            bottom: 0;
+        }
+        
+        img {
+            width: 100vw;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 42px;
+        &--space-bottom {
+            margin-bottom: 64px;
+        }
+    }
+
+    &__items {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    &__item {
+
+    }
+
+    &__image {
+
+    }
+
+    // value
+    &--ola-bottom &__ola{
+        transform: translateY(100%);
+        top: auto;
+        bottom: 0;
+    }
+}

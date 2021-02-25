@@ -42,8 +42,13 @@ class HappyForms_Form_Setup {
 		add_filter( 'happyforms_form_id', array( $this, 'form_html_id' ), 10, 2 );
 		add_action( 'happyforms_do_setup_control', array( $this, 'do_control' ), 10, 3 );
 
+		add_filter( 'happyforms_messages_controls', array( $this, 'messages_controls' ) );
+
+
 		// Server-side hide-on-submit
 		add_action( 'happyforms_submission_success', array( $this, 'submission_success' ), 10, 2 );
+
+		add_filter( 'happyforms_messages_fields', array( $this, 'get_messages_fields' ) );
 	}
 
 	public function get_fields() {
@@ -54,21 +59,13 @@ class HappyForms_Form_Setup {
 				'default' => 'success_message_hide_form',
 				'sanitize' => 'sanitize_text_field',
 			),
-			'confirmation_message' => array(
-				'default' => __( 'Thank you! Your submission has been sent.', 'happyforms' ),
-				'sanitize' => 'esc_html',
-			),
-			'error_message' => array(
-				'default' => __( 'There is a problem! Please review your submission.', 'happyforms' ),
-				'sanitize' => 'esc_html'
-			),
 			'redirect_on_complete' => array(
 				'default' => 0,
 				'sanitize' => 'happyforms_sanitize_checkbox',
 			),
 			'redirect_url' => array(
 				'default' => '',
-				'sanitize' => 'esc_url_raw',
+				'sanitize' => 'sanitize_text_field',
 			),
 			'redirect_blank' => array(
 				'default' => 0,
@@ -81,14 +78,6 @@ class HappyForms_Form_Setup {
 			'required_part_label' => array(
 				'default' => __( 'This field is required.', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field'
-			),
-			'optional_part_label' => array(
-				'default' => __( '(optional)', 'happyforms' ),
-				'sanitize' => 'sanitize_text_field',
-			),
-			'submit_button_label' => array(
-				'default' => __( 'Send', 'happyforms' ),
-				'sanitize' => 'sanitize_text_field',
 			),
 			'form_expiration_datetime' => array(
 				'default' => date( 'Y-m-d H:i:s', time() + WEEK_IN_SECONDS ),
@@ -118,14 +107,6 @@ class HappyForms_Form_Setup {
 				'default' => 0,
 				'sanitize' => 'happyforms_sanitize_checkbox',
 			),
-			'review_button_label' => array(
-				'default' => __( 'Review submission', 'happyforms' ),
-				'sanitize' => 'sanitize_text_field',
-			),
-			'edit_button_label' => array(
-				'default' => __( 'Edit', 'happyforms' ),
-				'sanitize' => 'sanitize_text_field',
-			),
 			'use_html_id' => array(
 				'default' => 0,
 				'sanitize' => 'happyforms_sanitize_checkbox',
@@ -137,6 +118,10 @@ class HappyForms_Form_Setup {
 			'disable_submit_until_valid' => array(
 				'default' => '',
 				'sanitize' => 'happyforms_sanitize_checkbox'
+			),
+			'add_submit_button_class' => array(
+				'default' => '',
+				'sanitize' => 'sanitize_text_field'
 			),
 			'submit_button_html_class' => array(
 				'default' => '',
@@ -151,18 +136,44 @@ class HappyForms_Form_Setup {
 		return $fields;
 	}
 
+	public function get_messages_fields( $fields ) {
+
+		$messages_fields = array(
+			'confirmation_message' => array(
+				'default' => __( 'Thank you. Your reply has been sent.', 'happyforms' ),
+				'sanitize' => 'esc_html',
+			),
+			'error_message' => array(
+				'default' => __( "Bummer. We can't submit your reply. Please check for mistakes.", 'happyforms' ),
+				'sanitize' => 'esc_html'
+			),
+			'submit_button_label' => array(
+				'default' => __( 'Send', 'happyforms' ),
+				'sanitize' => 'sanitize_text_field',
+			),
+			'optional_part_label' => array(
+				'default' => __( '(optional)', 'happyforms' ),
+				'sanitize' => 'sanitize_text_field',
+			),
+		);
+
+		$fields = array_merge( $fields, $messages_fields );
+
+		return $fields;
+	}
+
 	public function get_controls() {
 		$controls = array(
 			10 => array(
 				'type' => 'select',
-				'label' => __( 'Confirm submission', 'happyforms' ),
+				'label' => __( 'After the form is submitted', 'happyforms' ),
 				'options' => array(
-					'success_message_hide_form' => __( 'Show a \'thank you\' message', 'happyforms' ),
-					'success_message' => __( 'Show a \'thank you\' message and allow to resubmit the form', 'happyforms' ),
+					'success_message_hide_form' => __( 'Show a message', 'happyforms' ),
+					'success_message' => __( 'Show a message and allow to resubmit the form', 'happyforms' ),
 					'redirect' => __( 'Redirect to a web address', 'happyforms' ),
 				),
 				'field' => 'confirm_submission',
-				'tooltip' => __( 'Choose how the form should confirm successful submission.', 'happyforms' ),
+				// 'tooltip' => __( 'Choose how the form should confirm successful submission.', 'happyforms' ),
 			),
 			11 => array(
 				'type' => 'upsell',
@@ -174,44 +185,33 @@ class HappyForms_Form_Setup {
 				'type' => 'group_start',
 				'trigger' => 'confirm_submission',
 			),
-			100 => array(
-				'type' => 'editor',
-				'label' => __( '\'Thank you\' message', 'happyforms' ),
-				'field' => 'confirmation_message',
-			),
-			101 => array(
+			110 => array(
 				'type' => 'group_end'
 			),
-			110 => array(
-				'type' => 'editor',
-				'label' => __( 'Error message', 'happyforms' ),
-				'tooltip' => __( 'This is the message your users will see when there are form errors preventing submission.', 'happyforms' ),
-				'field' => 'error_message',
-			),
-			900 => array(
-				'type' => 'text',
-				'label' => __( 'Optional field label', 'happyforms' ),
-				'tooltip' => __( 'Mark optional fields in your form to let your users distinguish them from required fields.', 'happyforms' ),
-				'field' => 'optional_part_label',
-			),
-			1000 => array(
-				'type' => 'text',
-				'label' => __( 'Submit button label', 'happyforms' ),
-				'tooltip' => __( 'Change text of submit button to describe an action your form performs.', 'happyforms' ),
-				'field' => 'submit_button_label',
-			),
 			1100 => array(
+				'type' => 'checkbox',
+				'label' => __( 'Add custom CSS classes to submit button', 'happyforms' ),
+				'field' => 'add_submit_button_class',
+			),
+			1101 => array(
+				'type' => 'group_start',
+				'trigger' => 'add_submit_button_class'
+			),
+			1102 => array(
 				'type' => 'text',
 				'label' => __( 'Submit button CSS classes', 'happyforms' ),
-				'tooltip' => __( 'Add custom CSS classes separated by space for targeting a button in your stylesheet.', 'happyforms' ),
+				// 'tooltip' => __( 'Add custom CSS classes separated by space for targeting a button in your stylesheet.', 'happyforms' ),
 				'autocomplete' => 'off',
 				'field' => 'submit_button_html_class'
 			),
+			1103 => array(
+				'type' => 'group_end',
+			),
 			1200 => array(
 				'type' => 'checkbox',
-				'label' => __( 'Use custom HTML ID', 'happyforms' ),
+				'label' => __( 'Add custom HTML ID to form', 'happyforms' ),
 				'field' => 'use_html_id',
-				'tooltip' => __( 'Add a unique HTML ID to your form. Write without a hash (#) character.', 'happyforms' ),
+				// 'tooltip' => __( 'Add a unique HTML ID to your form. Write without a hash (#) character.', 'happyforms' ),
 			),
 			1201 => array(
 				'type' => 'group_start',
@@ -230,6 +230,32 @@ class HappyForms_Form_Setup {
 
 		$controls = apply_filters( 'happyforms_setup_controls', $controls );
 		ksort( $controls, SORT_NUMERIC );
+
+		return $controls;
+	}
+
+	public function messages_controls( $controls ) {
+		$controls[20] = array(
+			'type' => 'text',
+			'label' => __( 'Form is successfully submitted', 'happyforms' ),
+			'field' => 'confirmation_message',
+		);
+		$controls[40] = array(
+			'type' => 'text',
+			'label' => __( "Form can’t be submitted", 'happyforms' ),
+			'field' => 'error_message',
+		);
+
+		$controls[2020] = array(
+			'type' => 'text',
+			'label' => __( 'Submit form', 'happyforms' ),
+			'field' => 'submit_button_label',
+		);
+		$controls[6010] = array(
+			'type' => 'text',
+			'label' => __( 'Question is optional', 'happyforms' ),
+			'field' => 'optional_part_label',
+		);
 
 		return $controls;
 	}
@@ -342,6 +368,7 @@ class HappyForms_Form_Setup {
 		add_action( 'happyforms_form_submit_before', 'ob_start', 10, 0 );
 		add_action( 'happyforms_form_submit_after', 'ob_end_clean', 10, 0 );
 	}
+
 }
 
 if ( ! function_exists( 'happyforms_get_setup' ) ):

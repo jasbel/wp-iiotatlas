@@ -4,32 +4,64 @@
     @extend %space-top-bottom;
 
     &__title {
-        @extend %title;
+        // @extend %title;
+        margin-bottom: 40px;
+        text-align: center;
     }
 
     &__item-container {}
 
     &__item {
         text-align: center;
+        position: relative;
+        padding: 36px;
+        padding-right: 27px;
+        margin: 16px auto;
+        margin-top: 130px;
+        background-color: $color-bkg-light;
+        box-shadow: 0px 4px 4px $color-shadow-default;
+        border-radius: 20px;
+
+        max-width: 523px;
+        min-height: 549px;
+
     }
 
-    &__item-image {}
+    &__item-figure {
+        $width: 306px;
+
+        top: 21px;
+        right: -32px;
+        margin: -150px auto 33px;
+        width: $width;
+        height: $width;
+        background-color: $color-primary;
+        box-shadow: 0px 4px 4px $color-shadow-default;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    $space-for-photo: 45px;
 
     &__item-name {
-        @extend %subtitle;
-        color: $color-primary;
+        color: $color-text-primary;
+        margin-right: $space-for-photo;
+        margin-bottom: 6px;
     }
 
     &__item-position {
-        @extend %subtitle-smallest;
+        color: $color-text-primary;
+        margin-right: $space-for-photo;
+        margin-bottom: 15px;
     }
 
     &__item-description {
-        @extend %content-small;
+        // @extend %content-small;
+        color: $color-text;
     }
     
     &__social-container {
-        color: $color-text-dark;
+        color: $color-text-light;
         display: flex;
         justify-content: center;
     }

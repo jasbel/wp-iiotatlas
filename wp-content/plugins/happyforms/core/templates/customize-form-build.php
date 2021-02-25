@@ -1,7 +1,6 @@
 <script type="text/template" id="happyforms-form-build-template">
 	<div class="happyforms-stack-view">
 		<div class="customize-control">
-			<label for="" class="customize-control-title"><?php _e( 'Title', 'happyforms' ); ?></label>
 			<input type="text" name="post_title" value="<%= post_title %>" id="happyforms-form-name" placeholder="<?php _e( 'Add title', 'happyforms' ); ?>">
 		</div>
 

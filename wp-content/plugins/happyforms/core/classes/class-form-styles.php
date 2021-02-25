@@ -717,17 +717,17 @@ class HappyForms_Form_Styles {
 			),
 			3000 => array(
 				'type' => 'buttonset',
-				'label' => __( 'Description alignment', 'happyforms' ),
+				'label' => __( 'Hint alignment', 'happyforms' ),
 				'field' => 'part_description_alignment'
 			),
 			3100 => array(
 				'type' => 'range',
-				'label' => __( 'Description font size', 'happyforms' ),
+				'label' => __( 'Hint font size', 'happyforms' ),
 				'field' => 'part_description_font_size',
 			),
 			3101 => array(
 				'type' => 'custom-select',
-				'label' => __( 'Description display', 'happyforms' ),
+				'label' => __( 'Hint display', 'happyforms' ),
 				'field' => 'part_description_mode',
 			),
 			3200 => array(
@@ -762,7 +762,7 @@ class HappyForms_Form_Styles {
 			),
 			3701 => array(
 				'type' => 'color',
-				'label' => __( 'Description', 'happyforms' ),
+				'label' => __( 'Hint', 'happyforms' ),
 				'field' => 'color_part_description',
 			),
 			3800 => array(

@@ -84,7 +84,7 @@ class HappyForms_Form_Email {
 		$controls = array(
 			200 => array(
 				'type' => 'checkbox',
-				'label' => __( 'Receive submission alerts', 'happyforms' ),
+				'label' => __( 'Email me a copy of each submission', 'happyforms' ),
 				'field' => 'receive_email_alerts',
 			),
 			201 => array(
@@ -94,25 +94,25 @@ class HappyForms_Form_Email {
 			300 => array(
 				'type' => 'text',
 				'label' => __( 'Email address', 'happyforms' ),
-				'tooltip' => __( 'Add your email address here to receive a confirmation email for each form response. You can add multiple email addresses by separating each address with a comma.', 'happyforms' ),
+				// 'tooltip' => __( 'Add your email address here to receive a confirmation email for each form response. You can add multiple email addresses by separating each address with a comma.', 'happyforms' ),
 				'field' => 'email_recipient',
 			),
 			310 => array(
 				'type' => 'text',
 				'label' => __( 'Email Bcc address', 'happyforms' ),
-				'tooltip' => __( 'Add your Bcc email address here to receive a confirmation email for each form response  without appearing in the received message header. You can add multiple email addresses by separating each address with a comma.', 'happyforms' ),
+				// 'tooltip' => __( 'Add your Bcc email address here to receive a confirmation email for each form response  without appearing in the received message header. You can add multiple email addresses by separating each address with a comma.', 'happyforms' ),
 				'field' => 'email_bccs',
 			),
 			390 => array(
 				'type' => 'text',
 				'label' => __( 'Email display name', 'happyforms' ),
-				'tooltip' => __( 'You will receive an email with this sender name.', 'happyforms' ),
+				// 'tooltip' => __( 'You will receive an email with this sender name.', 'happyforms' ),
 				'field' => 'alert_email_from_name',
 			),
 			400 => array(
 				'type' => 'text',
 				'label' => __( 'Email subject', 'happyforms' ),
-				'tooltip' => __( 'Each time a user submits a message, you\'ll receive an email with this subject.', 'happyforms' ),
+				// 'tooltip' => __( 'Each time a user submits a message, you\'ll receive an email with this subject.', 'happyforms' ),
 				'field' => 'alert_email_subject',
 			),
 			490 => array(
@@ -120,7 +120,7 @@ class HappyForms_Form_Email {
 			),
 			500 => array(
 				'type' => 'checkbox',
-				'label' => __( 'Send confirmation email', 'happyforms' ),
+				'label' => __( 'Email respondent a copy of their submission', 'happyforms' ),
 				'field' => 'send_confirmation_email',
 			),
 			501 => array(
@@ -140,19 +140,19 @@ class HappyForms_Form_Email {
 			600 => array(
 				'type' => 'text',
 				'label' => __( 'Email display name', 'happyforms' ),
-				'tooltip' => __( 'If your form contains an email field, users will receive an email with this sender name.', 'happyforms' ),
+				// 'tooltip' => __( 'If your form contains an email field, users will receive an email with this sender name.', 'happyforms' ),
 				'field' => 'confirmation_email_from_name',
 			),
 			700 => array(
 				'type' => 'text',
 				'label' => __( 'Email subject', 'happyforms' ),
-				'tooltip' => __( 'If your form contains an email field, users will receive an email with this subject.', 'happyforms' ),
+				// 'tooltip' => __( 'If your form contains an email field, users will receive an email with this subject.', 'happyforms' ),
 				'field' => 'confirmation_email_subject',
 			),
 			800 => array(
 				'type' => 'editor',
 				'label' => __( 'Email content', 'happyforms' ),
-				'tooltip' => __( 'If your form contains an email field, users will receive an email with this content.', 'happyforms' ),
+				// 'tooltip' => __( 'If your form contains an email field, users will receive an email with this content.', 'happyforms' ),
 				'field' => 'confirmation_email_content',
 			),
 			810 => array(

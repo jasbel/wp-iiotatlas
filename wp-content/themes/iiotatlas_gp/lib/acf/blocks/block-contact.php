@@ -17,13 +17,7 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-contact <?php echo $align_class; ?>">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h5 class="b-contact__description"> <?php echo $contact_description;?> </h5>
-            </div>
-            <div class="col-md-4">
-                <a class="btn btn--primary-transparent b-contact__btn" href=" <?php echo esc_url($contact_link['url']);?> "  target="<?php echo esc_attr( $contact_link['target'] ); ?>" > <?php echo esc_html($contact_link['title']);?> </a>
-            </div>
-        </div>
+        <h4 class="subtitle-small b-contact__description">Quieres saber como estas tecnologias pueden ayudar a mejorar  tu empresa o proceso productivo, contactanos y prepararemos una presentación gratuita para ti.</h4>
+        <a href="#!" class="btn btn--large btn--primary b-contact__btn">CONTACTANOS</a>
     </div>
 </section>

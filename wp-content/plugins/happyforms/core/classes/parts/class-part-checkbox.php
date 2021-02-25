@@ -36,7 +36,7 @@ class HappyForms_Part_Checkbox extends HappyForms_Form_Part {
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label' => array(
-				'default' => __( 'Untitled', 'happyforms' ),
+				'default' => __( '', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label_placement' => array(
@@ -193,7 +193,7 @@ class HappyForms_Part_Checkbox extends HappyForms_Form_Part {
 		$validated_value = $value;
 
 		if ( 1 === $part['required'] && empty( $validated_value ) ) {
-			$validated_value = new WP_Error( 'error', happyforms_get_validation_message( 'field_empty' ) );
+			$validated_value = new WP_Error( 'error', happyforms_get_validation_message( 'no_selection' ) );
 			return $validated_value;
 		}
 

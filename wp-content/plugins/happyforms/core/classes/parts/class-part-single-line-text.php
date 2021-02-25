@@ -8,6 +8,7 @@ class HappyForms_Part_SingleLineText extends HappyForms_Form_Part {
 		$this->label = __( 'Short Answer', 'happyforms' );
 		$this->description = __( 'For single line text fields.', 'happyforms' );
 
+		add_filter( 'happyforms_part_value', array( $this, 'get_part_value' ), 10, 3 );
 		add_filter( 'happyforms_the_part_value', array( $this, 'output_part_value' ), 10, 3 );
 		add_filter( 'happyforms_stringify_part_value', array( $this, 'stringify_value' ), 10, 3 );
 		add_filter( 'happyforms_part_class', array( $this, 'html_part_class' ), 10, 3 );
@@ -28,7 +29,7 @@ class HappyForms_Part_SingleLineText extends HappyForms_Form_Part {
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label' => array(
-				'default' => __( 'Untitled', 'happyforms' ),
+				'default' => __( '', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label_placement' => array(
@@ -70,6 +71,10 @@ class HappyForms_Part_SingleLineText extends HappyForms_Form_Part {
 			'use_as_subject' => array(
 				'default' => 0,
 				'sanitize' => 'happyforms_sanitize_checkbox'
+			),
+			'default_value' => array(
+				'default' => '',
+				'sanitize' => 'sanitize_text_field'
 			)
 		);
 
@@ -153,6 +158,14 @@ class HappyForms_Part_SingleLineText extends HappyForms_Form_Part {
 		return $value;
 	}
 
+	public function get_part_value( $value, $part, $form ) {
+		if ( $this->type === $part['type'] ) {
+			$value = $part['default_value'];
+		}
+
+		return $value;
+	}
+
 	public function output_part_value( $value, $part, $form ) {
 		if ( $this->type === $part['type'] ) {
 			$value = stripslashes( $value );
@@ -179,7 +192,7 @@ class HappyForms_Part_SingleLineText extends HappyForms_Form_Part {
 		if ( $this->type === $part['type'] ) {
 			$empty_value = $part['prefix'] . $part['suffix'];
 			$value = happyforms_get_email_part_value( $response, $part, $form );
-				
+
 			if ( $empty_value === $value ) {
 				$visible = false;
 			}

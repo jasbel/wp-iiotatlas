@@ -1,16 +1,23 @@
 /* Contact Us ----------------------- */
 .b-contact {
     @extend %space-top-bottom;
-
-    background: linear-gradient(180deg, rgba(4, 24, 36, 0.95) 0%, rgba(5, 0, 61, 0.85) 100%);
+    text-align: center;
+    background-image: url(../images/contactanos.png);
+    background-size: cover;
+    // background: linear-gradient(180deg, rgba(4, 24, 36, 0.95) 0%, rgba(5, 0, 61, 0.85) 100%);
+    @include responsive(pt,153,50);
+    @include responsive(pb,124,50);
 
     &__description {
         @extend %subtitle-small;
-        color: $color-text-white;
+        color: $color-text-light;
+        margin-bottom: 60px;
+        @include max-width-center(927);
     }
 
     &__btn {
-        @extend %btn;
-        float:right;
+        margin-right: auto;
+        margin-left: auto;
     }
+
 }

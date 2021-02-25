@@ -8,11 +8,12 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 		$this->label = __( 'Long Answer', 'happyforms' );
 		$this->description = __( 'For paragraph text fields.', 'happyforms' );
 
+		add_filter( 'happyforms_part_value', array( $this, 'get_part_value' ), 10, 3 );
 		add_filter( 'happyforms_the_part_value', array( $this, 'output_part_value' ), 10, 3 );
 		add_filter( 'happyforms_email_part_value', array( $this, 'email_part_value' ), 10, 4 );
 		add_filter( 'happyforms_message_part_value', array( $this, 'message_part_value' ), 10, 4 );
 		add_filter( 'happyforms_part_attributes', array( $this, 'html_part_attributes' ), 10, 2 );
-		add_action( 'happyforms_part_input_after', array( $this, 'part_input_after' ) );
+		add_action( 'happyforms_part_input_after', array( $this, 'part_input_after' ), 10, 2 );
 		add_filter( 'happyforms_part_class', array( $this, 'html_part_class' ), 10, 3 );
 		add_filter( 'happyforms_frontend_dependencies', array( $this, 'script_dependencies' ), 10, 2 );
 	}
@@ -31,7 +32,7 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label' => array(
-				'default' => __( 'Untitled', 'happyforms' ),
+				'default' => __( '', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field',
 			),
 			'label_placement' => array(
@@ -88,6 +89,10 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 			'required' => array(
 				'default' => 1,
 				'sanitize' => 'happyforms_sanitize_checkbox',
+			),
+			'default_value' => array(
+				'default' => '',
+				'sanitize' => 'sanitize_text_field'
 			)
 		);
 
@@ -203,6 +208,13 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 		return $validated_value;
 	}
 
+	public function get_part_value( $value, $part, $form ){
+		if ( $this->type === $part['type'] ) {
+			$value = $part['default_value'];
+		}
+		return $value;
+	}
+
 	public function output_part_value( $value, $part, $form ) {
 		if ( $this->type === $part['type'] ) {
 			$value = stripslashes( $value );
@@ -235,22 +247,22 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 		return $mode;
 	}
 
-	private function get_limit_label( $part ) {
+	private function get_limit_label( $part, $form ) {
 		$min_or_max = '';
 		$type = '';
 
 		switch( $part['character_limit_mode'] ) {
 			case 'character_min':
-				$type = $part['characters_label'];
+				$type = $form['characters_label_min'];
 				break;
 			case 'character_max':
-				$type = $part['characters_label'];
+				$type = $form['characters_label_max'];
 				break;
 			case 'word_min':
-				$type = $part['words_label'];
+				$type = $form['words_label_min'];
 				break;
 			case 'word_max':
-				$type = $part['words_label'];
+				$type = $form['words_label_max'];
 				break;
 		}
 
@@ -281,7 +293,7 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 		return $attrs;
 	}
 
-	public function part_input_after( $part ) {
+	public function part_input_after( $part, $form ) {
 		if ( $this->type !== $part['type'] ) {
 			return;
 		}
@@ -291,9 +303,9 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 		$character_limit = $limit_input ? $character_limit : 0;
 
 		if ( $character_limit || happyforms_is_preview() ) {
-			$label = $this->get_limit_label( $part );
+			$label = $this->get_limit_label( $part, $form );
 			?>
-			<div class="happyforms-part__char-counter" <?php if ( happyforms_is_preview() && ! $character_limit ) : ?>style="display: none;"<?php endif; ?>>
+			<div class="happyforms-part__char-counter <?php echo $part['character_limit_mode']; ?>" <?php if ( happyforms_is_preview() && ! $character_limit ) : ?>style="display: none;"<?php endif; ?>>
 				<span class="counter">0</span>/<?php echo $character_limit; ?> <?php echo $label; ?>
 			</div>
 			<?php

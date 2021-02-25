@@ -19,7 +19,9 @@ class HappyForms_Core {
 	 *
 	 * @var string
 	 */
-	private $shortcode = 'happyforms';
+	private $shortcode = 'form';
+
+	private $branded_shortcode = 'happyforms';
 
 	/**
 	 * URL of plugin landing page.
@@ -69,6 +71,8 @@ class HappyForms_Core {
 			require_once( happyforms_get_core_folder() . '/classes/class-admin-notices.php' );
 		}
 
+		require_once( happyforms_get_core_folder() . '/classes/class-validation-messages.php' );
+
 		require_once( happyforms_get_core_folder() . '/classes/class-tracking.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-form-controller.php' );
 		require_once( happyforms_get_include_folder() . '/classes/class-message-controller.php' );
@@ -77,13 +81,12 @@ class HappyForms_Core {
 		require_once( happyforms_get_core_folder() . '/classes/class-form-styles.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-form-setup.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-form-email.php' );
+		require_once( happyforms_get_core_folder() . '/classes/class-form-messages.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-session.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-happyforms-widget.php' );
 		require_once( happyforms_get_core_folder() . '/helpers/helper-form-templates.php' );
 		require_once( happyforms_get_include_folder() . '/classes/class-migrations.php' );
 		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-		require_once( happyforms_get_core_folder() . '/classes/class-validation-messages.php' );
 
 		// Gutenberg block
 		if ( happyforms_is_gutenberg() ) {
@@ -102,6 +105,7 @@ class HappyForms_Core {
 		add_action( 'widgets_init', array( $this, 'register_widget' ) );
 
 		// Common hooks
+		add_shortcode( $this->branded_shortcode, array( $this, 'handle_shortcode' ) );
 		add_shortcode( $this->shortcode, array( $this, 'handle_shortcode' ) );
 		add_action( 'wp_head', array( $this, 'wp_head' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'wp_print_footer_scripts' ), 0 );
@@ -115,7 +119,6 @@ class HappyForms_Core {
 		add_action( 'wp_footer', array( $this, 'enqueue_scripts_preview' ) );
 
 		add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) );
-		add_action( 'current_screen', array( $this, 'show_help_tab' ) );
 	}
 
 	public function customize_preview_init() {
@@ -168,10 +171,10 @@ class HappyForms_Core {
 		$form_controller = happyforms_get_form_controller();
 
 		add_menu_page(
-			__( 'HappyForms Index', 'happyforms' ),
-			__( 'HappyForms', 'happyforms' ),
+			__( 'Forms', 'happyforms' ),
+			__( 'Forms', 'happyforms' ),
 			apply_filters( 'happyforms_main_page_capabilities', 'manage_options' ),
-			'happyforms', '', 'dashicons-format-status', 50
+			'happyforms', '', 'dashicons-feedback', 50
 		);
 
 		add_submenu_page(
@@ -453,7 +456,7 @@ class HappyForms_Core {
 			return;
 		}
 
-		$button_html = '<a href="#" class="button happyforms-editor-button" data-title="' . __( 'Insert HappyForm', 'happyforms' ) . '"><span class="dashicons dashicons-format-status"></span><span>'. __( 'Add HappyForms', 'happyforms' ) .'</span></a>';
+		$button_html = '<a href="#" class="button happyforms-editor-button" data-title="' . __( 'Add form', 'happyforms' ) . '"><span class="dashicons dashicons-format-status"></span><span>'. __( 'Add form', 'happyforms' ) .'</span></a>';
 
 		add_action( 'admin_footer', array( $this, 'output_happyforms_modal' ) );
 
@@ -488,6 +491,7 @@ class HappyForms_Core {
 	}
 
 	public function print_frontend_styles( $form ) {
+
 		$output = apply_filters( 'happyforms_enqueue_style', true );
 		$force_styles = apply_filters( 'happyforms_force_styles', false );
 
@@ -543,9 +547,17 @@ class HappyForms_Core {
 			array( 'jquery' ), HAPPYFORMS_VERSION, true
 		);
 
+		wp_register_script( 'happyforms-settings', '', array(), HAPPYFORMS_VERSION, true );
+
+		$settings = apply_filters( 'happyforms_frontend_settings', array(
+			'ajaxUrl' => admin_url( 'admin-ajax.php' )
+		) );
+
+		wp_localize_script( 'happyforms-settings', '_happyFormsSettings', $settings );
+
 		$dependencies = apply_filters(
 			'happyforms_frontend_dependencies',
-			array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip' ), $this->current_forms
+			array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip', 'happyforms-settings' ), $this->current_forms
 		);
 
 		$this->dependencies = $dependencies;
@@ -665,59 +677,6 @@ class HappyForms_Core {
 	 */
 	public function register_widget() {
 		register_widget( 'HappyForms_Widget' );
-	}
-
-	public function show_help_tab() {
-		$screen = get_current_screen();
-		$show = false;
-
-		if ( false !== strpos( $screen->id, 'happyforms_page' ) ) {
-			$show = true;
-		}
-
-		if ( function_exists( 'happyforms_get_message_controller' ) && happyforms_get_message_controller()->post_type === $screen->post_type ) {
-			$show = true;
-		}
-
-		if ( happyforms_get_form_controller()->post_type === $screen->post_type ) {
-			$show = true;
-		}
-
-		if ( ! $show ) {
-			return;
-		}
-
-		$screen->add_help_tab( array(
-			'id' => 'happyforms_help_tab_overview',
-			'title' => __( 'Overview', 'happyforms' ),
-			'callback' => array( $this, 'help_tab_overview_contents' )
-		) );
-
-		$sidebar_content = $this->get_help_tab_sidebar_content();
-		$screen->set_help_sidebar( $sidebar_content );
-	}
-
-	public function help_tab_overview_contents() {
-		?>
-		<p><?php _e( 'Hey 👋 Welcome to your HappyForms Dashboard!', 'happyforms' ); ?></p>
-
-		<p><?php printf(
-			__( 'Are you looking for help? Well, we’ve swept the nacho crumbs from our keyboards, refilled our ginger beers and are ready to reply with answers! So, go on, email %s.', 'happyforms' ),
-			'<a href="mailto:support@thethemefoundry.com">support@thethemefoundry.com</a>'
-		); ?></p>
-		<?php
-	}
-
-	public function get_help_tab_sidebar_content() {
-		ob_start();
-		?>
-		<p><strong><?php _e( 'For more help', 'happyforms' ); ?>:</strong></p>
-
-		<p><a href="https://happyforms.me/help-guide"><?php _e( 'Help guide', 'happyforms' ); ?></a></p>
-		<?php
-		$content = ob_get_clean();
-
-		return $content;
 	}
 
 }
