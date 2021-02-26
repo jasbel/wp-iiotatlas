@@ -33,4 +33,8 @@
             background-color:darken($color: $color-primary, $amount: 0.8)
         }
     }
+    &--center {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

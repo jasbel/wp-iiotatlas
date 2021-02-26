@@ -3,8 +3,8 @@
     $translate-item: -86px;
     @extend %space-top-bottom;
     background-color: $color-bkg-light;
-    padding-top: calc(91px  + #{$translate-item});
-    @include responsive(pt, 177, 70, 1440, 992, true);
+    padding-top: calc( - #{$translate-item});
+    @include responsive(pt, 100, 70, 1440, 992, true);
     @include responsive(pt, 70, 40, 991, 360, true);
     
     &__subtitle {
@@ -16,14 +16,17 @@
         flex-direction: row-reverse;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-bottom: $translate-item;
 
         //$tablet: 992px;
         @media only screen and (max-width: $tablet) {
-            margin-top: 90px;
+            margin-top: - $translate-item;
         }
-        //$phone: 576px
-        @media only screen and (max-width: $phone) {
+
+        //$phone-large: 768px
+        @media only screen and (max-width: $phone-large) {
             margin-top: auto;
+            margin-bottom: auto;
         }
     }
 

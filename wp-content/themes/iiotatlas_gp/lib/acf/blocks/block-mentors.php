@@ -33,7 +33,7 @@ $id = 'item-' . $block['id'];
                     $i++;
                     ?>
 
-                    <div class="col-md-6 col-lg-4 ">
+                    <div class="col-lg-6 col-lg-4 ">
                         <div class="b-mentor__item <?php echo ($i % 2 != 0) ?'': "b-mentor__item--even";?>">
                             <figure class="b-mentor__item-figure-icon"><img class="b-mentor__item-icon" src="<?php echo get_stylesheet_directory_uri();?>/assets/images/icon-atlas.png"/></figure>
                             <figure class="b-mentor__item-figure">

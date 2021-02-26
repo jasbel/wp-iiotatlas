@@ -25,6 +25,13 @@ body.one-container .container {
     margin-top: 0;
 }
 
+.site-footer>.wp-block-columns {
+    margin-bottom: 0;
+}
 p:empty {
     margin-bottom: 0;
+}
+
+.inside-article a.btn:hover {
+    color: white;
 }

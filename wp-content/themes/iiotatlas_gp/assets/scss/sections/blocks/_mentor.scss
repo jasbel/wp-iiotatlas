@@ -110,3 +110,19 @@
 
     /* Slider */
 }
+
+
+.mentor-slider{
+    .slick-dots {
+        bottom: -20px;
+
+        li {
+            &.slick-active button:before {
+                color: $color-primary;
+            }
+
+            button:before {
+            font-size: 40px;
+        }}
+    }
+}

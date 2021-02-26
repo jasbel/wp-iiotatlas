@@ -3,6 +3,7 @@
     padding: 0 50px;
     width: 100vw;
     height: 0px;
+    z-index: 10;
     @include responsive(b,60,24);
     @include responsive(pr, 50, 15);
     @include responsive(pl, 50, 15);
