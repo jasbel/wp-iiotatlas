@@ -48,10 +48,4 @@ $id = 'item-' . $block['id'];
     </div>
 
     <?php endif; ?>
-
-    <!-- <script>
-        jQuery(document).ready(function ($) {
-            jQuery('.integrate-slider').slick();
-        }
-    </script> -->
 </section>
