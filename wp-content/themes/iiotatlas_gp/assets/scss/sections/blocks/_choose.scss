@@ -4,13 +4,8 @@
     @extend %space-top-bottom;
     background-color: $color-bkg-light;
     padding-top: calc(91px  + #{$translate-item});
-<<<<<<< HEAD
     @include responsive(pt, 177, 70, 1440, 992, true);
     @include responsive(pt, 70, 40, 991, 360, true);
-=======
-
-    padding-top: calc(180px);
->>>>>>> ffea301ef76675910a7451d339312cf72386bf10
     
     &__subtitle {
         color: $color-text;
@@ -60,11 +55,8 @@
         //$phone-large: 768px
         @media only screen and (max-width: $phone-large) {
             display: flex;
-<<<<<<< HEAD
             width: 100%;
             max-width: none;
-=======
->>>>>>> ffea301ef76675910a7451d339312cf72386bf10
         }
     }
 
