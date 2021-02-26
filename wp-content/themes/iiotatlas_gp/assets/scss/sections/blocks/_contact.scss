@@ -2,17 +2,21 @@
 .b-contact {
     @extend %space-top-bottom;
     text-align: center;
-    background-image: url(../images/contactanos.png);
+    // background-image: url(../images/contactanos.png);
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     // background: linear-gradient(180deg, rgba(4, 24, 36, 0.95) 0%, rgba(5, 0, 61, 0.85) 100%);
     @include responsive(pt,153,50);
     @include responsive(pb,124,50);
 
     &__description {
-        @extend %subtitle-small;
         color: $color-text-light;
-        margin-bottom: 60px;
+        @include responsive(mb,66,31);
+        @include responsive(lh,30,23);
         @include max-width-center(927);
+        @include responsive(fz,28,17);
+
     }
 
     &__btn {

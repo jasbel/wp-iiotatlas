@@ -34,8 +34,8 @@
 }
 
 
-//How to use:   @include responsive(font-size, 60, 39, 1440, 375) or  @include  responsive(fz, 60, 39, 1440, 375) or  @include  responsive(fz, 60px, 39px, 1440, 375)
-@mixin responsive($attr:'', $size-max:'', $size-min: '', $w-max: $desktop-responsive, $w-min: $phone-responsive) {
+//How to use:   @include responsive(font-size, 60, 39, 1440, 375) or  @include  responsive(fz, 60, 39, 1440, 375) or  @include  responsive(fz, 60px, 39px, 1440, 375, false)
+@mixin responsive($attr:'', $size-max:'', $size-min: '', $w-max: $desktop-responsive, $w-min: $phone-responsive, $only-med-query: false  ) {
 
     @if $size-min == '' {
         $size-min: $size-max;
@@ -103,8 +103,10 @@
         $property: $attr;
     }
 
-    //impress attribute your styles css
-    #{$property}: $size-max-px;
+    @if( not $only-med-query ) {
+        //impress attribute your styles css
+        #{$property}: $size-max-px;
+    }
 
     @if($size-max-px != $size-min-px) {
 

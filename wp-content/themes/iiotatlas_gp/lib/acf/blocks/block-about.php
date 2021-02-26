@@ -18,10 +18,6 @@ $about_link = get_field('about_link') ? get_field('about_link') : [
     'title' => 'Ver Mas',
 ];
 
-if($about_image == '') { $about_image = get_stylesheet_directory_uri()."/assets/images/default-min.png" ;
-    echo' <h1>'. $about_image .' </h1>';
-}
-
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
@@ -37,8 +33,8 @@ $id = 'item-' . $block['id'];
             <div class="col-lg-6">
                 <div class="b-about__content">
                     <!-- <div> -->
-                        <h2 class="title b-about__title"> <?php echo $about_title ?></h2>
-                        <p class="b-about__description"> <?php echo $about_description ?> </p>
+                    <h2 class="title b-about__title"> <?php echo $about_title ?></h2>
+                    <p class="b-about__description"> <?php echo $about_description ?> </p>
                     <!-- </div> -->
                     <a class="btn btn--large b-about__btn" href=" <?php echo esc_url($about_link['url']);?> "  target="<?php echo esc_attr( $about_link['target'] ); ?>" > <?php echo esc_html($about_link['title']);?> </a>
                 </div>

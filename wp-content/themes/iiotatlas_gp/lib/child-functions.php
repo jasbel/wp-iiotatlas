@@ -475,7 +475,7 @@ function wp_force_remove_style(){
         return $styles;
         });
 }
-// add_action('wp_enqueue_scripts', 'wp_force_remove_style', 99);
+//add_action('wp_enqueue_scripts', 'wp_force_remove_style', 99);
 
 // function generate_replace_inline_css() {
 //     wp_dequeue_style( 'generate-style' );

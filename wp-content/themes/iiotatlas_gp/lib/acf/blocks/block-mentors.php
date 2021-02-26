@@ -19,18 +19,21 @@ $id = 'item-' . $block['id'];
         <h2 class="title b-mentor__title"><?php echo $mentor_title;?> </h2>
 
         <div class="b-mentor__item-container">
-            <div class="row gx-0">
+            <div class="row gx-0 mentor-slider">
                 <?php if(!empty($mentor_items)): ?>
                 <?php $i=0;?>
                 <?php foreach( $mentor_items as $item ):
-                    $image = $item['image'];
+                    $image = $item['image']?: [
+                        'url' => get_stylesheet_directory_uri()."/assets/images/default-min.png",
+                        'alt' => 'default',
+                    ];
                     $name = $item['name'];
                     $position = $item['position'];
                     $description = $item['description'];
                     $i++;
                     ?>
 
-                    <div class="col-md-4 ">
+                    <div class="col-md-6 col-lg-4 ">
                         <div class="b-mentor__item <?php echo ($i % 2 != 0) ?'': "b-mentor__item--even";?>">
                             <figure class="b-mentor__item-figure-icon"><img class="b-mentor__item-icon" src="<?php echo get_stylesheet_directory_uri();?>/assets/images/icon-atlas.png"/></figure>
                             <figure class="b-mentor__item-figure">

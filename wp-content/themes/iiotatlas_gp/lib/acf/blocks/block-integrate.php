@@ -21,19 +21,16 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-integrate <?php echo $pos_ola.' '.$align_class; ?>">
-    <!-- <?php 
-        echo '<pre>';
-        var_dump($integrate_ola);
-        echo '</pre>';
-    ?> -->
     <figure class="b-integrate__ola ola <?php echo $pos_item_ola;?>">
         <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/<?php echo $ola_name;?>">
     </figure>
+
     <div class="container">
-        <h3 class="subtitle b-integrate__title <?php echo $title_space;?>">Integración de  tecnologias de distintos fabricantes </h3>
+        <h3 class="subtitle b-integrate__title <?php echo $title_space;?>"><?php echo $integrate_title;?></h3>
     </div>
+
     <?php if(!empty($integrate_items)): ?>
-    <div class="b-integrate__items">
+    <div class="b-integrate__items integrate-slider">
 
         <?php foreach( $integrate_items as $item ):
             $image = $item['image'] ?: [
@@ -41,10 +38,20 @@ $id = 'item-' . $block['id'];
                 'alt' => 'default',
             ];
             ?>
-            <figure class="b-integrate__item">
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-            </figure>
+            <div class="b-integrate__item">
+                <figure class="b-integrate__figure">
+                    <img class="b-integrate__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                </figure>
+            </div>
         <?php endforeach; ?>
+
     </div>
+
     <?php endif; ?>
+
+    <!-- <script>
+        jQuery(document).ready(function ($) {
+            jQuery('.integrate-slider').slick();
+        }
+    </script> -->
 </section>

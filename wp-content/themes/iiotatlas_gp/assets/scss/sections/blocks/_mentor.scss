@@ -6,6 +6,7 @@
     &__title {
         // @extend %title;
         margin-bottom: 40px;
+        @include responsive(mb,40,30);
         text-align: center;
     }
 
@@ -32,16 +33,28 @@
 
         //$phone-large: 768px
         @media only screen and (max-width: $phone-large) {
-            margin-top: 15px;
+            
+            margin: 40px auto;
+            margin-top: 70px;
+            padding: 30px 15px;
+            text-align: center;
         }
 
         &--even {
             margin-top: 0;
+            //$phone-large: 768px
+            @media only screen and (max-width: $phone-large) {
+                margin-top: 70px;
+            }
         }
 
     }
     &__item-figure-icon {
         margin-bottom: 15px;
+        //$phone-large: 768px
+        @media only screen and (max-width: $phone-large) {
+            position: absolute;
+        }
     }
 
     &__item-figure {
@@ -55,6 +68,16 @@
         background-color: $color-bkg-light;
         position: absolute;
         box-shadow: 0px 4px 4px $color-shadow-default;
+
+        //$phone-large: 768px
+        @media only screen and (max-width: $phone-large) {
+            position: static;
+            width: 242px;
+            height: 198px;
+            margin: auto;
+            margin-bottom: 21px;
+            margin-top: -98px;
+        }
     }
 
     $space-for-photo: 45px;
