@@ -406,19 +406,110 @@ function register_acf_block_types()
         'keywords' => ['block', 'mentors', 'home'],
     ]);
 
-    /* TODO: delete */
-    /* why us */
+
+    /* Services */
+    /* Services */
     acf_register_block([
-        'name' => 'section-why',
-        'title' => __('Block - Why Us'),
-        'description' => __('A custom Home block Why Us.'),
-        'render_template' => 'lib/acf/blocks/block-why.php',
+        'name' => 'section-services',
+        'title' => __('Block - Service'),
+        'description' => __('A custom Home services.'),
+        'render_template' => 'lib/acf/blocks/block-services.php',
         'category' => 'customblocks',
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
-        'keywords' => ['block', 'why us', 'home'],
+        'keywords' => ['block', 'services', 'home'],
     ]);
-/* TODO: delete */
+
+    /* functionality */
+    acf_register_block([
+        'name' => 'section-functionality',
+        'title' => __('Block - Functionality'),
+        'description' => __('A custom functionality.'),
+        'render_template' => 'lib/acf/blocks/block-functionality.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'functionality'],
+    ]);
+    /* compatible */
+    acf_register_block([
+        'name' => 'section-compatible',
+        'title' => __('Block - Compatible'),
+        'description' => __('A custom compatible.'),
+        'render_template' => 'lib/acf/blocks/block-compatible.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'compatible'],
+    ]);
+    /* advantage */
+    acf_register_block([
+        'name' => 'section-advantage',
+        'title' => __('Block - Advantage'),
+        'description' => __('A custom advantage.'),
+        'render_template' => 'lib/acf/blocks/block-advantage.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'advantage'],
+    ]);
+    /* architecture */
+    acf_register_block([
+        'name' => 'section-architecture',
+        'title' => __('Block - Architecture'),
+        'description' => __('A custom architecture.'),
+        'render_template' => 'lib/acf/blocks/block-architecture.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'architecture'],
+    ]);
+    /* actual */
+    acf_register_block([
+        'name' => 'section-actual',
+        'title' => __('Block - Actual'),
+        'description' => __('A custom actual.'),
+        'render_template' => 'lib/acf/blocks/block-actual.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'actual'],
+    ]);
+
+    /* Nosotros */
+    /* we */
+    acf_register_block([
+        'name' => 'section-we',
+        'title' => __('Block - We'),
+        'description' => __('A custom we.'),
+        'render_template' => 'lib/acf/blocks/block-we.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'we'],
+    ]);
+    /* mvsion */
+    acf_register_block([
+        'name' => 'section-mvsion',
+        'title' => __('Block - Mission - Vision'),
+        'description' => __('A custom Mission and Vision.'),
+        'render_template' => 'lib/acf/blocks/block-mvsion.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'mvsion'],
+    ]);
+    /* achievement */
+    acf_register_block([
+        'name' => 'section-achievement',
+        'title' => __('Block - Achievement'),
+        'description' => __('A custom achievement.'),
+        'render_template' => 'lib/acf/blocks/block-achievement.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'achievement'],
+    ]);
     /* team */
     acf_register_block([
         'name' => 'section-team',
@@ -431,29 +522,39 @@ function register_acf_block_types()
         'keywords' => ['block', 'team', 'home'],
     ]);
 
-    /* TODO: delete */
-    /* client */
+    /* Contact */
+    /* form */
     acf_register_block([
-        'name' => 'section-client',
-        'title' => __('Block - Client'),
-        'description' => __('A custom Home client.'),
-        'render_template' => 'lib/acf/blocks/block-client.php',
+        'name' => 'section-form',
+        'title' => __('Block - Form'),
+        'description' => __('A custom form.'),
+        'render_template' => 'lib/acf/blocks/block-form.php',
         'category' => 'customblocks',
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
-        'keywords' => ['block', 'client', 'home'],
+        'keywords' => ['block', 'form'],
     ]);
-    /* TODO: delete */
-    /* Services */
+    /* location */
     acf_register_block([
-        'name' => 'section-services',
-        'title' => __('Block - Services'),
-        'description' => __('A custom Home services.'),
-        'render_template' => 'lib/acf/blocks/block-services.php',
+        'name' => 'section-location',
+        'title' => __('Block - Location'),
+        'description' => __('A custom location.'),
+        'render_template' => 'lib/acf/blocks/block-location.php',
         'category' => 'customblocks',
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
-        'keywords' => ['block', 'services', 'home'],
+        'keywords' => ['block', 'location'],
+    ]);
+    /* map */
+    acf_register_block([
+        'name' => 'section-map',
+        'title' => __('Block - Map'),
+        'description' => __('A custom map.'),
+        'render_template' => 'lib/acf/blocks/block-map.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'map'],
     ]);
 }
 // Check if function exists and hook into setup.

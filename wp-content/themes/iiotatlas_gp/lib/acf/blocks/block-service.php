@@ -1,27 +1,27 @@
 <?php
 /**
- * Block Name: Our Clients
+ * Block Name: Our services
  *
  * This is the template that displays the About Our
  */
 
-$client_title = get_field('client_title') ? get_field('client_title') : '';
-$client_items = get_field('client_items') ? get_field('client_items') : '';
+$service_title = get_field('service_title') ? get_field('service_title') : '';
+$service_items = get_field('service_items') ? get_field('service_items') : '';
 
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
 ?>
-<section id="<?php echo $id; ?>" class="b-client <?php echo $align_class; ?>">
+<section id="<?php echo $id; ?>" class="b-service <?php echo $align_class; ?>">
     <div class="container">
-        <h2 class="b-client__title"><?php echo $client_title;?></h2>
+        <h2 class="b-service__title"><?php echo $service_title;?></h2>
         <div class="row">
-            <?php if(!empty($client_items)): ?>
-            <?php foreach( $client_items as $item ):
+            <?php if(!empty($service_items)): ?>
+            <?php foreach( $service_items as $item ):
                 $image = $item['image'];
                 ?>
                 <div class="col-3">
-                    <figure class="b-client__image">
+                    <figure class="b-service__image">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     </figure>
                 </div>
