@@ -1,49 +1,45 @@
 .b-actual {
-    &__figure {}
+    $height-ola: 90px;
+    @extend %space-top-bottom;
+    padding-top: 0;
+    background-color: $color-bkg-light;
+    position: relative;
+    margin-top: $height-ola;
 
-    &__image {}
+    &__ola {
+        position: absolute;
+        top: 0;
+        transform: translateY(-100%);
+
+        img {
+            width: 100vw;
+            transform: rotate(180deg) scaleY(-1);
+        }
+    }
+
+    &__figure {
+        position: relative;
+    }
+
+    &__image {
+        position: absolute;
+        top: -100px;
+    }
 
     &__content {}
 
-    &__title {}
-
-    &__subtitle {}
-
-    &__description {}
-}
-
-.b-actual {
-    @extend %space-top-bottom;
-
-    &__figure {
-        //$phone-large: 768px
-        @media only screen and (max-width: $phone-large) {
-            margin-top: 10px;
-        }
+    &__title {
+        @include responsive(mb,16,16);
     }
-
-    &__image {}
-
-    &__content {
-        max-width: 455px;
-        &--even {
-            margin-left: auto;
-            margin-right: 42px;
-            //$phone-large: 768px
-            @media only screen and (max-width: $phone-large) {
-                margin-left: 0;
-            }
-            //$tablet: 992px;
-            @media only screen and (max-width: $tablet) {
-                margin-right: auto;
-            }
-        }
-    }
-
-    &__title {}
 
     &__subtitle {
-        color: $color-text;
+        @include responsive(mb,16,16);
     }
-    &__description {}
+
+    &__description {
+        margin-bottom: 50px;
+        p {
+            margin-bottom: 16px;
+        }
+    }
 }

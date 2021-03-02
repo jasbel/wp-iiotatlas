@@ -1,0 +1,20 @@
+.b-floating {
+    position: relative;
+    padding-top: 280px;
+    &__content {
+        position: absolute;
+        top: -350px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        @include max-width-center(890);
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    &__image {
+        min-height: 580px;
+    }
+
+    &__video {}
+}

@@ -8,12 +8,13 @@
  //ACF personalize
 $compatible_title = get_field('compatible_title') ? get_field('compatible_title') : '';
 $compatible_items = get_field('compatible_items') ? get_field('compatible_items') : '';
+$compatible_bkg = get_field('compatible_bkg') ? get_field('compatible_bkg') : '';
 
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
 ?>
-<section id="<?php echo $id; ?>" class="b-compatible <?php echo $align_class; ?>" style="background-image:url(...)">
+<section id="<?php echo $id; ?>" class="b-compatible <?php echo $align_class; ?>" style="background-image: url(<?php echo $compatible_bkg?>);">
     <div class="container">
         <h2 class="title b-compatible__title"> <?php echo $compatible_title;?> </h2>
 

@@ -1,0 +1,14 @@
+.b-architecture {
+    @extend %space-top-bottom;
+    text-align: center;
+
+    &__title {
+        @include responsive(mb,80,30);
+    }
+
+    &__figure {
+        @include responsive(mb,40,15);
+    }
+
+    &__image {}
+}

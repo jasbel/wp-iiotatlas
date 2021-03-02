@@ -2,6 +2,7 @@
 .b-service {
     text-align: center;
     @extend %space-top-bottom;
+    @include responsive(pb,48,30);
     &__title {
         margin-bottom: 31px;
         @include max-width-center(935);

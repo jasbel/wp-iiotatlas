@@ -3,5 +3,8 @@
 .ptar {
     .page-hero {
         min-height: 800px;
+        h1 {
+            @include max-width-center(937);
+        }
     }
 }

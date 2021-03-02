@@ -1,15 +1,29 @@
 .b-advantage {
-    &__title {}
+    text-align: center;
+    @extend %space-top-bottom;
 
-    &__images {}
+    &__title {
+        @include responsive(mb,35,30);
+    }
+
+    &__images {
+        // margin-bottom: 40px;
+        @include responsive(mb,40,25);
+    }
 
     &__image-figure {}
 
     &__items {}
 
-    &__item {}
+    &__item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 62px;
+    }
 
-    &__item-title {}
+    &__item-title {
+        @include responsive(mb,27,16);
+    }
 
     &__item-description {}
 

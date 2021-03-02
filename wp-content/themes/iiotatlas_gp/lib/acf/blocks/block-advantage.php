@@ -53,7 +53,7 @@ $id = 'item-' . $block['id'];
                 </div>
             <?php endforeach; ?>
         </div>
-        <a class="btn btn--primary btn--large b-advantage__btn" href=" <?php echo esc_url($advantage_link['url']);?> "  target="<?php echo esc_attr( $advantage_link['target'] ); ?>" >
+        <a class="btn btn--primary btn--large mx-auto b-advantage__btn" href=" <?php echo esc_url($advantage_link['url']);?> "  target="<?php echo esc_attr( $advantage_link['target'] ); ?>" >
             <?php echo esc_html($advantage_link['title']);?>
         </a>
         <?php endif; ?>

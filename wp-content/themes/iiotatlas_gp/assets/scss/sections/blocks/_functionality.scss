@@ -1,7 +1,21 @@
 /* block extension */
 .b-functionality {
     @extend %space-top-bottom;
+    @include responsive(pt,51,35);
     background-color: $color-bkg-light;
+    
+    position: relative;
+    margin-top: 90px;
+    &__ola {
+        position: absolute;
+        top: 0;
+        transform: translateY(-100%);
+
+        img {
+            width: 100vw;
+            // transform: rotate(180deg) scaleY(-1);
+        }
+    }
 
     &__title {
         text-align: center;

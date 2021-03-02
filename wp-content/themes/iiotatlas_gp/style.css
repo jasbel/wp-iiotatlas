@@ -35,3 +35,7 @@ p:empty {
 .inside-article a.btn:hover {
     color: white;
 }
+
+.page-hero h1 {
+    text-transform: none;
+}

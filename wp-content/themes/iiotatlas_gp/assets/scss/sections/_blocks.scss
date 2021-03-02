@@ -1,4 +1,5 @@
 /** Block -------------------*/
+//Home
 @import 'blocks/about';
 @import 'blocks/why';
 @import 'blocks/integrate';
@@ -8,14 +9,17 @@
 @import 'blocks/contact';
 @import 'blocks/mentor';
 
+//Services
+@import 'blocks/floating';
+@import 'blocks/service';
+@import 'blocks/functionality';
+@import 'blocks/architecture';
 @import 'blocks/actual';
 @import 'blocks/compatible';
 @import 'blocks/advantage';
-
 @import 'blocks/team';
-@import 'blocks/service';
-@import 'blocks/functionality';
 
+//About
 @import 'blocks/we';
 @import 'blocks/mvsion';
 @import 'blocks/achievement';

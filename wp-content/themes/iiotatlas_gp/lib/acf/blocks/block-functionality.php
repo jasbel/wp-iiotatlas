@@ -14,6 +14,9 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-functionality <?php echo $align_class; ?>">
+    <figure class="b-functionality__ola ola ">
+        <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/ola.svg">
+    </figure>
     <div class="container">
         <h2 class="title b-functionality__title"> <?php echo $functionality_title;?> </h2>
 

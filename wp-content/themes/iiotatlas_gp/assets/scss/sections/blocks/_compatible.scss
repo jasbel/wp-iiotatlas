@@ -3,35 +3,39 @@
     
     @extend %space-top-bottom;
     background-color: $color-bkg-light;
+    background-size: cover;
     position: relative;
 
-    margin-top: 90px;
+    // margin-top: 90px;
 
-    &--ola-bottom {
-        margin-top: 0;
-        margin-bottom: 90px;
-    }
+    // &--ola-bottom {
+    //     margin-top: 0;
+    //     margin-bottom: 90px;
+    // }
 
-    &__ola {
+    // &__ola {
         
-        position: absolute;
-        top: 0;
-        transform: translateY(-100%);
+    //     position: absolute;
+    //     top: 0;
+    //     transform: translateY(-100%);
 
-        &--bottom {
-            transform: translateY(100%);
-            top: auto;
-            bottom: 0;
-        }
+    //     &--bottom {
+    //         transform: translateY(100%);
+    //         top: auto;
+    //         bottom: 0;
+    //     }
         
-        img {
-            width: 100vw;
-        }
-    }
+    //     img {
+    //         width: 100vw;
+    //     }
+    // }
 
     &__title {
         text-align: center;
-        margin-bottom: 42px;
+        padding-top: 3px;
+        margin-bottom: 66px;
+        color: $color-text-white;
+        @include max-width-center(1029);
         &--space-bottom {
             margin-bottom: 64px;
         }
@@ -39,17 +43,17 @@
 
     &__items {
         display:flex;
-        justify-content:center;
+        justify-content:space-between;
         align-items:center;
+        flex-wrap: wrap;
     }
 
     &__item-figure {
-        max-width: 275px;
         padding-right: 5px;
         padding-left: 5px;
 
-        margin: auto;
         max-width: 252px;
+        margin:30px 0;
 
         img {
             margin: auto;
@@ -57,15 +61,15 @@
     }
 
     // value
-    &--ola-bottom &__ola{
-        transform: translateY(100%);
-        top: auto;
-        bottom: 0;
-    }
+    // &--ola-bottom &__ola{
+    //     transform: translateY(100%);
+    //     top: auto;
+    //     bottom: 0;
+    // }
 }
 
-.integrate-slider {
-    .slick-track {
-        @include responsive(ml,-33,-60);
-    }
-}
+// .integrate-slider {
+//     .slick-track {
+//         @include responsive(ml,-33,-60);
+//     }
+// }

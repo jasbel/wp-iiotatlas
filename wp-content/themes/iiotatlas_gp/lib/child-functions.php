@@ -408,6 +408,17 @@ function register_acf_block_types()
 
 
     /* Services */
+    /* floating Video */
+    acf_register_block([
+        'name' => 'section-floating',
+        'title' => __('Block - Floating'),
+        'description' => __('A custom Service Floating.'),
+        'render_template' => 'lib/acf/blocks/block-floating.php',
+        'category' => 'customblocks',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'float', 'Service'],
+    ]);
     /* Service */
     acf_register_block([
         'name' => 'section-service',
