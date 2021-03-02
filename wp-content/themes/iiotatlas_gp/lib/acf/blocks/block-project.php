@@ -18,10 +18,6 @@ $project_link = get_field('project_link') ? get_field('project_link') : [
     'title' => 'Ver Mas',
 ];
 
-if($project_image == '') { $project_image = get_stylesheet_directory_uri()."/assets/images/default-min.png" ;
-    echo' <h1>'. $project_image .' </h1>';
-}
-
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
@@ -33,9 +29,9 @@ $id = 'item-' . $block['id'];
                 <div class="b-project__content">
                     <h2 class=" title b-project__title"> <?php echo $project_title;?></h2>
                     <p class="description-large b-project__description"><?php echo $project_description;?></p>
-                    <a class="btn btn--primary b-project__btn" href=" <?php echo esc_url($project_link['url']);?> "  target="<?php echo esc_attr( $project_link['target'] ); ?>" >
+                    <a class="btn btn--primary b-project__btn" href=" <?php echo esc_url($project_link['url']);?> "  target="<?php echo esc_attr($project_link['target']); ?>" >
                         <?php echo esc_html($project_link['title']);?>
-                      </a>
+                    </a>
                 </div>
             </div>
             <div class="col-md-5 col-xl-6 order-1 order-md-2">

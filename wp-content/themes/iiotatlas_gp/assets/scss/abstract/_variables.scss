@@ -71,9 +71,12 @@ $color-shadow-default: rgba(0, 0, 0, 0.25);
 
 
 // ---------------------------------- \\
-// Grid Bootstrap ?
+// Boostrap 5 change value
 // ---------------------------------- \\
+// Grid Bootstrap ?
 $grid-columns: 12;
+//disable important in b5 (!default)
+$enable-important-utilities:  false;
 
 // ---------------------------------- \\
 // Variables for Media queries and B5
@@ -99,3 +102,5 @@ $desktop-x-large: 1950px;
 $phone-responsive: 360;
 $tablet-responsive: 992;
 $desktop-responsive: 1440;
+
+

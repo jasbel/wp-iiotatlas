@@ -2,6 +2,7 @@
 /* Our Team ----------------------- */
 .b-team {
     @extend %space-top-bottom;
+    background-size: cover;
 
     &__title {
         // @extend %title;
@@ -23,7 +24,8 @@
         border-radius: 20px;
 
         max-width: 523px;
-        min-height: 549px;
+        // min-height: 549px;
+        min-height: 625px;
 
     }
 

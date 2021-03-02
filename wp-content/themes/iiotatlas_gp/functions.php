@@ -47,3 +47,18 @@ function add_block_editor_assets()
 }
 add_action('enqueue_block_editor_assets', 'add_block_editor_assets', 10, 0);
 
+/**
+ * Add custom field body class(es) to the body classes.
+ * @param array $classes Existing body classes.
+ * @return array Amended body classes.
+ */
+function custom_body_class( array $classes ) {
+    $new_class = is_page() ? get_post_meta( get_the_ID(), 'body_class', true ) : null;
+    
+	if ( $new_class ) {
+        $classes[] = $new_class;
+	}
+    
+	return $classes;
+}
+add_filter( 'body_class', 'custom_body_class' );

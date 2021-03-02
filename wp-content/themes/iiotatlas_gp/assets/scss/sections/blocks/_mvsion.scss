@@ -1,0 +1,54 @@
+.b-mvsion {
+    background-color: $color-bkg-light;
+    position: relative;
+    padding-bottom: 110px;
+
+    &--ola-bottom {
+        margin-top: 0;
+        margin-bottom: 90px;
+    }
+
+    &__ola {
+        
+        position: absolute;
+        top: 0;
+        transform: translateY(-100%);
+
+        &--bottom {
+            transform: translateY(100%);
+            top: auto;
+            bottom: 0;
+        }
+        
+        img {
+            width: 100vw;
+        }
+    }
+    &__item {
+        @include max-width-center(527);
+        text-align: center;
+
+        &--mission {}
+
+        &--vision {
+            margin-top: 66px;
+        }
+    }
+
+    &__figure {
+        margin-bottom: -72px;
+    }
+
+    &__title {
+        text-transform: capitalize;
+        margin-bottom: 30px;
+    }
+
+    &__description {}
+
+    &--ola-bottom &__ola{
+        transform: translateY(100%);
+        top: auto;
+        bottom: 0;
+    }
+}

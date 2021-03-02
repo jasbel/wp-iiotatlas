@@ -1,0 +1,49 @@
+.b-actual {
+    &__figure {}
+
+    &__image {}
+
+    &__content {}
+
+    &__title {}
+
+    &__subtitle {}
+
+    &__description {}
+}
+
+.b-actual {
+    @extend %space-top-bottom;
+
+    &__figure {
+        //$phone-large: 768px
+        @media only screen and (max-width: $phone-large) {
+            margin-top: 10px;
+        }
+    }
+
+    &__image {}
+
+    &__content {
+        max-width: 455px;
+        &--even {
+            margin-left: auto;
+            margin-right: 42px;
+            //$phone-large: 768px
+            @media only screen and (max-width: $phone-large) {
+                margin-left: 0;
+            }
+            //$tablet: 992px;
+            @media only screen and (max-width: $tablet) {
+                margin-right: auto;
+            }
+        }
+    }
+
+    &__title {}
+
+    &__subtitle {
+        color: $color-text;
+    }
+    &__description {}
+}

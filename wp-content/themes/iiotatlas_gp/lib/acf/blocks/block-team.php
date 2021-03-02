@@ -8,12 +8,13 @@
 //ACF personalize
 $team_title = get_field('team_title') ? get_field('team_title') : 'Nuestro Equipo';
 $team_items = get_field('team_items') ? get_field('team_items') : '';
+$team_bkg = get_field('team_bkg') ? get_field('team_bkg') : '';
 
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $id = 'item-' . $block['id'];
 ?>
-<section id="<?php echo $id; ?>" class="b-team <?php echo $align_class; ?>">
+<section id="<?php echo $id; ?>" class="b-team <?php echo $align_class; ?>" style="background-image: url(<?php echo $team_bkg?>);">
         <div class="container">
         <h2 class="title b-team__title"><?php echo $team_title;?> </h2>
 

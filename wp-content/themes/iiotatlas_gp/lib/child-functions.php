@@ -408,16 +408,16 @@ function register_acf_block_types()
 
 
     /* Services */
-    /* Services */
+    /* Service */
     acf_register_block([
-        'name' => 'section-services',
+        'name' => 'section-service',
         'title' => __('Block - Service'),
-        'description' => __('A custom Home services.'),
-        'render_template' => 'lib/acf/blocks/block-services.php',
+        'description' => __('A custom Home service.'),
+        'render_template' => 'lib/acf/blocks/block-service.php',
         'category' => 'customblocks',
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
-        'keywords' => ['block', 'services', 'home'],
+        'keywords' => ['block', 'service', 'home'],
     ]);
 
     /* functionality */

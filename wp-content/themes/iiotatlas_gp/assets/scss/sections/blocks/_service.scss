@@ -1,0 +1,27 @@
+/* Services and Proyects ----------------------- */
+.b-service {
+    text-align: center;
+    @extend %space-top-bottom;
+    &__title {
+        margin-bottom: 31px;
+        @include max-width-center(935);
+     }
+    &__subtitle { 
+        margin-bottom: 50px;
+        color: $color-text;
+    }
+    &__image {
+        text-align:center;
+        margin-bottom: 24px;
+    }
+
+    &__description {
+        @extend %subtitle-small;
+        text-align:center;
+    }
+
+    &__btn {
+        @extend .mx-auto;
+    }
+
+}

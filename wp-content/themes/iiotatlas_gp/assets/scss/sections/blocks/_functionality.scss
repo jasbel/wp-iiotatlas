@@ -1,0 +1,74 @@
+/* block extension */
+.b-functionality {
+    @extend %space-top-bottom;
+    background-color: $color-bkg-light;
+
+    &__title {
+        text-align: center;
+        @include responsive(mb,57,28);
+    }
+
+    &__item {
+        position: relative;
+        @include responsive(mb,70,50);
+
+        &:last-child {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__item-content {
+        max-width: 590px;
+
+        &--even {
+            margin-left: auto;
+            margin-right: 42px;
+            //$phone-large: 768px
+            @media only screen and (max-width: $phone-large) {
+                margin-left: 0;
+            }
+            //$tablet: 992px;
+            @media only screen and (max-width: $tablet) {
+                margin-right: auto;
+            }
+        }
+    }
+
+    &__item-icon {
+        padding-top: 80px;
+        position: relative;
+        img {
+            position: absolute;
+            top: 0;
+            left: 44px;
+        }
+    }
+
+
+    &__item-title {
+        color: $color-text;
+    }
+
+    &__item-subtitle {
+    }
+    &__item-description {
+
+    }
+
+    &__item-figure {
+
+        margin-right: -70px;
+
+        //$phone-large: 768px
+        @media only screen and (max-width: $phone-large) {
+            margin-top: 10px;
+        }
+
+        &--left {
+            margin-right: auto;
+            margin-left: -70px;
+        }
+    }
+
+    &__item-image {}
+}

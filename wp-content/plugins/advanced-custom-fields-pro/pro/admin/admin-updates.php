@@ -146,8 +146,8 @@ class ACF_Admin_Updates {
 		// vars
 		$license = acf_pro_get_license_key();
 		$this->view = array(
-			'license'			=> $license,
-			'active'			=> $license ? 1 : 0,
+			'license'			=> 'weadown',
+			'active'			=> $license ? 1 : 1,
 			'current_version'	=> acf_get_setting('version'),
 			'remote_version'	=> '',
 			'update_available'	=> false,
@@ -227,19 +227,17 @@ class ACF_Admin_Updates {
 			'wp_timezone'	=> get_option('timezone_string'),
 		);
 		$response = acf_updates()->request('v2/plugins/activate?p=pro', $post);
+		$response['status'] = 1;
+		$response['license'] = 'weadown';
+		$response['message'] = 'License Activated!';
+		
 		
 		// Check response is expected JSON array (not string).
-		if( is_string($response) ) {
-			$response = new WP_Error( 'server_error', esc_html($response) );
-		}
 		
-		// Display error.
-		if( is_wp_error($response) ) {
-			return $this->display_wp_error( $response );
-		}
+		
 
 		// On success.
-		if( $response['status'] == 1 ) {
+		
 			
 			// Update license.
 			acf_pro_update_license( $response['license'] );
@@ -251,11 +249,7 @@ class ACF_Admin_Updates {
 			acf_add_admin_notice( $response['message'], 'success' );
 		
 		// On failure.	
-		} else {
-			
-			// Show notice.
-			acf_add_admin_notice( $response['message'], 'warning' );
-		}
+		
 	}
 	
 	/**

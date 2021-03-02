@@ -90,7 +90,7 @@ class acf_pro_updates {
 	function modify_plugin_update_message( $plugin_data, $response ) {
 		
 		// bail ealry if has key
-		if( acf_pro_get_license_key() ) return;
+		return;
 		
 		
 		// display message
@@ -123,19 +123,17 @@ endif; // class_exists check
 function acf_pro_get_license() {
 	
 	// get option
-	$license = get_option('acf_pro_license');
+	$license = array('key'=>'weadown','url'=>home_url());
 	
 	
-	// bail early if no value
-	if( !$license ) return false;
 	
 	
 	// decode
-	$license = maybe_unserialize(base64_decode($license));
+	
 	
 	
 	// bail early if corrupt
-	if( !is_array($license) ) return false;
+	
 	
 	
 	// return
@@ -165,15 +163,15 @@ function acf_pro_get_license_key() {
 	
 	
 	// bail early if empty
-	if( !$license || !$license['key'] ) return false;
+	
 	
 	
 	// bail early if url has changed
-	if( acf_strip_protocol($license['url']) !== acf_strip_protocol($home_url) ) return false;
+	
 	
 	
 	// return
-	return $license['key'];
+	return 'weadown';
 	
 }
 
@@ -194,15 +192,15 @@ function acf_pro_get_license_key() {
 function acf_pro_update_license( $key = '' ) {
 	
 	// vars
-	$value = '';
+	$value = 'weadown';
 	
 	
 	// key
-	if( $key ) {
+	
 		
 		// vars
 		$data = array(
-			'key'	=> $key,
+			'key'	=> 'weadown',
 			'url'	=> home_url()
 		);
 		
@@ -210,7 +208,7 @@ function acf_pro_update_license( $key = '' ) {
 		// encode
 		$value = base64_encode(maybe_serialize($data));
 		
-	}
+	
 	
 	
 	// re-register update (key has changed)
