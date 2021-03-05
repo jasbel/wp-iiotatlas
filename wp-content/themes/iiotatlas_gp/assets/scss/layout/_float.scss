@@ -1,0 +1,48 @@
+.float {
+    position: fixed;
+    padding: 0 50px;
+    width: 100vw;
+    height: 0px;
+    z-index: 10;
+    @include responsive(b,60,24);
+    @include responsive(pr, 50, 15);
+    @include responsive(pl, 50, 15);
+    
+    &__item {
+
+        transform: translateY(-50%);
+
+        &--contact {
+            float: left;
+            max-width: 127px;
+            @include responsive(maxw, 127, 100);
+            &:hover {
+                transform:  translateY(-50%) scale(1.1);
+            }
+            //$phone-large: 768px
+            @media only screen and (max-width: $phone-large) {
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
+
+        &--go-top {
+            float: right;
+            @include responsive(maxw, 60, 43);
+            padding: 1px;
+
+            &:hover {
+                img {
+                    animation: go-top 1s ease-in-out infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes go-top {
+    0% { transform: translateY(0); }
+    60%, 65% { transform: translateY(-20px); }
+    90%, 100% { transform: translateY(0); }
+  }
