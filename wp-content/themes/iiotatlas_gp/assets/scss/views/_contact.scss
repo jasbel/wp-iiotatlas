@@ -1,0 +1,147 @@
+/* Contact */
+
+.contact {
+    width: 50%;
+    @include mq(w, '70%', $lg);
+    @include mq(w, '100%', $md);
+    @include mq(pb, 40, $md);
+    &--template {
+        .page-hero {
+            @include mq(minh,360, $md);
+        }
+    }
+
+    &__container {
+        @include mq('flex-direction', 'column', $md);
+    }
+
+    &__title {
+        @include responsive(mb, 33, 16);
+    }
+
+    &__form {}
+
+    &__form-group {}
+
+    &__textarea {}
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="number"],
+    textarea,
+    select,
+    &__input {
+        // background: $color-white;
+        // box-sizing: border-box;
+        border: 1px solid $color-text-primary;
+        border-radius: 10px;
+        box-shadow: 0px 4px 4px $color-shadow-default;
+        min-height: 66px;
+        background-color: transparent;
+
+        width:100%;
+        margin-bottom: 32px;
+
+    }
+    textarea {
+        min-height: 186px !important;
+    }
+    
+    &__btn {}
+}
+
+
+
+.follow {
+    width: 50%;
+    @include mq(w, '30%', $lg);
+    @include mq(ml, 24px, $lg);
+    @include mq(w, '100%', $md);
+    @include mq(pt, 50, $md);
+
+    &__content {
+        @include max-width-center(215);
+    }
+    &__title {
+        margin-bottom: 50px;
+    }
+
+    &__items {
+        margin-left: 0;
+    }
+
+    &__item {
+
+        &,
+        ul>li & {
+            color: $color-text;
+            margin-bottom: 25px;
+            display: block;
+        }
+    }
+}
+
+.location {
+    position: relative;
+    background-color: $color-bkg-light;
+    @include responsive(mt, 120, 80);
+    @include responsive(pt, 47, 40);
+    @include responsive(pb, 53, 40);
+
+    &__ola {
+        img {
+            transform: rotate(180deg) scaleY(-1);
+        }
+    }
+
+    &__title {
+        @include responsive(mb, 126, 40);
+    }
+
+    &__items {
+        @include max-width-center(1000);
+    }
+
+    &__item {
+        margin: 15px;
+        @include responsive(p, 30, 15);
+
+        position: relative;
+        top: 0;
+        max-width: 296px;
+
+        background-color: $color-text;
+        border-radius: 10px;
+
+        &:first-child {
+            top: -146px;
+            @include responsive(t, -146, 0, $xxl, $md);
+        }
+        
+        &:nth-child(2) {
+            @include responsive(t, -100, 50, $xxl, $md);
+            @include mq(t, 0 , $md);
+        }
+    }
+
+    &__item-icon {
+        &--home {}
+        &--factory{}
+    }
+
+    &__item-title {
+        color: $color-text-white;
+    }
+
+    &__item-description {
+        color: $color-text-white;
+    }
+
+    &__btn {
+        color: $color-text-white;
+    }
+}

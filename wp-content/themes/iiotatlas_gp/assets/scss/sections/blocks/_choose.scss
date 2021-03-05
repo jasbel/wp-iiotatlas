@@ -4,8 +4,8 @@
     @extend %space-top-bottom;
     background-color: $color-bkg-light;
     padding-top: calc( - #{$translate-item});
-    @include responsive(pt, 100, 70, 1440, 992, true);
-    @include responsive(pt, 70, 40, 991, 360, true);
+    @include responsive(pt, 100, 70, $xxl, $lg, true);
+    @include responsive(pt, 70, 40, $lg, $xxs, true);
     
     &__subtitle {
         color: $color-text;

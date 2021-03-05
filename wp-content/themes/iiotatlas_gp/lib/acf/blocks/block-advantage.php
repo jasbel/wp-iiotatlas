@@ -21,25 +21,25 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-advantage <?php echo $align_class; ?>">
     <div class="container">
-        <h2 class="title b-advantage__title"> <?php echo $advantage_title;?> </h2>
+        <h2 class="title b-advantage__title" data-daws=""> <?php echo $advantage_title;?> </h2>
 
         <?php if(!empty($advantage_images)): ?>
-        <div class="row b-advantage__images">
+        <div class=" b-advantage__images" data-daws="">
 
             <?php foreach( $advantage_images as $item ):
                 $image = $item['image'];
                 ?>
-                <div class="col-sm-6 col-lg-3 ">
+                <!-- <div class="col-sm-6 col-lg-3 "> -->
                     <figure class="b-advantage__image-figure">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     </figure>
-                </div>
+                <!-- </div> -->
             <?php endforeach; ?>
         </div>
         <?php endif; ?>
 
         <?php if(!empty($advantage_items)): ?>
-        <div class="row b-advantage__items">
+        <div class="row b-advantage__items" data-daws="">
 
             <?php foreach( $advantage_items as $item ):
                 $title = $item['title'];
@@ -53,7 +53,7 @@ $id = 'item-' . $block['id'];
                 </div>
             <?php endforeach; ?>
         </div>
-        <a class="btn btn--primary btn--large mx-auto b-advantage__btn" href=" <?php echo esc_url($advantage_link['url']);?> "  target="<?php echo esc_attr( $advantage_link['target'] ); ?>" >
+        <a class="btn btn--primary btn--large mx-auto b-advantage__btn" href=" <?php echo esc_url($advantage_link['url']);?> "  target="<?php echo esc_attr( $advantage_link['target'] ); ?>" data-daws="">
             <?php echo esc_html($advantage_link['title']);?>
         </a>
         <?php endif; ?>

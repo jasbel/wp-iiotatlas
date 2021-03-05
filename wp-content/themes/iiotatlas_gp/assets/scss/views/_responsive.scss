@@ -1,2 +1,9 @@
 /* Media Queries
 ---------------------------------------------------------------------------- */
+//$phone-large: 768px
+@media only screen and (max-width: $phone-large) {
+    .btn {
+        width:100%;
+        max-width: none;
+    }
+}

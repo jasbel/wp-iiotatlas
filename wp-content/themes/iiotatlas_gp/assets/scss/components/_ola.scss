@@ -1,0 +1,11 @@
+.ola {
+    width: 100vw;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+
+    img {
+        min-width: $sm + px;
+    }
+}

@@ -836,7 +836,7 @@ if ( ! function_exists( 'happyforms_the_form_styles' ) ):
  * @return array
  */
 function happyforms_the_form_styles( $form ) {
-	HappyForms()->print_frontend_styles( $form );
+	happyforms_get_form_assets()->print_frontend_styles( $form );
 	$styles = happyforms_get_form_styles( $form );
 	?>
 	<!-- HappyForms CSS variables -->

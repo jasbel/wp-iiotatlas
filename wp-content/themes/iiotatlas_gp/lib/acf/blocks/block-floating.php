@@ -15,7 +15,7 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-floating">
     <div class="container">
-        <figure class="b-floating__content">
+        <figure class="b-floating__content" data-daws="">
             <img class="b-floating__image" src="<?php echo esc_url($floating_image['url']); ?>" alt="<?php echo esc_attr($floating_image['alt']); ?>" />
         </figure>
         <!-- TODO: integrar la opcion para video -->

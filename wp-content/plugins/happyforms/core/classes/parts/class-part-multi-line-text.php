@@ -180,17 +180,19 @@ class HappyForms_Part_MultiLineText extends HappyForms_Form_Part {
 	public function validate_value( $value, $part = array(), $form = array() ) {
 		$validated_value = $value;
 
-		if ( 1 === $part['required'] && empty( $validated_value ) ) {
+		if ( 1 === $part['required'] && '' === $validated_value ) {
 			$validated_value = new WP_Error( 'error', happyforms_get_validation_message( 'field_empty' ) );
+			return $validated_value;
+		} else if ( false == $part['required'] && '' === $validated_value ) {
 			return $validated_value;
 		}
 
 		$limit_input = intval( $part['limit_input'] );
 		$character_limit = intval( $part['character_limit'] );
 		$character_limit = $limit_input ? $character_limit : 0;
-		$character_limit_mode = $part['character_limit_mode'];
 
 		if ( $character_limit > 0 ) {
+			$character_limit_mode = $part['character_limit_mode'];
 			$character_count = strlen( $validated_value );
 			$word_count = str_word_count( $validated_value );
 

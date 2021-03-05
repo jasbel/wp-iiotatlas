@@ -30,16 +30,7 @@ class HappyForms_Core {
 	 *
 	 * @var string
 	 */
-	private $landing_page_url = 'https://www.happyforms.me';
-
-	/**
-	 * List of forms found on current page.
-	 *
-	 * @since 1.3
-	 *
-	 * @var array
-	 */
-	private $current_forms = array();
+	private $landing_page_url = 'https://www.happyforms.io';
 
 	/**
 	 * Whether or not frontend styles were loaded.
@@ -50,8 +41,6 @@ class HappyForms_Core {
 	 * Whether or not frontend color styles were loaded.
 	 */
 	private $frontend_color_styles = false;
-
-	private $dependencies = array();
 
 	/**
 	 * Action: initialize admin and frontend logic.
@@ -74,6 +63,7 @@ class HappyForms_Core {
 		require_once( happyforms_get_core_folder() . '/classes/class-validation-messages.php' );
 
 		require_once( happyforms_get_core_folder() . '/classes/class-tracking.php' );
+		require_once( happyforms_get_core_folder() . '/classes/class-form-assets.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-form-controller.php' );
 		require_once( happyforms_get_include_folder() . '/classes/class-message-controller.php' );
 		require_once( happyforms_get_core_folder() . '/classes/class-email-message.php' );
@@ -108,11 +98,12 @@ class HappyForms_Core {
 		add_shortcode( $this->branded_shortcode, array( $this, 'handle_shortcode' ) );
 		add_shortcode( $this->shortcode, array( $this, 'handle_shortcode' ) );
 		add_action( 'wp_head', array( $this, 'wp_head' ) );
-		add_action( 'wp_print_footer_scripts', array( $this, 'wp_print_footer_scripts' ), 0 );
-		add_action( 'wp_print_scripts', array( $this, 'exclude_scripts' ), 9999 );
-		add_action( 'wp_print_footer_scripts', array( $this, 'exclude_scripts' ), 9999 );
-		add_action( 'admin_print_footer_scripts', array( $this, 'wp_print_footer_scripts' ), 0 );
+
 		add_action( 'admin_print_footer_scripts', array( $this, 'print_shortcode_template' ) );
+
+		// Exclude 3rd party assets
+		add_action( 'wp_print_scripts', array( $this, 'exclude_scripts' ), PHP_INT_MAX );
+		add_action( 'wp_print_footer_scripts', array( $this, 'exclude_scripts' ), PHP_INT_MAX );
 
 		// Preview scripts and styles
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles_preview' ) );
@@ -375,19 +366,6 @@ class HappyForms_Core {
 	}
 
 	/**
-	 * Enqueue a form to load assets for.
-	 *
-	 * @since 1.0
-	 *
-	 * @param array $form The form to enqueue.
-	 *
-	 * @return void
-	 */
-	public function enqueue_form( $form ) {
-		$this->current_forms[$form['ID']] = $form;
-	}
-
-	/**
 	 * Render the HappyForms shortcode.
 	 *
 	 * @since 1.0
@@ -413,8 +391,24 @@ class HappyForms_Core {
 			return '';
 		}
 
-		$output = $form_controller->render( $form, true );
-		$this->enqueue_form( $form );
+		$asset_mode = HappyForms_Form_Assets::MODE_COMPLETE;
+
+		// Classic editor
+		if ( is_admin() ) {
+			$asset_mode = HappyForms_Form_Assets::MODE_ADMIN;
+		}
+
+		// Customize screen
+		if ( happyforms_is_preview() ) {
+			$asset_mode = HappyForms_Form_Assets::MODE_ADMIN;
+		}
+
+		// Block editor
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+			$asset_mode = HappyForms_Form_Assets::MODE_ADMIN;
+		}
+
+		$output = $form_controller->render( $form, $asset_mode );
 
 		return $output;
 	}
@@ -456,7 +450,7 @@ class HappyForms_Core {
 			return;
 		}
 
-		$button_html = '<a href="#" class="button happyforms-editor-button" data-title="' . __( 'Add form', 'happyforms' ) . '"><span class="dashicons dashicons-format-status"></span><span>'. __( 'Add form', 'happyforms' ) .'</span></a>';
+		$button_html = '<a href="#" class="button happyforms-editor-button" data-title="' . __( 'Add Form', 'happyforms' ) . '"><span class="dashicons dashicons-feedback"></span><span>'. __( 'Add Form', 'happyforms' ) .'</span></a>';
 
 		add_action( 'admin_footer', array( $this, 'output_happyforms_modal' ) );
 
@@ -467,7 +461,7 @@ class HappyForms_Core {
 		if ( ! is_admin() ) {
 			return $plugins;
 		}
-		
+
 		$plugins['happyforms_shortcode'] = happyforms_get_plugin_url() . 'core/assets/js/admin/shortcode.js';
 
 		return $plugins;
@@ -488,129 +482,6 @@ class HappyForms_Core {
 		wp_enqueue_style( 'wp-jquery-ui-dialog' );
 
 		require_once( happyforms_get_core_folder() . '/templates/admin-form-modal.php' );
-	}
-
-	public function print_frontend_styles( $form ) {
-
-		$output = apply_filters( 'happyforms_enqueue_style', true );
-		$force_styles = apply_filters( 'happyforms_force_styles', false );
-
-		if ( $output && ! $this->frontend_color_styles ) {
-			$this->frontend_color_styles = ! $force_styles;
-			$color_url = happyforms_get_frontend_stylesheet_url( 'color.css' );
-			?>
-			<link rel="stylesheet" property="stylesheet" href="<?php echo $color_url; ?>" />
-			<?php
-		}
-
-		if ( $output && ! $this->frontend_styles ) {
-			$this->frontend_styles = ! $force_styles;
-			$url = happyforms_get_frontend_stylesheet_url( 'layout.css' );
-			?>
-			<link rel="stylesheet" property="stylesheet" href="<?php echo $url; ?>" />
-			<?php
-		}
-
-		do_action( 'happyforms_print_frontend_styles', $form );
-	}
-
-	/**
-	 * Action: enqueue scripts and styles
-	 * for the frontend part of the plugin.
-	 *
-	 * @since 1.0
-	 *
-	 * @hooked action wp_print_footer_scripts
-	 *
-	 * @return void
-	 */
-	public function wp_print_footer_scripts() {
-		if ( happyforms_is_preview() ) {
-			$form_controller = happyforms_get_form_controller();
-			$form = $form_controller->get( get_the_ID() );
-			$this->current_forms[] = $form;
-		}
-
-		// Return early if no current forms
-		// are being displayed.
-		if ( empty( $this->current_forms ) ) {
-			return;
-		}
-
-		if ( is_admin() && happyforms_is_gutenberg() ) {
-			return;
-		}
-
-		wp_register_script(
-			'happyforms-select',
-			happyforms_get_plugin_url() . 'core/assets/js/lib/happyforms-select.js',
-			array( 'jquery' ), HAPPYFORMS_VERSION, true
-		);
-
-		wp_register_script( 'happyforms-settings', '', array(), HAPPYFORMS_VERSION, true );
-
-		$settings = apply_filters( 'happyforms_frontend_settings', array(
-			'ajaxUrl' => admin_url( 'admin-ajax.php' )
-		) );
-
-		wp_localize_script( 'happyforms-settings', '_happyFormsSettings', $settings );
-
-		$dependencies = apply_filters(
-			'happyforms_frontend_dependencies',
-			array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip', 'happyforms-settings' ), $this->current_forms
-		);
-
-		$this->dependencies = $dependencies;
-
-		wp_enqueue_script(
-			'happyforms-frontend',
-			happyforms_get_plugin_url() . 'inc/assets/js/frontend.js',
-			$dependencies, HAPPYFORMS_VERSION, true
-		);
-
-		/**
-		 * Output form-specific scripts and styles.
-		 *
-		 * @since 1.1
-		 *
-		 * @param array $forms Array of forms found in page.
-		 *
-		 * @return void
-		 */
-		do_action( 'happyforms_footer', $this->current_forms );
-	}
-
-	public function exclude_scripts() {
-		if ( ! happyforms_is_preview() ) {
-			return;
-		}
-
-		global $wp_scripts;
-
-		$allowed_scripts = array(
-			'customize-preview-widgets',
-			'customize-preview-nav-menus',
-			'customize-selective-refresh',
-			'utils',
-			'moxiejs',
-		);
-
-		$allowed_scripts = array_merge( $allowed_scripts, $this->dependencies );
-		$registered_scripts = $wp_scripts->registered;
-
-		foreach ( $allowed_scripts as $handle ) {
-			array_merge( $allowed_scripts, $registered_scripts[$handle]->deps );
-		}
-
-		foreach ( $wp_scripts->registered as $handle => $script ) {
-			if ( ! wp_script_is( $handle, 'enqueued' ) ) {
-				continue;
-			}
-
-			if ( ! in_array( $handle, $allowed_scripts ) ) {
-				wp_dequeue_script( $handle );
-			}
-		}
 	}
 
 	public function print_shortcode_template() {
@@ -664,6 +535,36 @@ class HappyForms_Core {
 		);
 
 		require_once( happyforms_get_core_folder() . '/templates/preview-form-pencil.php' );
+	}
+
+	public function exclude_scripts() {
+		if ( ! happyforms_is_preview() ) {
+			return;
+		}
+
+		global $wp_scripts;
+
+		$allowed_scripts = array(
+			'customize-preview-widgets',
+			'customize-preview-nav-menus',
+			'customize-selective-refresh',
+			'utils',
+			'moxiejs',
+		);
+
+		foreach ( $allowed_scripts as $handle ) {
+			array_merge( $allowed_scripts, $wp_scripts->registered[$handle]->deps );
+		}
+
+		foreach ( $wp_scripts->registered as $handle => $script ) {
+			if ( ! wp_script_is( $handle, 'enqueued' ) ) {
+				continue;
+			}
+
+			if ( ! in_array( $handle, $allowed_scripts ) ) {
+				wp_dequeue_script( $handle );
+			}
+		}
 	}
 
 	/**

@@ -29,7 +29,7 @@ $id = 'item-' . $block['id'];
     </figure>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-daws="">
                 <div class="b-mvsion__item b-mvsion__item--mission">
                     <figure class="b-mvsion__figure">
                         <img src="<?php echo esc_url($mvsion_image_mission['url']); ?>" alt="<?php echo esc_attr($mvsion_image_mission['alt']); ?>" />
@@ -38,7 +38,7 @@ $id = 'item-' . $block['id'];
                     <p class="description b-mvsion__description"><?php echo $mvsion_description_mission;?></p>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-daws="">
                 <div class="b-mvsion__item b-mvsion__item--vision">
                     <figure class="b-mvsion__figure">
                         <img src="<?php echo esc_url($mvsion_image_vision['url']); ?>" alt="<?php echo esc_attr($mvsion_image_vision['alt']); ?>" />

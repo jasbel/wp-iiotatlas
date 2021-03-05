@@ -5,7 +5,7 @@ Tags: contact form, contact form plugin, forms, form builder, custom form, intak
 Requires at least: 4.8
 Tested up to: 5.6
 Requires PHP: 5.3
-Stable tag: 1.10.0
+Stable tag: 1.11.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,9 +15,9 @@ The WordPress form builder you need to manage and respond to conversations with 
 
 https://www.youtube.com/watch?v=X1snk2vJbXI
 
-[HappyForms](https://happyforms.me/) is the simplest way for you to manage and respond to conversations with your website visitors. With over 10 years of experience here at The Theme Foundry, we've heard from nearly 1,000,000 business what they need from a form builder! We've heard about the wasted time trying to set up tricky forms; the frustration of emails not being delivered; and the let down of not hearing from leads. That’s why we created HappyForms: Your free and friendly drag and drop form builder for creating contact forms, lead generation forms, feedback forms, quote forms, survey forms and more! HappyForms is optimized to increase conversations with your website visitors. Have peace of mind knowing messages to-and-from are getting delivered without the hassle of spam. You'll be set up and going in 5 minutes or less.
+[HappyForms](https://happyforms.io/) is the simplest way for you to manage and respond to conversations with your website visitors. With over 10 years of experience here at The Theme Foundry, we've heard from nearly 1,000,000 business what they need from a form builder! We've heard about the wasted time trying to set up tricky forms; the frustration of emails not being delivered; and the let down of not hearing from leads. That’s why we created HappyForms: Your free and friendly drag and drop form builder for creating contact forms, lead generation forms, feedback forms, quote forms, survey forms and more! HappyForms is optimized to increase conversations with your website visitors. Have peace of mind knowing messages to-and-from are getting delivered without the hassle of spam. You'll be set up and going in 5 minutes or less.
 
-[Discover all the benefits of upgrading.](https://happyforms.me/upgrade) 🚀
+[Discover all the benefits of upgrading.](https://happyforms.io/upgrade) 🚀
 
 = HappyForms solves these struggles: =
 
@@ -78,7 +78,7 @@ https://www.youtube.com/watch?v=X1snk2vJbXI
 * Get access to our growing Slack community.
 * Unlimited personal and client use plans.
 
-[Discover all the benefits of upgrading.](https://happyforms.me/upgrade) 🚀
+[Discover all the benefits of upgrading.](https://happyforms.io/upgrade) 🚀
 
 == Frequently Asked Questions ==
 
@@ -143,6 +143,16 @@ Abso-freakin-lutely! We’re always checking to make sure HappyForms plays nicel
 Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
 
 == Changelog ==
+
+= 1.11.1 =
+* Bugfix: Form title "Display" control wasn't working.
+
+= 1.11.0 =
+* Improvement: Better support for 3rd party popup plugins.
+* Improvement: Better support for tab navigation in Dropdown field.
+* Bugfix: Dropdown field searchable functionality was misbehaving.
+* Bugfix: Form title "Display" control wasn't working.
+* Bugfix: Validation of optional Long Answer fields with character counting was misbehaving.
 
 = 1.10.0 =
 * New feature: Messages tab in Edit Form screen allows for complete language customization.
@@ -749,6 +759,12 @@ Note: you'll need to upgrade to our paid contact form builder plugin to get some
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.11.1 =
+* Form title "Display" control fixes.
+
+= 1.11.0 =
+* Better support for 3rd party popup plugins, miscellaneous improvements and bugfixes.
 
 = 1.10.0 =
 * New Messages tab, Prefill control, miscellaneous bugfixes.

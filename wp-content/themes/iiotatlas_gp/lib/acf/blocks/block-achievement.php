@@ -19,12 +19,12 @@ $id = 'item-' . $block['id'];
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-5 b-achievement__content">
+            <div class="col-lg-5 b-achievement__content" data-daws="">
                 <h2 class="title b-achievement__title"> <?php echo $achievement_title;?> </h2>
                 <div class="description b-achievement__description "> <?php echo $achievement_content;?> </div>
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7" data-daws="">
                 <?php if(!empty($achievement_items)): ?>
                 <figure class="b-achievement__figure">
                     <img class="b-achievement__image" src="<?php echo esc_url($achievement_image); ?>"/>

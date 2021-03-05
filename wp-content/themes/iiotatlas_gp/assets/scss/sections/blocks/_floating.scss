@@ -1,9 +1,14 @@
 .b-floating {
     position: relative;
     padding-top: 280px;
+    @include responsive(pt, 280, 0, $xxl, $md);
+
     &__content {
         position: absolute;
-        top: -350px;
+        @include responsive(t, -350, -400, $xxl, $md);
+        @include mq(t, 0, $md);
+        @include mq(position, relative, $md);
+        @include mq(mt, -200, $md);
         left: 0;
         right: 0;
         text-align: center;
@@ -13,7 +18,8 @@
     }
 
     &__image {
-        min-height: 580px;
+        @include responsive(minh, 580, 520, $xxl, $lg);
+        @include mq(minh, auto, $lg);
     }
 
     &__video {}

@@ -2,18 +2,18 @@
 
 /**
  * Plugin Name: Happyforms (free)
- * Plugin URI:  https://happyforms.me
+ * Plugin URI:  https://happyforms.io
  * Description: We're changin' WordPress forms.
  * Author:      Happyforms
- * Version:     1.10.0
- * Author URI:  https://happyforms.me
- * Upgrade URI: https://happyforms.me/upgrade
+ * Version:     1.11.1
+ * Author URI:  https://happyforms.io
+ * Upgrade URI: https://happyforms.io/upgrade
  */
 
 /**
  * The current version of the plugin.
  */
-define( 'HAPPYFORMS_VERSION', '1.10.0' );
+define( 'HAPPYFORMS_VERSION', '1.11.1' );
 
 if ( ! function_exists( 'happyforms_plugin_file' ) ):
 /**

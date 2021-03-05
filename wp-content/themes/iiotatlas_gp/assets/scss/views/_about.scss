@@ -3,5 +3,6 @@
 .about {
     .page-hero {
         min-height: 580px;
+        @include mq(minh,360, $md);
     }
 }

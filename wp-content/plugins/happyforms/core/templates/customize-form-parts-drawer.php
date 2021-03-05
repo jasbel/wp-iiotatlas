@@ -35,7 +35,7 @@
 					<div class="happyforms-parts-list-item-title">
 						<h3><%= part.label %></h3>
 						<% if ( isDummy ) { %>
-							<a href="https://happyforms.me/upgrade" target="_blank"><?php _e( 'Upgrade', 'happyforms' ); ?></a>
+							<a href="https://happyforms.io/upgrade" target="_blank"><?php _e( 'Upgrade', 'happyforms' ); ?></a>
 						<% } %>
 					</div>
 					<div class="happyforms-parts-list-item-description"><%= part.description %></div>

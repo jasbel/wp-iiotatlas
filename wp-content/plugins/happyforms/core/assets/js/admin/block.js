@@ -87,7 +87,7 @@
 					}, el( 'p',
 							null,
 							settings.upgrade_notice.i18n.text,
-							el( 'a', { href: 'https://happyforms.me/upgrade', target: '_blank' }, ' ' + settings.upgrade_notice.i18n.link_text )
+							el( 'a', { href: 'https://happyforms.io/upgrade', target: '_blank' }, ' ' + settings.upgrade_notice.i18n.link_text )
 						)
 					),
 				),

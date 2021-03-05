@@ -143,6 +143,13 @@
 				if ( $focusedItem.length ) {
 					this.setValue( $focusedItem.data('value').toString() );
 				}
+
+				this.handleBlur();
+				break;
+			case 9:
+			case 16:
+				e.preventDefault();
+
 				break;
 			default:
 				if ('autocomplete' === this.searchable) {
@@ -153,7 +160,7 @@
 					}
 
 					this.getSuggestions();
-				} else {
+				} else if ( "true" === this.searchable ) {
 					this.searchOptions();
 				}
 				break;
@@ -308,14 +315,17 @@
 			$allItems.each( function( index, li ) {
 				var $li = $( li );
 				var liValue = $li.data( 'value' );
-				var liLabel = ( $li.data( 'label' ).length ) ? $li.data( 'label' ).toLowerCase() : '';
-
-				if ( liValue ) {
-					liValue = liValue.toString().toLowerCase();
-					value = value.toString().toLowerCase();
+				var labelValue = $li.data( 'label' );
+				if ( 'string' == typeof labelValue ) {
+					var liLabel = ( labelValue.length ) ? labelValue.toLowerCase() : '';
+				} else {
+					var liLabel = labelValue.toString();
 				}
 
-				if ( liValue && -1 !== liValue.indexOf( value ) || liLabel && -1 !== liLabel.indexOf( value ) ) {
+				liValue = liValue.toString().toLowerCase();
+				value = value.toString().toLowerCase();
+
+				if ( -1 !== liLabel.indexOf( value ) ) {
 					$li.show();
 					foundItems = foundItems + 1;
 				}

@@ -25,7 +25,7 @@ $id = 'item-' . $block['id'];
 <section id="<?php echo $id; ?>" class="b-project <?php echo $align_class; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-md-7 col-xl-6 order-2 order-md-1">
+            <div class="col-md-7 col-xl-6 order-2 order-md-1" data-daws="">
                 <div class="b-project__content">
                     <h2 class=" title b-project__title"> <?php echo $project_title;?></h2>
                     <p class="description-large b-project__description"><?php echo $project_description;?></p>
@@ -34,7 +34,7 @@ $id = 'item-' . $block['id'];
                     </a>
                 </div>
             </div>
-            <div class="col-md-5 col-xl-6 order-1 order-md-2">
+            <div class="col-md-5 col-xl-6 order-1 order-md-2" data-daws="">
                 <figure class="b-project__figure">
                     <img class="b-project__image" src="<?php echo esc_url($project_image['url']); ?>" alt="<?php echo esc_attr($project_image['alt']); ?>" />
                 </figure>

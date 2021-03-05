@@ -26,7 +26,7 @@ $id = 'item-' . $block['id'];
     </figure>
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-lg-6">
+            <div class="col-md-5 col-lg-6" data-daws="">
                 <figure class="b-actual__figure">
                     <img class="b-actual__image" src="<?php echo esc_url($actual_image['url']); ?>" alt="<?php echo esc_attr($actual_image['alt']); ?>" />
                 </figure>

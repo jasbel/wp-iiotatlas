@@ -16,10 +16,10 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-compatible <?php echo $align_class; ?>" style="background-image: url(<?php echo $compatible_bkg?>);">
     <div class="container">
-        <h2 class="title b-compatible__title"> <?php echo $compatible_title;?> </h2>
+        <h2 class="title b-compatible__title" data-daws=""> <?php echo $compatible_title;?> </h2>
 
         <?php if(!empty($compatible_items)): ?>
-        <div class="b-compatible__items">
+        <div class="b-compatible__items" data-daws="">
 
             <?php foreach( $compatible_items as $item ):
                 $image = $item['image'];

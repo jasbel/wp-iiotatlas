@@ -16,7 +16,7 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-team <?php echo $align_class; ?>" style="background-image: url(<?php echo $team_bkg?>);">
         <div class="container">
-        <h2 class="title b-team__title"><?php echo $team_title;?> </h2>
+        <h2 class="title b-team__title" data-daws=""><?php echo $team_title;?> </h2>
 
         <div class="row b-team__item-container">
             <?php if(!empty($team_items)): ?>
@@ -27,7 +27,7 @@ $id = 'item-' . $block['id'];
                 $description = $item['description'];
                 ?>
 
-                <div class="col-md-6 ">
+                <div class="col-md-6 " data-daws="">
                     <div class="b-team__item">
                         <figure class="b-team__item-figure">
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />

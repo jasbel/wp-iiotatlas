@@ -25,12 +25,12 @@ $id = 'item-' . $block['id'];
 <main id="<?php echo $id; ?>" class="b-about <?php echo $align_class; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-daws="">
                 <figure class="b-about__figure">
                     <img src="<?php echo esc_url($about_image['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>" />
                 </figure>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-daws="">
                 <div class="b-about__content">
                     <!-- <div> -->
                     <h2 class="title b-about__title"> <?php echo $about_title ?></h2>

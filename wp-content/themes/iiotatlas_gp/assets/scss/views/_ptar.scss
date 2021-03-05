@@ -1,8 +1,9 @@
-/* About
+/* Ptar
 ---------------------------------------------------------------*/
 .ptar {
     .page-hero {
         min-height: 800px;
+        @include mq(minh,360, $md);
         h1 {
             @include max-width-center(937);
         }

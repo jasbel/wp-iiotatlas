@@ -15,9 +15,15 @@
         &--contact {
             float: left;
             max-width: 127px;
-            @include responsive(maxw, 127, 77);
+            @include responsive(maxw, 127, 100);
             &:hover {
                 transform:  translateY(-50%) scale(1.1);
+            }
+            //$phone-large: 768px
+            @media only screen and (max-width: $phone-large) {
+                &:hover {
+                    transform: none;
+                }
             }
         }
 

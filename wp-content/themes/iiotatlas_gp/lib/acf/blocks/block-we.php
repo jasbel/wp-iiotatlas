@@ -24,14 +24,14 @@ $id = 'item-' . $block['id'];
 <main id="<?php echo $id; ?>" class="b-we <?php echo $align_class; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-lg-6">
+            <div class="col-md-5 col-lg-6" data-daws="">
                 <h2 class="title b-we__title"> <?php echo $we_title ?></h2>
             </div>
-            <div class="col-md-7 col-lg-6">
+            <div class="col-md-7 col-lg-6" data-daws="">
                 <p class="b-we__description"> <?php echo $we_description ?> </p>
             </div>
         </div>
-        <div class="b-we__container-media">
+        <div class="b-we__container-media" data-daws="">
             <div class="b-we__container-video">
                 <div class="b-we__video">
                     <img src="<?php echo esc_url($we_video['url']); ?>" alt="<?php echo esc_attr($we_video['alt']); ?>" />

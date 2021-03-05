@@ -1,0 +1,26 @@
+/* 404
+---------------------------------------------------------------*/
+.error404 {
+    background-color: $color-bkg-light;
+
+    &__main {
+        @extend %space-top-bottom;
+    }
+    .page-hero {
+        display: none;
+    }
+
+    &__heading {
+        @include mq('text-align', 'center', $md);
+    }
+
+    &__title {
+        color: $color-text-dark;
+        @include mq('text-align', 'center', $md);
+    }
+
+    &__btn {
+        max-width: fit-content;
+        text-align: center;
+    }
+}

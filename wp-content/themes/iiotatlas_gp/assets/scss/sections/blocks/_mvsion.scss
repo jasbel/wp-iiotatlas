@@ -1,18 +1,15 @@
 .b-mvsion {
+    @extend %space-top-bottom;
+    @include responsive(pb,110,50);
     background-color: $color-bkg-light;
     position: relative;
-    padding-bottom: 110px;
 
     &--ola-bottom {
         margin-top: 0;
-        margin-bottom: 90px;
+        @include responsive(mb,90,50);
     }
 
     &__ola {
-        
-        position: absolute;
-        top: 0;
-        transform: translateY(-100%);
 
         &--bottom {
             transform: translateY(100%);
@@ -28,20 +25,23 @@
         @include max-width-center(527);
         text-align: center;
 
-        &--mission {}
+        &--mission {
+            @include responsive(mt, -66, 0, $xxl, $sm);
+        }
 
         &--vision {
-            margin-top: 66px;
+            @include responsive(mt, 10, 0, $xxl, $sm);
         }
     }
 
     &__figure {
-        margin-bottom: -72px;
+        @include responsive(mb,-78,-40);
+        @include mq(p, 20, $md);
     }
 
     &__title {
         text-transform: capitalize;
-        margin-bottom: 30px;
+        @include responsive(mb,26,16);
     }
 
     &__description {}

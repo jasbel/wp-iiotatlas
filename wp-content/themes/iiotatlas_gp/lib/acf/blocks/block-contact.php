@@ -18,8 +18,8 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-contact <?php echo $align_class; ?> " style="background-image: url(<?php echo $contact_bkg?>);">
     <div class="container">
-        <h4 class="subtitle-small b-contact__description"> <?php echo $contact_description;?></h4>
-        <a class="btn btn--large btn--primary b-contact__btn" href=" <?php echo esc_url($contact_link['url']);?> "  target="<?php echo esc_attr( $contact_link['target'] ); ?>" >
+        <h4 class="subtitle-small b-contact__description" data-daws=""> <?php echo $contact_description;?></h4>
+        <a class="btn btn--large btn--primary b-contact__btn" href=" <?php echo esc_url($contact_link['url']);?> "  target="<?php echo esc_attr( $contact_link['target'] ); ?>" data-daws="">
             <?php echo esc_html($contact_link['title']);?>
         </a>
     </div>

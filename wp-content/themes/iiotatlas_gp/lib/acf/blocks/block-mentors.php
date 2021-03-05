@@ -16,7 +16,7 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-mentor <?php echo $align_class; ?>">
     <div class="container">
-        <h2 class="title b-mentor__title"><?php echo $mentor_title;?> </h2>
+        <h2 class="title b-mentor__title" data-daws=""><?php echo $mentor_title;?> </h2>
 
         <div class="b-mentor__item-container">
             <div class="row gx-0 mentor-slider">
@@ -33,7 +33,7 @@ $id = 'item-' . $block['id'];
                     $i++;
                     ?>
 
-                    <div class="col-lg-6 col-lg-4 ">
+                    <div class="col-lg-6 col-lg-4 " data-daws="">
                         <div class="b-mentor__item <?php echo ($i % 2 != 0) ?'': "b-mentor__item--even";?>">
                             <figure class="b-mentor__item-figure-icon"><img class="b-mentor__item-icon" src="<?php echo get_stylesheet_directory_uri();?>/assets/images/icon-atlas.png"/></figure>
                             <figure class="b-mentor__item-figure">
@@ -46,12 +46,6 @@ $id = 'item-' . $block['id'];
                     </div>
                 <?php endforeach; ?>
                 <?php endif; ?>
-                <!-- 
-                <div class="b-mentor__btn-container">
-                    <a class="btn btn--primary b-mentor__btn" href=" <?php echo esc_url($mentor_link['url']);?> "  target="<?php echo esc_attr( $mentor_link['target'] ); ?>" >
-                        <?php echo esc_html($mentor_link['title']);?>
-                    </a>
-                </div> -->
             </div>
         </div>
     </div>

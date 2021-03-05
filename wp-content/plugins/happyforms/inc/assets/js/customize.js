@@ -1938,15 +1938,11 @@
 		template: '#happyforms-form-style-template',
 
 		events: _.extend( {}, classes.views.Base.prototype.events, {
+			'change [data-attribute]': 'onAttributeChange',
 			'click h3.accordion-section-title': 'onGroupClick',
 			'click .customize-panel-back': 'onGroupBackClick',
-			'change [data-target="form_class"] input': 'onFormClassChange',
-			'change [data-target="form_class"] select': 'onFormClassChange',
-			'change [data-target="form_class"] input[type="checkbox"]': 'onFormClassCheckboxChange',
+			'change [data-target="form_class"]': 'onFormClassChange',
 			'change [data-target="css_var"] input[type=radio]': 'onRadioChange',
-			'keyup [data-target="attribute"] input[type=text]': 'onAttributeChange',
-			'change [data-attribute="part_description_mode"]': 'onChangeGlobalControls',
-			'change [data-attribute="part_title_label_placement"]': 'onChangeGlobalControls',
 			'navigate-to-group': 'navigateToGroup',
 		} ),
 
@@ -1954,6 +1950,10 @@
 
 		initialize: function() {
 			classes.views.Base.prototype.initialize.apply( this, arguments );
+
+			this.listenTo( this.model, 'change:form_title', this.onChangeTitleDisplay );
+			this.listenTo( this.model, 'change:part_title_label_placement', this.onChangeGlobalLabelPosition );
+			this.listenTo( this.model, 'change:part_description_mode', this.onChangeGlobalDescriptionMode );
 
 			this.styles = new Backbone.Collection();
 		},
@@ -2014,43 +2014,24 @@
 		onFormClassChange: function( e ) {
 			e.preventDefault();
 
-			var $target = $( e.target );
-			var attribute = $target.data( 'attribute' );
-			var value = $target.val();
-
-			happyForms.form.set( attribute, value );
-
 			var data = {
-				attribute: attribute,
+				attribute: $( e.target ).data( 'attribute' ),
 				callback: 'onFormClassChangeCallback',
 			};
 
 			happyForms.previewSend( 'happyforms-form-class-update', data );
 		},
 
-		onChangeGlobalControls: function ( e ) {
-			e.preventDefault();
+		onChangeGlobalLabelPosition: function( model, value ) {
+			this.refreshFormParts( 'label_placement', value );
+		},
 
-			var $target = $( e.target );
-			var attribute = $target.data( 'attribute' );
-			var value = $target.val();
+		onChangeGlobalDescriptionMode: function( model, value ) {
+			this.refreshFormParts( 'description_mode', value );
+		},
 
-			happyForms.form.set( attribute, value );
-
-			var partAttribute = '';
-
-			switch ( attribute ) {
-				case 'part_description_mode':
-					partAttribute = 'description_mode';
-					break;
-				case 'part_title_label_placement':
-					partAttribute = 'label_placement';
-					break;
-				default:
-					break;
-			}
-
-			happyForms.form.get( 'parts' ).forEach( function ( $partModel ) {
+		refreshFormParts: function( partAttribute, value ) {
+			happyForms.form.get( 'parts' ).forEach( function( $partModel ) {
 				$partModel.set( partAttribute, value );
 			} );
 
@@ -2059,22 +2040,10 @@
 			} );
 		},
 
-		onFormClassCheckboxChange: function( e ) {
-			e.preventDefault();
-
-			var $target = $( e.target );
-			var attribute = $target.data( 'attribute' );
-			var value = $target.val();
-
-			if ( $target.is(':checked') ) {
-				happyForms.form.set( attribute, value );
-			} else {
-				happyForms.form.set( attribute, '' );
-			}
-
+		onChangeTitleDisplay: function() {
 			var data = {
-				attribute: attribute,
-				callback: 'onFormClassToggleCallback'
+				attribute: 'form_title',
+				callback: 'onFormClassChangeCallback',
 			};
 
 			happyForms.previewSend( 'happyforms-form-class-update', data );
@@ -2088,8 +2057,6 @@
 			var variable = $target.parents( '.happyforms-buttonset-control' ).data( 'variable' );
 
 			var value = $target.val();
-
-			happyForms.form.set( attribute, value );
 
 			var data = {
 				variable: variable,
@@ -2105,6 +2072,10 @@
 			var $target = $( e.target );
 			var attribute = $target.data( 'attribute' );
 			var value = $target.val();
+
+			if ( $target.is( ':checkbox' ) ) {
+				value = $target.is( ':checked' ) ? value : '';
+			}
 
 			happyForms.form.set( attribute, value );
 		},

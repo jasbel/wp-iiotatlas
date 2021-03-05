@@ -16,4 +16,35 @@
     &__github {
         background-image: url(../images/github.svg);
     }
+
+    &--triangle-right {
+        background-image: url(../images/icon-right.svg);
+    }
+    &--factory {}
+    
+    &--home{}
+}
+
+.icon-color {
+    display: inline-block;
+    width:32px;
+    height:32px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 11px;
+    top: 9px;
+
+    &--facebook {
+        background-image: url(../images/facebook-color.svg);
+    }
+    &--youtube {
+        background-image: url(../images/youtube-color.svg);
+    }
+    &--linkedin {
+        background-image: url(../images/linkedin-color.svg);
+    }
+    &--github {
+        background-image: url(../images/github-color.svg);
+    }
 }

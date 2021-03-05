@@ -18,8 +18,8 @@ $id = 'item-' . $block['id'];
 ?>
 <main id="<?php echo $id; ?>" class="b-architecture <?php echo $align_class; ?>">
     <div class="container">
-        <h2 class="title b-architecture__title"> <?php echo $architecture_title ?></h2>
-        <figure class="b-architecture__figure">
+        <h2 class="title b-architecture__title" data-daws=""> <?php echo $architecture_title ?></h2>
+        <figure class="b-architecture__figure" data-daws="">
             <img class="b-architecture__image" src="<?php echo esc_url($architecture_image['url']); ?>" alt="<?php echo esc_attr($architecture_image['alt']); ?>" />
         </figure>
     </div>

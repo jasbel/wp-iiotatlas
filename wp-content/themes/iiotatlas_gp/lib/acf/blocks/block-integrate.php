@@ -26,7 +26,7 @@ $id = 'item-' . $block['id'];
     </figure>
 
     <div class="container">
-        <h3 class="subtitle b-integrate__title <?php echo $title_space;?>"><?php echo $integrate_title;?></h3>
+        <h3 class="subtitle b-integrate__title <?php echo $title_space;?>" data-daws=""><?php echo $integrate_title;?></h3>
     </div>
 
     <?php if(!empty($integrate_items)): ?>
@@ -38,7 +38,7 @@ $id = 'item-' . $block['id'];
                 'alt' => 'default',
             ];
             ?>
-            <div class="b-integrate__item">
+            <div class="b-integrate__item" data-daws="">
                 <figure class="b-integrate__figure">
                     <img class="b-integrate__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                 </figure>

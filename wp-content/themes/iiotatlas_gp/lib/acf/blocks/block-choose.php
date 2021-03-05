@@ -19,13 +19,13 @@ $id = 'item-' . $block['id'];
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-5">
+            <div class="col-lg-5" data-daws="">
                 <h2 class="title b-choose__title"> <?php echo $choose_title;?> </h2>
                 <h5 class="subtitle-smaller b-choose__subtitle"><?php echo $choose_subtitle;?></h5>
                 <p class="description b-choose__description "> <?php echo $choose_description;?> </p>
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7" data-daws="">
                 <?php if(!empty($choose_items)): ?>
                 <div class="b-choose__items">
                     <?php foreach( $choose_items as $item ):

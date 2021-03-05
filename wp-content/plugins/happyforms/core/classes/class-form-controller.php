@@ -777,29 +777,27 @@ class HappyForms_Form_Controller {
 	 *
 	 * @return string
 	 */
-	public function render( $form = array(), $render_styles = false ) {
-		$form_markup = '';
+	public function render( $form = array(), $asset_mode = HappyForms_Form_Assets::MODE_NONE ) {
+		$html = '';
 
 		if ( empty( $form ) ) {
-			return $form_markup;
+			return $html;
 		}
 
-		if ( 'publish' === $form['post_status'] || happyforms_is_preview() ) {
-			ob_start();
-			
-			if ( $render_styles ) {
-				happyforms_the_form_styles( $form );
-			}
-
-			happyforms_additional_css( $form );
-
-			$template_path = happyforms_get_core_folder() . '/templates/single-form.php';
-			$template_path = apply_filters( 'happyforms_form_template_path', $template_path, $form );
-			require( $template_path );
-			$form_markup = ob_get_clean();
+		if ( 'publish' !== $form['post_status'] && ! happyforms_is_preview() ) {
+			return $html;
 		}
 
-		return $form_markup;
+		ob_start();
+
+		happyforms_get_form_assets()->output( $form, $asset_mode );
+
+		$template_path = happyforms_get_core_folder() . '/templates/single-form.php';
+		$template_path = apply_filters( 'happyforms_form_template_path', $template_path, $form );
+		require( $template_path );
+		$html = ob_get_clean();
+
+		return $html;
 	}
 
 	public function render_title( $form ) {
@@ -809,7 +807,7 @@ class HappyForms_Form_Controller {
 	}
 
 	public function the_form_title( $form_title, $before, $after, $form ) {
-		if ( 'happyforms-form--hide-title' === happyforms_get_form_property( $form, 'form_title' ) ) {
+		if ( 'happyforms-form--hide-title' === happyforms_get_form_property( $form, 'form_title' ) && ! happyforms_is_preview() ) {
 			$form_title = '';
 		}
 

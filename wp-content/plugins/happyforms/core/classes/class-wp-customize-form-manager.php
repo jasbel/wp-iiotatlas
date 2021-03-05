@@ -175,7 +175,7 @@ class HappyForms_WP_Customize_Form_Manager {
 			$notice_content .= '<li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li>';
 			$notice_content .= '<li>' . __( 'All done!', 'happyforms' ) . '</li>';
 			$notice_content .= '</ol>';
-			$notice_content .= '<p>' . sprintf( __( 'Still have questions? Head over to our <a href="%s" target="_blank">help guide</a>.', 'happyforms' ), 'https://happyforms.me/help-guide' ) . '</p>';
+			$notice_content .= '<p>' . sprintf( __( 'Still have questions? Head over to our <a href="%s" target="_blank">help guide</a>.', 'happyforms' ), 'https://happyforms.io/help-guide' ) . '</p>';
 		} else {
 			$notice_name = 'happyforms_form_saved';
 			$notice_type = 'success';

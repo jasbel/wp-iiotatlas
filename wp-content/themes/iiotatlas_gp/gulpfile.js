@@ -35,6 +35,7 @@ function scssTask() {
         .pipe(sourcemaps.init()) // initialize sourcemaps first
         .pipe(sass()) // compile SCSS to CSS
         .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
+        .pipe(concat('main.min.css'))
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
         .pipe(dest('assets/css')) // put final CSS in dist folder
         // .pipe(browsersync.stream());

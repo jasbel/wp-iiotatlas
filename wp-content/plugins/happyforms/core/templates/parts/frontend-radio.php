@@ -14,7 +14,7 @@
 			$checked = false;
 
 			if ( is_string( $value ) ) {
-				$checked = ! empty( $option['label'] ) ? checked( $value, $o, false ) : false;
+				$checked = checked( $value, $o, false );
 			}
 
 			if ( false === $checked ) {
@@ -38,7 +38,7 @@
 			<?php if ( 'tooltip' !== $part['description_mode'] ) : ?>
 				<?php happyforms_print_part_description( $part ); ?>
 			<?php endif; ?>
-			
+
 			<?php happyforms_part_error_message( happyforms_get_part_name( $part, $form ) ); ?>
 		</div>
 	</div>

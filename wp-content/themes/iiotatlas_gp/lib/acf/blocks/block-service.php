@@ -20,8 +20,8 @@ $id = 'item-' . $block['id'];
 ?>
 <section id="<?php echo $id; ?>" class="b-service <?php echo $align_class; ?>">
     <div class="container">
-        <h2 class="title b-service__title"><?php echo $service_title;?></h2>
-        <h3 class="subtitle-small b-service__subtitle"><?php echo $service_subtitle;?></h3>
+        <h2 class="title b-service__title" data-daws=""><?php echo $service_title;?></h2>
+        <h3 class="subtitle-small b-service__subtitle" data-daws=""><?php echo $service_subtitle;?></h3>
         
         <?php if(!empty($service_items)): ?>
         <div class="row">
@@ -30,7 +30,7 @@ $id = 'item-' . $block['id'];
                 $title = $item['title'];
                 $description = $item['description'];
                 ?>
-                <div class="col-3">
+                <div class="col-sm-6 col-md-4 col-lg-3" data-daws="">
                     <figure class="b-service__item-figure">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     </figure>
@@ -39,7 +39,7 @@ $id = 'item-' . $block['id'];
                 </div>
             <?php endforeach; ?>
         </div>
-        <a class="btn btn--primary btn--large b-service__btn" href=" <?php echo esc_url($service_link['url']);?> "  target="<?php echo esc_attr( $service_link['target'] ); ?>" >
+        <a class="btn btn--primary btn--large b-service__btn" href=" <?php echo esc_url($service_link['url']);?> "  target="<?php echo esc_attr( $service_link['target'] ); ?>" data-daws="" >
             <?php echo esc_html($service_link['title']);?>
         </a>
         <?php endif; ?>

@@ -2,21 +2,21 @@
     @extend %space-top-bottom;
     background-color: $color-white;
     padding-top: 30px;
-    // @include responsive(pt, 70, 40, 991, 360, true);
 
     &__content {
-        padding-top: 110px;
+        @include responsive(pt,110,20);
     }
     &__title {
-        margin-bottom: 88px;
+        @include responsive(mb,88,30);
     }
 
     &__description {
         margin-right: 34px;
+        @include responsive(mr,34,0, $xxl, $md);
     }
 
     &__figure {
-        margin-left: 24px;
+        @include responsive(ml,24,0, $xxl, $md);
         margin-bottom: 31px;
     }
     &__image {}
@@ -27,14 +27,9 @@
         // flex-direction: row-reverse;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-left: 12px;
-        margin-right: 50px;
+        @include responsive(ml, 12, 0, $xxl, $xl);
+        @include responsive(mr, 50, 0, $xxl, $xl);
         margin-bottom: 88px;
-
-        //$tablet: 992px;
-        @media only screen and (max-width: $tablet) {
-            // margin-top: - 88px;
-        }
 
         //$phone-large: 768px
         @media only screen and (max-width: $phone-large) {
@@ -61,12 +56,9 @@
         &:nth-child(2n + 1) {
             position: relative;
             top: 122px;
-
-            //$phone-large: 768px
-            @media only screen and (max-width: $phone-large) {
-                // transform: none;
-            }
+            @include mq(t,auto, $phone-large);
         }
+
         &:nth-child(3) &-title {
             font-size: 48px;
         }
@@ -76,6 +68,7 @@
             display: flex;
             width: 100%;
             max-width: none;
+            flex-direction: column;
         }
     }
 
@@ -84,6 +77,7 @@
         font-family: Montserrat;
         font-weight: normal;
         font-size: 67px;
+        @include responsive(fz,67,42);
         // line-height: 110%;
         color: $color-text-primary;
         margin-bottom: 12px;
@@ -92,6 +86,7 @@
     &__item-description {
         display: block;
         margin-bottom: 26px;
+        @include mq(mb, 0, $md);
         color: $color-text-primary;
         line-height: 25.87px
     }

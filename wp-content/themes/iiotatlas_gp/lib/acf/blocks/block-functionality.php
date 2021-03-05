@@ -18,7 +18,7 @@ $id = 'item-' . $block['id'];
         <img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/ola.svg">
     </figure>
     <div class="container">
-        <h2 class="title b-functionality__title"> <?php echo $functionality_title;?> </h2>
+        <h2 class="title b-functionality__title" data-daws=""> <?php echo $functionality_title;?> </h2>
 
         <?php if(!empty($functionality_items)): ?>
         <?php $i=0;?>
@@ -34,19 +34,19 @@ $id = 'item-' . $block['id'];
             $i++;
             ?>
             <div class="row b-functionality__item">
-                <div class="col-md-5 col-lg-6 order-2  <?php echo ($i % 2 == 0) ? 'order-md-1':'';?> ">
+                <div class="col-md-5 col-lg-6 order-2  <?php echo ($i % 2 == 0) ? 'order-md-1':'';?> " data-daws="">
                     <figure class="b-functionality__item-figure <?php echo ($i % 2 == 0) ? 'b-functionality__item-figure--left':'';?>">
                         <img class="b-functionality__item-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     </figure>
                 </div>
-                <div class="col-md-5 col-lg-6 order-1 <?php echo ($i % 2 == 0) ? 'order-md-2':'';?> ">
+                <div class="col-md-5 col-lg-6 order-1 <?php echo ($i % 2 == 0) ? 'order-md-2':'';?> " data-daws="">
                     <div class="b-functionality__item-content <?php echo ($i % 2 == 0) ? 'b-functionality__item-content--even':'';?>">
                         <figure class="b-functionality__item-icon">
                             <img src="<?php echo esc_url($icon); ?>" />
                         </figure>
                         <h2 class="subtitle b-functionality__item-title"> <?php echo $title;?> </h2>
                         <h5 class="subtitle-smaller b-functionality__item-subtitle"><?php echo $subtitle;?> </h5>
-                        <p class="description b-functionality__item-description"><?php echo $content;?> </p>
+                        <div class="description b-functionality__item-description"><?php echo $content;?> </div>
                     </div>
                 </div>
             </div>

@@ -9,10 +9,8 @@
 	</head>
 	<body class="happyforms-preview">
 		<?php global $post; $form = happyforms_get_form_controller()->get( $post->ID ); ?>
-		<?php happyforms_the_form_styles( $form ); ?>
-		<?php happyforms_additional_css( $form ); ?>
+		<?php happyforms_get_form_assets()->output( $form, HappyForms_Form_Assets::MODE_CUSTOMIZER ); ?>
 		<?php include( happyforms_get_core_folder() . '/templates/single-form.php' ); ?>
-
 		<?php wp_footer(); ?>
 	</body>
 </html>

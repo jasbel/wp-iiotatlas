@@ -7,13 +7,8 @@
     position: relative;
     margin-top: 90px;
     &__ola {
-        position: absolute;
-        top: 0;
-        transform: translateY(-100%);
-
         img {
             width: 100vw;
-            // transform: rotate(180deg) scaleY(-1);
         }
     }
 
@@ -24,7 +19,7 @@
 
     &__item {
         position: relative;
-        @include responsive(mb,70,50);
+        @include responsive(mb,70,20);
 
         &:last-child {
             margin-bottom: 10px;
@@ -49,12 +44,13 @@
     }
 
     &__item-icon {
-        padding-top: 80px;
+        @include responsive(pt, 80, 30);
         position: relative;
         img {
             position: absolute;
             top: 0;
-            left: 44px;
+            @include responsive(l, 44, 15);
+            @include responsive(maxw, 204, 100);
         }
     }
 
@@ -72,6 +68,7 @@
     &__item-figure {
 
         margin-right: -70px;
+        @include mq(mr, auto, $md);
 
         //$phone-large: 768px
         @media only screen and (max-width: $phone-large) {
@@ -81,6 +78,7 @@
         &--left {
             margin-right: auto;
             margin-left: -70px;
+            @include mq(ml, auto, $md);
         }
     }
 

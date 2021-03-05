@@ -234,7 +234,7 @@ class HappyForms_Form_Styles {
 					'standard' => __( 'Standard', 'happyforms' ),
 					'tooltip' => __( 'Tooltip', 'happyforms' ),
 				),
-				'target' => 'form_class',
+				'target' => '',
 				'sanitize' => 'sanitize_text_field'
 			),
 			'part_value_alignment' => array(

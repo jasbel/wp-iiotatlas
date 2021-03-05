@@ -3,6 +3,11 @@
     text-align: center;
     @extend %space-top-bottom;
     @include responsive(pb,48,30);
+
+    &>div>.row {
+        justify-content: center;
+    }
+
     &__title {
         margin-bottom: 31px;
         @include max-width-center(935);

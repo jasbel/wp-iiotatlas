@@ -77,7 +77,7 @@
         pr: padding-right,
         pb: padding-bottom,
         pl: padding-left,
-        ty: top,
+        t: top,
         l: left,
         b: bottom,
         r: right,
@@ -118,6 +118,167 @@
             #{$property}: #{$size-min-px};
         }
 
+    }
+}
+
+//TODO: esta repitiendo con la otra responsive, rfatorizar codigo para que no se repita
+// Only Responsive Media query inline
+//How to use:   @include responsive-mq(fz, 60, 39, 1440) where
+// attr: Atributo de la propiedad
+// size-max: Valor maximo de la query inicial
+// size-min: Valor minimo de la query inicial
+// w-max: Pantalla maxima y Media query por defecto
+// w-min: Pantalla minima
+// two-mq: Si se requiere para la interrupcion de la segunda media query
+@mixin responsive-mq($attr:'', $size-max:'', $size-min: '', $w-max: $desktop-responsive, $w-min: $phone-responsive, $two-mq: false  ) {
+
+    @if $size-min == '' {
+        $size-min: $size-max;
+    }
+
+    //conditional if attributes exist px
+    @if str-index(#{$size-max}, 'px') != null {
+        $size-max:  str-slice(#{$size-max}, 1, str-index(#{$size-max}, 'px') - 1);
+    }
+    @if str-index(#{$size-min}, 'px') != null {
+        $size-min:  str-slice(#{$size-min}, 1, str-index(#{$size-min}, 'px') - 1);
+    }
+    @if str-index(#{$w-max}, 'px') != null {
+        $w-max:  str-slice(#{$w-max}, 1, str-index(#{$w-max}, 'px') - 1);
+    }
+    @if str-index(#{$w-min}, 'px') != null {
+        $w-min:  str-slice(#{$w-min}, 1, str-index(#{$w-min}, 'px') - 1);
+    }
+    
+    $size-max-px: $size-max + px;
+    $size-min-px: $size-min + px;
+    $w-max-px: $w-max + px;
+    $w-min-px: $w-min + px;
+    $desktop-px: $desktop-responsive * 1px;
+    $phone-px: $phone-responsive * 1px;
+
+    $responsive-calc : calc(#{$size-min-px} + (#{$size-max} - #{$size-min}) * ((100vw - #{$w-min-px}) / (#{$w-max} - #{$w-min})));
+
+    $property-map: (
+        fz: font-size,
+        lh: line-height,
+        m: margin,
+        mt: margin-top,
+        mr: margin-right,
+        mb: margin-bottom,
+        ml: margin-left,
+        p: padding,
+        pt: padding-top,
+        pr: padding-right,
+        pb: padding-bottom,
+        pl: padding-left,
+        t: top,
+        l: left,
+        b: bottom,
+        r: right,
+        w: width,
+        mw: max-width,
+        mxw: max-width,
+        maxw: max-width,
+        mnw: min-width,
+        minw: min-width,
+        h: height,
+        mh: min-height,
+        mnh: min-height,
+        minh: min-height,
+        mxh: max-height,
+        maxh: max-height,
+    );
+
+    $property: '';
+
+    @if(map-has-key($property-map, $attr)) {
+        $property: map-get($property-map, $attr);
+    } @else {
+        $property: $attr;
+    }
+
+    @media (max-width: #{$w-max-px}) {
+        #{$property}: $responsive-calc;
+    }
+
+    @if($two-mq ) {
+        @if($size-max-px != $size-min-px) {
+            @media (max-width: #{$w-min-px}) {
+                #{$property}: #{$size-min-px};
+            }
+        }
+    }
+}
+
+// Only Responsive Media query inline
+//How to use:   @include mq(fz, 60, 1440)
+@mixin mq($attr:'', $size:'',  $screen: $desktop-responsive) {
+
+
+    //conditional if attributes exist px
+    @if str-index(#{$size}, 'px') != null {
+        $size:  str-slice(#{$size}, 1, str-index(#{$size}, 'px') - 1);
+    }
+
+    @if str-index(#{$screen}, 'px') != null {
+        $screen:  str-slice(#{$screen}, 1, str-index(#{$screen}, 'px') - 1);
+    }
+
+    $property-map: (
+        fz: font-size,
+        lh: line-height,
+        m: margin,
+        mt: margin-top,
+        mr: margin-right,
+        mb: margin-bottom,
+        ml: margin-left,
+        p: padding,
+        pt: padding-top,
+        pr: padding-right,
+        pb: padding-bottom,
+        pl: padding-left,
+        t: top,
+        l: left,
+        b: bottom,
+        r: right,
+        w: width,
+        mw: max-width,
+        mxw: max-width,
+        maxw: max-width,
+        mnw: min-width,
+        minw: min-width,
+        h: height,
+        mh: min-height,
+        mnh: min-height,
+        minh: min-height,
+        mxh: max-height,
+        maxh: max-height,
+    );
+
+    $property: '';
+
+    @if(map-has-key($property-map, $attr)) {
+        $property: map-get($property-map, $attr);
+    } @else {
+        $property: $attr;
+    }
+
+    $size-px: '';
+
+    
+
+    @if(type-of($size) == 'string') {
+        $size-px: #{$size};
+    } @else {
+        // @if($size != 'auto' and $size != 'none' and $size != 'unset' and $size != 'initial' and $size != 'inherit' and $size != 'center'  and $size != 'absolute'  and $size != 'relative') {
+            $size-px: $size + px;
+    }
+    
+    $screen-px: $screen + px;
+
+    @media (max-width: #{$screen-px}) {
+        #{$property}: $size-px;
     }
 }
 
@@ -370,3 +531,24 @@
 //     }
 // }
 
+//unifica la variable para
+// 
+//  .wrapper .field {
+//     @include unify-parent("input") {
+//       /* ... */
+//     }
+//     @include unify-parent("select") {
+//       /* ... */
+//     }
+//   }
+
+//   results
+
+//   .wrapper input.field {
+//     /* ... */
+//   }
+  
+//   .wrapper select.field {
+//     /* ... */
+//   }
+//

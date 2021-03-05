@@ -17,8 +17,11 @@
         position: relative;
         padding: 36px;
         padding-right: 27px;
+        @include responsive(p,36,12);
+        @include responsive(pr,27,12);
         margin: 16px auto;
         margin-top: 130px;
+        @include mq(mt, 140, $sm);
         background-color: $color-bkg-light;
         box-shadow: 0px 4px 4px $color-shadow-default;
         border-radius: 20px;
@@ -30,13 +33,13 @@
     }
 
     &__item-figure {
-        $width: 306px;
-
         top: 21px;
         right: -32px;
         margin: -150px auto 33px;
-        width: $width;
-        height: $width;
+        @include responsive(w, 306, 230, $xxl, $md);
+        @include responsive(h, 306, 230, $xxl, $md);
+        @include responsive(w, 306, 265, 767, 360, true);
+        @include responsive(h, 306, 265, 767, 360, true);
         background-color: $color-primary;
         box-shadow: 0px 4px 4px $color-shadow-default;
         border-radius: 50%;
@@ -48,12 +51,14 @@
     &__item-name {
         color: $color-text-primary;
         margin-right: $space-for-photo;
+        @include mq(mr, auto, $md);
         margin-bottom: 6px;
     }
 
     &__item-position {
         color: $color-text-primary;
         margin-right: $space-for-photo;
+        @include mq(mr, auto, $md);
         margin-bottom: 15px;
     }
 

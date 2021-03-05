@@ -534,6 +534,7 @@ function register_acf_block_types()
     ]);
 
     /* Contact */
+    
     /* form */
     acf_register_block([
         'name' => 'section-form',
@@ -566,6 +567,18 @@ function register_acf_block_types()
         'icon' => 'editor-insertmore',
         'mode' => 'edit',
         'keywords' => ['block', 'map'],
+    ]);
+
+    /* Contact */
+    acf_register_block([
+        'name' => 'page-contact',
+        'title' => __('Page - Contact'),
+        'description' => __('Page Contact'),
+        'render_template' => 'lib/acf/page-contact.php',
+        'category' => 'custompage',
+        'icon' => 'editor-insertmore',
+        'mode' => 'edit',
+        'keywords' => ['block', 'form'],
     ]);
 }
 // Check if function exists and hook into setup.

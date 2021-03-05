@@ -9,16 +9,20 @@
     &__images {
         // margin-bottom: 40px;
         @include responsive(mb,40,25);
+        display: inline-flex;
     }
 
-    &__image-figure {}
+    &__image-figure {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 
     &__items {}
 
     &__item {
         padding-top: 10px;
         padding-bottom: 10px;
-        margin-bottom: 62px;
+        @include responsive(mb, 62, 0);
     }
 
     &__item-title {

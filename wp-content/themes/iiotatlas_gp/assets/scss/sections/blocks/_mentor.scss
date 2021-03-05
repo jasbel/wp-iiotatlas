@@ -19,13 +19,12 @@
 
     &__item {
         position: relative;
-        padding: 36px;
-        padding-right: 27px;
-        margin: 16px 45px;
-        margin-top: 77px;
-
-        @include margin-responsive(77, 30, 45, 5, 16, 16, 45, 5, $desktop-responsive, $tablet-responsive);
-        min-height: 418px;
+        @include responsive(p, 36, 12);
+        @include responsive(pr, 27, 12);
+        @include margin-responsive(77, 30, 45, 5, 16, 16, 45, 5, $xxl, $lg);
+        @include responsive(ml, 45, 0, $xxl, $xl);
+        @include responsive(mr, 45, 20, $xl, $lg);
+        @include responsive(minh, 418, 360, $xxl, $lg);
         max-width: 343px;
         background-color: $color-primary;
         box-shadow: 0px 4px 4px $color-shadow-default;
@@ -33,7 +32,6 @@
 
         //$phone-large: 768px
         @media only screen and (max-width: $phone-large) {
-            
             margin: 40px auto;
             margin-top: 70px;
             padding: 30px 15px;
@@ -60,7 +58,7 @@
     &__item-figure {
         position: absolute;
         top: 21px;
-        right: -32px;
+        @include responsive(r,-32,-17, $xxl, $lg);
         $width: 118px;
         width: $width;
         height: $width;
@@ -68,6 +66,8 @@
         background-color: $color-bkg-light;
         position: absolute;
         box-shadow: 0px 4px 4px $color-shadow-default;
+        z-index: 10;
+        overflow: hidden;
 
         //$phone-large: 768px
         @media only screen and (max-width: $phone-large) {
@@ -83,32 +83,21 @@
     $space-for-photo: 45px;
 
     &__item-name {
-        // @extend %subtitle-smaller;
         color: $color-text-white;
         margin-right: $space-for-photo;
         margin-bottom: 6px;
     }
 
     &__item-position {
-        // @extend %description-small;
         color: $color-text-white;
         margin-right: $space-for-photo;
         margin-bottom: 15px;
     }
 
     &__item-description {
-        // @extend %description;
         color: $color-text-white;
     }
 
-    // &__btn-container {}
-
-    // &__btn {
-    //     margin-right: auto;
-    //     margin-left: auto;
-    // }
-
-    /* Slider */
 }
 
 

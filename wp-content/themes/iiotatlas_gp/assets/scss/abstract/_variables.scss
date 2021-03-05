@@ -81,17 +81,33 @@ $enable-important-utilities:  false;
 // ---------------------------------- \\
 // Variables for Media queries and B5
 // ---------------------------------- \\
-$phone-x-small: 360px;
+
+//by mediaquery inline or @include
+$xxs: 360;
+$xs: 420;
+$sm: 576;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 1440;
+
+//by mixin
+$phone-responsive: $xxs;
+$tablet-responsive: $lg;
+$desktop-responsive: $xxl;
+
+//by media query block
+$phone-x-small: $xxs + px;
 $phone-default: $phone-x-small; //default
-$phone-small: 420px;
-$phone: 575.98px; //use b5
-$phone-large: 767.98px; //use b5
+$phone-small: ($xs - 0.02) + px;
+$phone: ($sm - 0.02) + px; //use b5
+$phone-large: ($md - 0.02) + px; //use b5
 $tablet-small: 790px;
-$tablet: 991.98px; //use b5
+$tablet: ($lg - 0.02) + px; //use b5
 $tablet-default: $tablet; //use b5
 $desktop-small: 1090px;
-$desktop: 1199.98px; //use b5
-$desktop-medium: 1399.98px; //use b5
+$desktop: ($xl - 0.02) + px; //use b5
+$desktop-medium: ($xxl - 0.02) + px; //use b5
 $desktop-default: $desktop-medium; //default
 $desktop-large: 1650px;
 $desktop-x-large: 1950px;
@@ -99,8 +115,8 @@ $desktop-x-large: 1950px;
 // ---------------------------------- \\
 // Responsive Variables for responsive mixins
 // ---------------------------------- \\
-$phone-responsive: 360;
-$tablet-responsive: 992;
-$desktop-responsive: 1440;
+
+
+
 
 
