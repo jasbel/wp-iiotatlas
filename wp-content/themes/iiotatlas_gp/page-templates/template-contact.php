@@ -35,9 +35,14 @@ $contact_title_form = get_field('contact_title_form') ? get_field('contact_title
 
             <button type="submit" class="btn btn--large btn--primary contact__btn">Enviar Mensaje</button>
         </form>
+
+        <div class="form">
+            <?php echo do_shortcode("[form id="3538" /]"); ?>
+        </div>
+
     </section>
 
-    <section class="follow" >
+    <section class="follow follow" >
         <div class="follow__content">
             <h2 class="subtitle follow__title" data-daws="">Siguenos</h2>
             <ul class="follow__items" data-daws="">

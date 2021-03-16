@@ -62,3 +62,11 @@ function custom_body_class( array $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'custom_body_class' );
+
+
+
+// function deregister_my_styles() {
+//     // wp_deregister_style( 'happyform' );
+//     wp_dequeue_script('happyforms-color-css');
+// }
+// add_action( 'wp_print_styles', 'deregister_my_styles', 100 );

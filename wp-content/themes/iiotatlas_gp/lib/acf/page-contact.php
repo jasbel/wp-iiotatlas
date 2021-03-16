@@ -14,29 +14,10 @@ $id = 'item-' . $block['id'];
     <section id="<?php echo $id; ?>" class="contact" >
 
         <h4 class="subtitle-small contact__title" data-daws="">Dejanos tu mensaje y te contactaremos responderemos  a la brevedad</h4>
-
-
-        <form class="contact__form" data-daws="">
-            <div class="form-row row">
-                <div class="contact__form-group form-group col-md-6">
-                    <!-- <label for="name">Nombre</label> -->
-                    <input type="text" class="form-control contact__input" id="name" placeholder="Nombre">
-                </div>
-                <div class="contact__form-group form-group col-md-6">
-                    <!-- <label for="lastname">Apellidos</label> -->
-                    <input type="text" class="form-control contact__input" id="lastname" placeholder="Apellidos">
-                </div>
-            </div>
-            <div class="contact__form-group form-group">
-                <input type="email" class="form-control contact__input" id="correoelectronico" placeholder="Correo Electronico">
-            </div>
-
-            <div class="contact__form-group form-group">
-                <textarea class="contact__textarea contact__input" name="msg"  >Ingrese Mensaje</textarea>
-            </div>
-
-            <button type="submit" class="btn btn--large btn--primary contact__btn">Enviar Mensaje</button>
-        </form>
+        
+        <div class="contact__form-container" data-daws="">
+            [contact-form-7 id="5041" title="Contact form"]
+        </div>
     </section>
 
     <section class="follow" >

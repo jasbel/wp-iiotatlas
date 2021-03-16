@@ -19,11 +19,31 @@
         @include responsive(mb, 33, 16);
     }
 
-    &__form {}
+    &__form-container {
+        form {
+            display:flex;
+            flex-wrap: wrap;
+        }
+    }
 
-    &__form-group {}
+    &__input-container {
+        width: 100%;
+        &--half {
+            width: 50%;
+            &:nth-child(2) {
+                // padding-right: 12px;
+                @include responsive(pr, 12, 5, $xxl, $md);
+                @include mq(pr, 0, $md);
+            }
+            &:nth-child(3) {
+                // padding-left: 12px;
+                @include responsive(pl, 12, 5, $xxl, $md);
+                @include mq(pl, 0, $md);
+            }
 
-    &__textarea {}
+            @include mq(w, '100%', $md);
+        }
+    }
 
     input[type="text"],
     input[type="email"],
@@ -34,6 +54,7 @@
     input[type="number"],
     textarea,
     select,
+    
     &__input {
         // background: $color-white;
         // box-sizing: border-box;
@@ -42,16 +63,27 @@
         box-shadow: 0px 4px 4px $color-shadow-default;
         min-height: 66px;
         background-color: transparent;
-
-        width:100%;
         margin-bottom: 32px;
+        width:100%;
 
     }
+    
     textarea {
         min-height: 186px !important;
     }
-    
-    &__btn {}
+
+    .wpcf7-not-valid-tip {
+        color: $color-danger;
+    }
+
+    .wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output {
+        border-color: $color-danger;
+        border-radius: 12px;
+    }
+    .wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output {
+        border-color: $color-warning;
+        border-radius: 12px;
+    }
 }
 
 
@@ -64,6 +96,7 @@
     @include mq(pt, 50, $md);
 
     &__content {
+        @include responsive(pl, 24, 0, $xxl, $sm);
         @include max-width-center(215);
     }
     &__title {
@@ -100,6 +133,7 @@
 
     &__title {
         @include responsive(mb, 126, 40);
+        @include mq('text-align', 'center', $md);
     }
 
     &__items {
@@ -117,6 +151,9 @@
         background-color: $color-text;
         border-radius: 10px;
 
+        @include mq(ml, auto, $sm);
+        @include mq(mr, auto, $sm);
+
         &:first-child {
             top: -146px;
             @include responsive(t, -146, 0, $xxl, $md);
@@ -125,6 +162,8 @@
         &:nth-child(2) {
             @include responsive(t, -100, 50, $xxl, $md);
             @include mq(t, 0 , $md);
+            @include mq(l, 170 , $md);
+            @include mq(l, 0 , $sm);
         }
     }
 
@@ -143,5 +182,12 @@
 
     &__btn {
         color: $color-text-white;
+    }
+}
+
+.contact--template {
+    .page-hero {
+        min-height: 580px;
+        @include mq(minh,360, $md);
     }
 }

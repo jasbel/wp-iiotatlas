@@ -30,6 +30,7 @@ body.one-container .container {
 }
 p:empty {
     margin-bottom: 0;
+    line-height: 0;
 }
 
 .inside-article a.btn:hover {

@@ -1,1 +1,25 @@
+.site-footer {
+    //$phone: 576px
+    @media only screen and (max-width: $phone) {
+        ul.blocks-gallery-grid {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .gb-inside-container {
+            & > p {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                display: block;
+            }
+        }
+        .gb-button-wrapper {
+            justify-content: center;
+        }
+
+        .gb-container-9565a3ac > .gb-inside-container {
+            padding-top: 15px;
+        }
+    }
+}
